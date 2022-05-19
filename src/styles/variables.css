@@ -1,0 +1,8 @@
+:root {
+  --light: #F8FAFC;
+  --dark: #0F172A;
+  --linear-gradient: linear-gradient(180deg, #0F172A 0%, #464ABC 99.63%);
+  --orange: #FF8831;
+  --purple: #6062FF;
+  --purple-hover: #4244D7;
+}

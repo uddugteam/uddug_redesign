@@ -1,0 +1,150 @@
+.root {
+  background: var(--linear-gradient);
+  padding: 48px 20px 0;
+  height: 640px;
+  color: var(--light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+
+  @media (--tablet-vertical) {
+    padding: 100px 32px 0;
+  }
+
+  @media (--tablet-landscape) {
+    padding: 100px 60px 0;
+  }
+
+  @media (--desktop) {
+    padding: 100px 233px 0;
+  }
+}
+
+.mainLabel {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 125%;
+  letter-spacing: 0.02em;
+
+  @media (--tablet-vertical) {
+    font-size: 42px;
+  }
+
+  @media (--tablet-landscape) {
+    font-size: 64px;
+  }
+}
+
+.descriptionText {
+  margin-top: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 138%;
+}
+
+.directionsList {
+  margin-top: 33px;
+  display: grid;
+  grid-gap: 22px;
+  grid-template-areas:
+    't f'
+    'b s'
+    'c c'
+    'm m';
+
+  @media (--tablet-vertical) {
+    grid-template-areas:
+      't b f'
+      'm c s';
+    grid-row-gap: 30px;
+    grid-column-gap: 50px;
+  }
+
+  @media (--tablet-landscape) {
+    grid-template-areas:
+      't b m'
+      'c f s';
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.gridElement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.technicalConsulting {
+  grid-area: t;
+
+  @media (--tablet-landscape) {
+    margin-right: 34px;
+  }
+}
+
+.finTech {
+  grid-area: f;
+}
+
+.blockchain {
+  grid-area: b;
+
+  @media (--tablet-landscape) {
+    margin-right: 20px;
+  }
+}
+
+.startups {
+  grid-area: s;
+
+  @media (--tablet-landscape) {
+    justify-content: start;
+  }
+}
+
+.cloud {
+  grid-area: c;
+
+  @media (--tablet-landscape) {
+    justify-content: end;
+  }
+}
+
+.machine {
+  grid-area: m;
+
+  @media (--tablet-landscape) {
+    margin-left: 34px;
+  }
+}
+
+.grid {
+  position: absolute;
+  bottom: 0;
+  width: 1440px;
+}
+
+.arrowScroll {
+  position: absolute;
+  width: 46px;
+  height: 20px;
+  bottom: 18px;
+  left: calc(50% - 23px);
+  cursor: pointer;
+
+  & path {
+    transition: .3s;
+  }
+
+  &:hover path {
+    fill: var(--orange);
+  }
+}
