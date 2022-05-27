@@ -126,7 +126,7 @@
   }
 }
 
-.grid {
+.partners {
   position: absolute;
   bottom: 0;
   width: 1440px;
@@ -147,4 +147,9 @@
   &:hover path {
     fill: var(--orange);
   }
+}
+
+.grid {
+  bottom: 0;
+  position: absolute;
 }

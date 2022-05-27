@@ -15,11 +15,10 @@ a {
 
 * {
   box-sizing: border-box;
-
-  /*&::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 0;
     height: 0;
-  }*/
+  }
 }
 
 #main-layout {
@@ -35,4 +34,22 @@ a {
 
 .purpleText {
   color: var(--purple);
+}
+
+.grid {
+  position: absolute;
+  width: 800px;
+
+  @media (--tablet-vertical) {
+    width: 1200px;
+  }
+}
+
+.topGrid {
+  top: 0;
+  transform: rotate(180deg);
+}
+
+.bottomGrid {
+  bottom: 0;
 }

@@ -1,0 +1,180 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px;
+
+  @media (--tablet-vertical) {
+    padding: 100px 32px;
+  }
+
+  @media (--tablet-landscape) {
+    padding: 100px 60px;
+  }
+
+  @media (--tablet-landscape) {
+    padding: 100px 120px;
+  }
+}
+
+.header {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 133%;
+  text-align: center;
+  color: var(--dark);
+
+  @media (--tablet-vertical) {
+    font-size: 32px;
+    line-height: 125%;
+  }
+
+  @media (--tablet-landscape) {
+    font-size: 42px;
+    line-height: 133%;
+  }
+}
+
+.description {
+  margin-top: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 138%;
+  text-align: center;
+  color: var(--dark);
+  opacity: .6;
+
+  @media (--tablet-vertical) {
+    font-size: 18px;
+    line-height: 156%;
+    margin-top: 16px;
+  }
+
+  @media (--tablet-landscape) {
+    margin-top: 24px;
+  }
+}
+
+.vacationsList {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.vacationCard {
+  width: 100%;
+  background: white;
+  border: 1px solid var(--grey);
+  border-radius: 16px;
+  display: grid;
+  padding: 20px 20px 24px;
+  transition: .3s;
+  grid-template-areas:
+    'n a'
+    's s'
+    'p p'
+    't t'
+    'ts ts';
+
+  & .arrow path {
+    transition: .3s;
+  }
+
+  &:hover {
+    border-color: var(--purple);
+
+    & .arrow path {
+      fill: var(--purple);
+    }
+  }
+
+  @media (--tablet-vertical) {
+    grid-template-areas:
+      'n n a'
+      's p t'
+      'ts ts ts';
+  }
+
+  @media (--tablet-landscape) {
+    grid-template-areas:
+      'n n n a'
+      's p t ts';
+  }
+
+  @media (--desktop) {
+    grid-template-areas:
+      'n s p t ts a';
+    align-items: center;
+  }
+}
+
+.name {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 133%;
+  color: var(--dark);
+  grid-area: n;
+}
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  grid-area: a;
+  cursor: pointer;
+  justify-self: end;
+}
+
+.attributeValue {
+  & .label {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 133%;
+    color: var(--dark);
+    opacity: .4;
+  }
+
+  & .value {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 138%;
+    color: var(--dark);
+    margin-top: 4px;
+  }
+}
+
+.sphere {
+  grid-area: s;
+}
+
+.position {
+  grid-area: p;
+}
+
+.type {
+  grid-area: t;
+}
+
+.techStack {
+  grid-area: ts;
+}
+
+.contactsText {
+  margin-top: 24px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 140%;
+  text-align: center;
+  color: var(--dark);
+
+  @media (--tablet-vertical) {
+    margin-top: 40px;
+    font-size: 24px;
+  }
+}
+
+.links {
+  cursor: pointer;
+}
