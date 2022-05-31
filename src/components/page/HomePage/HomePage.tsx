@@ -10,6 +10,8 @@ import Careers from 'components/general/Careers';
 
 import { AppNextPage } from '../../../../global';
 import styles from './HomePage.module.css';
+import Internship from 'components/general/Internship';
+import Footer from 'components/general/Footer';
 
 const HomePage: AppNextPage = () => {
   const [_, setIsScrolled] = useScrollState().scroll;
@@ -27,6 +29,8 @@ const HomePage: AppNextPage = () => {
       <Projects />
       <Team />
       <Careers />
+      <Internship />
+      <Footer />
     </div>
   );
 };

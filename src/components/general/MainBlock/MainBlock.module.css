@@ -1,5 +1,5 @@
 .root {
-  background: var(--linear-gradient);
+  background: var(--vertical-linear-gradient);
   padding: 48px 20px 0;
   height: 640px;
   color: var(--light);

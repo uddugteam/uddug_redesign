@@ -1,9 +1,12 @@
 :root {
   --light: #F8FAFC;
   --dark: #0F172A;
-  --linear-gradient: linear-gradient(180deg, #0F172A 0%, #464ABC 99.63%);
+  --vertical-linear-gradient: linear-gradient(180deg, #0F172A 0%, #464ABC 99.63%);
+  --horizontal-linear-gradient: linear-gradient(87.14deg, #0F172A 0%, #6062FF 100.16%);
   --orange: #FF8831;
+  --orange-hover: #FF740F;
   --purple: #6062FF;
   --purple-hover: #4244D7;
   --grey: #E1E7F4;
+  --grey-dark: #B3C2E5;
 }

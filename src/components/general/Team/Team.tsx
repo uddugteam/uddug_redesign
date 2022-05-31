@@ -2,7 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 
-import founder from '/public/icons/founder.png';
+import mike from '/public/team/mike.jpg';
+import andrew from '/public/team/andrew.jpg';
+import ivan from '/public/team/ivan.jpg';
+import anuar from '/public/team/anuar.jpg';
+import nikita from '/public/team/nikita.jpg';
+import constantine from '/public/team/constantine.jpg';
 
 import { useScrollState } from 'contexts/scrollStateContext';
 import Icon from 'components/general/Icon';
@@ -15,13 +20,6 @@ interface SocialLinks {
   twitter: string | null;
   github: string | null;
 }
-
-const links: SocialLinks = {
-  facebook: 'https://facebook.com/',
-  linkedIn: 'https://linkedin.com/',
-  twitter: 'https://twitter.com/',
-  github: 'https://github.com/',
-};
 
 const SocialLinks: React.VFC<SocialLinks> = props => {
   const { facebook, github, twitter, linkedIn } = props;
@@ -55,7 +53,7 @@ const SocialLinks: React.VFC<SocialLinks> = props => {
 interface TeamMemberProps {
   name: string;
   position: string;
-  img: typeof founder;
+  img: typeof mike;
   socialLinks: SocialLinks;
 }
 
@@ -65,7 +63,7 @@ const TeamMember: React.VFC<TeamMemberProps> = props => {
   return (
     <div className={styles.teamMember}>
       <div className={styles.teamMemberImageWrapper}>
-        <Image src={img} alt='team member' />
+        <Image src={img} alt={name} />
       </div>
       <div className={styles.teamMemberInfos}>
         <div className={classNames(styles.name, styles.teamMemberName)}>
@@ -90,28 +88,28 @@ const Team = () => {
       </div>
       <div className={styles.founder} style={{ gridArea: 'f1' }}>
         <div className={styles.founderImageWrapper}>
-          <Image src={founder} alt='founder' />
+          <Image src={mike} alt='founder' />
         </div>
-        <div className={styles.name}>Andrey Skurlatov</div>
-        <div className={styles.position}>CEO</div>
+        <div className={styles.name}>Mike Manko</div>
+        <div className={styles.position}>Head of Product</div>
         <SocialLinks
-          facebook={'https://facebook.com/'}
-          linkedIn={'https://linkedin.com/'}
-          twitter={'https://twitter.com/'}
-          github={'https://github.com/'}
+          facebook={'https://www.facebook.com/stones.rolling.31'}
+          linkedIn={'https://www.linkedin.com/in/mikhail-manko-97a491a2/'}
+          twitter={null}
+          github={'https://github.com/MikeMS-sys'}
         />
       </div>
       <div className={styles.founder} style={{ gridArea: 'f2' }}>
         <div className={styles.founderImageWrapper}>
-          <Image src={founder} alt='founder' />
+          <Image src={andrew} alt='founder' />
         </div>
         <div className={styles.name}>Andrey Skurlatov</div>
-        <div className={styles.position}>CEO</div>
+        <div className={styles.position}>Technical Lead</div>
         <SocialLinks
-          facebook={'https://facebook.com/'}
-          linkedIn={'https://linkedin.com/'}
-          twitter={'https://twitter.com/'}
-          github={'https://github.com/'}
+          facebook={'https://www.facebook.com/andrey.skurlatov'}
+          linkedIn={'https://www.linkedin.com/in/andrew-skurlatov/'}
+          twitter={'https://twitter.com/Andskur1'}
+          github={'https://github.com/andskur'}
         />
       </div>
       <div className={styles.header} style={{ gridArea: 'h2' }}>
@@ -119,30 +117,50 @@ const Team = () => {
       </div>
       <div style={{ gridArea: 'c1' }} className={styles.teamColumn}>
         <TeamMember
-          name={'Andrey Skuraltov'}
-          position={'CEO'}
-          img={founder}
-          socialLinks={links}
+          name={'Anuar Zhumaev'}
+          position={'Lead Designer'}
+          img={anuar}
+          socialLinks={{
+            linkedIn: 'https://www.linkedin.com/in/yxorama/',
+            twitter: null,
+            facebook: null,
+            github: null,
+          }}
         />
         <TeamMember
-          name={'Andrey Skuraltov'}
-          position={'CEO'}
-          img={founder}
-          socialLinks={links}
+          name={'Nikita Velko'}
+          position={'Senior Frontend Developer'}
+          img={nikita}
+          socialLinks={{
+            facebook: 'https://www.facebook.com/n1ckgreat',
+            linkedIn: 'https://www.linkedin.com/in/nikichv/',
+            github: 'https://github.com/nikichv',
+            twitter: null,
+          }}
         />
       </div>
       <div style={{ gridArea: 'c2' }} className={styles.teamColumn}>
         <TeamMember
-          name={'Andrey Skuraltov'}
-          position={'CEO'}
-          img={founder}
-          socialLinks={links}
+          name={'Constantine Czerniak'}
+          position={'Data Scientist'}
+          img={constantine}
+          socialLinks={{
+            linkedIn: 'https://www.linkedin.com/in/%D1%81czerniak/',
+            github: 'https://github.com/Snaaby',
+            facebook: null,
+            twitter: null,
+          }}
         />
         <TeamMember
-          name={'Andrey Skuraltov'}
-          position={'CEO'}
-          img={founder}
-          socialLinks={links}
+          name={'Ivan Podtsebnev'}
+          position={'DevOps Engineer'}
+          img={ivan}
+          socialLinks={{
+            facebook: 'https://www.facebook.com/ivan.podtsebnev',
+            linkedIn: 'https://www.linkedin.com/in/naykip/',
+            github: 'https://github.com/naykip',
+            twitter: null,
+          }}
         />
       </div>
     </div>

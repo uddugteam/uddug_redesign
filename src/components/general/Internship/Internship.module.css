@@ -1,0 +1,83 @@
+.root {
+  background: var(--horizontal-linear-gradient);
+  border-radius: 16px;
+  margin: 0 20px;
+  padding: 20px 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  @media (--tablet-vertical) {
+    margin: 0 32px;
+    padding: 32px 0 0 40px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @media (--tablet-landscape) {
+    margin: 0 60px;
+    padding: 32px 0 0 60px;
+  }
+
+  @media (--desktop) {
+    margin: 0 120px;
+    padding: 32px 0 0 60px;
+  }
+}
+
+.textBlock {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+
+  @media (--tablet-vertical) {
+    max-width: 342px;
+    padding-bottom: 40px;
+  }
+
+  @media (--tablet-landscape) {
+    max-width: 442px;
+  }
+
+  @media (--desktop) {
+    max-width: 722px;
+  }
+}
+
+.header {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 133%;
+
+  @media (--tablet-vertical) {
+    font-size: 32px;
+  }
+}
+
+.description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 157%;
+  margin-top: 16px;
+
+  @media (--tablet-vertical) {
+    font-size: 18px;
+  }
+}
+
+.contactUsButton {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 16px;
+  background: var(--orange);
+  border-radius: 8px;
+  cursor: pointer;
+  max-width: 117px;
+  transition: .3s;
+  &:hover {
+    background-color: var(--orange-hover);
+  }
+}

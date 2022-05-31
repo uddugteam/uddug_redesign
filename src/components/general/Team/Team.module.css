@@ -100,6 +100,11 @@
   margin-top: 10px;
   display: flex;
   gap: 18px;
+
+  & path {
+    fill: white;
+    fill-opacity: .3;
+  }
 }
 
 .founderImageWrapper {
