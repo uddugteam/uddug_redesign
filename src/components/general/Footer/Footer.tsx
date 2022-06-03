@@ -12,51 +12,61 @@ const Footer = () => {
   } = useScrollState();
 
   return (
-    <div ref={contactUs} className={styles.root}>
-      <div className={styles.content}>
-        <div className={styles.contactInfo}>
-          <div className={styles.header}>Contact us</div>
-          <div className={styles.description}>
-            Write about your idea or ask a question via the feedback form or in
-            another convenient way
-          </div>
-          <a className={classNames(styles.link, 'purpleText')}>
-            info@uddug.com
-          </a>
-          <a className={classNames(styles.link, 'orangeText')}>hr@uddug.com</a>
-          <div className={styles.socialLinks}>
+    <div className={styles.wrapper}>
+      <div ref={contactUs} className={styles.root}>
+        <div className={styles.content}>
+          <div className={styles.contactInfo}>
+            <div className={styles.header}>Contact us</div>
+            <div className={styles.description}>
+              Write about your idea or ask a question via the feedback form or
+              in another convenient way
+            </div>
             <a
-              target='_blank'
-              rel='noreferrer'
-              href='https://www.linkedin.com/company/uddug'
+              href='mailto:info@uddug.com'
+              className={classNames(styles.link, 'purpleText')}
             >
-              <Icon name={'linkedIn'} className={styles.icon} />
+              info@uddug.com
             </a>
             <a
-              target='_blank'
-              rel='noreferrer'
-              href='http://github.com/uddugteam'
+              href='mailto:hr@uddug.com'
+              className={classNames(styles.link, 'orangeText')}
             >
-              <Icon name={'github'} className={styles.icon} />
+              hr@uddug.com
             </a>
+            <div className={styles.socialLinks}>
+              <a
+                target='_blank'
+                rel='noreferrer'
+                href='https://www.linkedin.com/company/uddug'
+              >
+                <Icon name={'linkedIn'} className={styles.icon} />
+              </a>
+              <a
+                target='_blank'
+                rel='noreferrer'
+                href='http://github.com/uddugteam'
+              >
+                <Icon name={'github'} className={styles.icon} />
+              </a>
+            </div>
           </div>
-        </div>
-        <div className={styles.footerInfo}>
-          <div className={styles.infoLinks}>
-            <a className={styles.infoLink} target='_blank' rel='noreferrer'>
-              Privacy policy
-            </a>
-            <a className={styles.infoLink} target='_blank' rel='noreferrer'>
-              Terms & Conditions
-            </a>
-            <a className={styles.infoLink} target='_blank' rel='noreferrer'>
-              Cookie Policy
-            </a>
+          <div className={styles.footerInfo}>
+            <div className={styles.infoLinks}>
+              <a className={styles.infoLink} target='_blank' rel='noreferrer'>
+                Privacy policy
+              </a>
+              <a className={styles.infoLink} target='_blank' rel='noreferrer'>
+                Terms & Conditions
+              </a>
+              <a className={styles.infoLink} target='_blank' rel='noreferrer'>
+                Cookie Policy
+              </a>
+            </div>
+            <div>Uddug © 2013</div>
           </div>
-          <div>Uddug © 2013</div>
         </div>
       </div>
-      <Icon name='bottom-grid' className={styles.grid} />
+      <Icon name='grid' className={styles.grid} />
     </div>
   );
 };

@@ -48,6 +48,10 @@ const partners: Partner[] = [
     name: 'partner9',
     url: 'google.com',
   },
+  {
+    name: 'partner10',
+    url: 'https://revitt.consulting/',
+  },
 ];
 
 const Partners = () => {
@@ -94,7 +98,7 @@ const Partners = () => {
           </div>
         ))}
       </div>
-      {!isAllPartnersOpen && !isWide && (
+      {!isAllPartnersOpen && (
         <div
           className={styles.openAllPartnersButton}
           onClick={() => setIsAllPartnersOpen(true)}

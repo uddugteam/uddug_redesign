@@ -5,6 +5,7 @@ import { useScrollState } from 'contexts/scrollStateContext/scrollStateContext';
 import MainBlock from 'components/general/MainBlock';
 import Partners from 'components/general/Partners';
 import Projects from 'components/general/Projects';
+import Mission from 'components/general/Mission';
 import Team from 'components/general/Team';
 import Careers from 'components/general/Careers';
 import Internship from 'components/general/Internship';
@@ -27,6 +28,7 @@ const HomePage: AppNextPage = () => {
       <MainBlock />
       <Partners />
       <Projects />
+      <Mission />
       <Team />
       <Careers />
       <Internship />

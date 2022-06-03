@@ -1,25 +1,27 @@
 .root {
   background: var(--vertical-linear-gradient);
-  padding: 48px 20px 0;
-  height: 640px;
+  padding: 0 20px 58px;
+  height: calc(100vh - 58px);
   color: var(--light);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
   position: relative;
   overflow-x: hidden;
 
   @media (--tablet-vertical) {
-    padding: 100px 32px 0;
+    padding: 0 32px 72px;
+    height: calc(100vh - 72px);
   }
 
   @media (--tablet-landscape) {
-    padding: 100px 60px 0;
+    padding: 0 60px 72px;
   }
 
   @media (--desktop) {
-    padding: 100px 233px 0;
+    padding: 0 233px 72px;
   }
 }
 
@@ -28,13 +30,20 @@
   font-size: 32px;
   line-height: 125%;
   letter-spacing: 0.02em;
+  max-width: 320px;
 
   @media (--tablet-vertical) {
     font-size: 42px;
+    max-width: 656px;
   }
 
   @media (--tablet-landscape) {
     font-size: 64px;
+    max-width: 904px;
+  }
+
+  @media (--desktop) {
+    max-width: 960px;
   }
 }
 
@@ -43,12 +52,26 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 138%;
+  max-width: 320px;
+
+  @media (--tablet-vertical) {
+    margin-top: 20px;
+    font-size: 18px;
+    max-width: 487px;
+  }
+
+  @media (--tablet-landscape) {
+    margin-top: 32px;
+    font-size: 20px;
+    max-width: 750px;
+  }
 }
 
 .directionsList {
   margin-top: 33px;
   display: grid;
   grid-gap: 22px;
+  font-size: 14px;
   grid-template-areas:
     't f'
     'b s'
@@ -56,6 +79,8 @@
     'm m';
 
   @media (--tablet-vertical) {
+    margin-top: 44px;
+    font-size: 16px;
     grid-template-areas:
       't b f'
       'm c s';
@@ -64,6 +89,7 @@
   }
 
   @media (--tablet-landscape) {
+    font-size: 18px;
     grid-template-areas:
       't b m'
       'c f s';
@@ -74,6 +100,11 @@
   width: 24px;
   height: 24px;
   margin-right: 8px;
+
+  @media (--tablet-vertical) {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .gridElement {
@@ -152,4 +183,5 @@
 .grid {
   bottom: 0;
   position: absolute;
+  opacity: .3;
 }

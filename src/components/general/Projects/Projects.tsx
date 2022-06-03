@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import { useScrollState } from 'contexts/scrollStateContext';
 import Icon from 'components/general/Icon';
+import { useScreenSize } from 'hooks/useScreenSize';
 
 import styles from './Projects.module.css';
 
@@ -198,7 +199,7 @@ const projects: Project[] = [
       'Platform allows to create unlinited amount of crypto-faucets and to receive passive income, or allows to invest and interact with other faucets. System based on micro payments (x4 coins). 2014 award - the world top 10 faucets.',
     technologies: ['PHP', 'Laravel', 'Bitcoin', 'JavaScript', 'Redis'],
     otherTechnologies: ['Jquery', 'Mysql', 'Litecoin', 'Dogecoin'],
-    name: 'Your Ads Media',
+    name: 'Cryptozaur',
   },
   {
     description:
@@ -209,48 +210,79 @@ const projects: Project[] = [
   },
 ];
 
+interface ProjectLinkProps {
+  link?: string | null;
+}
+
+const ProjectLink: React.VFC<ProjectLinkProps> = props => {
+  const { link } = props;
+
+  if (link === undefined) return <></>;
+
+  if (link === null)
+    return (
+      <div className={classNames(styles.projectLink, 'orangeText')}>
+        Currently working on
+      </div>
+    );
+
+  return (
+    <div className={classNames(styles.projectLink, 'purpleText')}>
+      Open in GitHub
+    </div>
+  );
+};
+
 const ProjectCard: React.VFC<Project> = props => {
   const { name, description, otherTechnologies, technologies, link } = props;
+
+  const isDesktop = useScreenSize() === 'desktop';
 
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>{name}</div>
-      <div className={styles.description}>{description}</div>
+      <div className={styles.description}>
+        {description}
+        {isDesktop && <ProjectLink link={link} />}
+      </div>
       <div className={styles.technologies}>
-        {technologies.map(technology => (
-          <div key={technology} className={styles.technology}>
-            {technology}
-          </div>
-        ))}
-      </div>
-      <div className={styles.otherTechnologies}>
-        <span className={styles.otherTechnologiesLabel}>
-          Other technologies:{' '}
-        </span>
-        {otherTechnologies.reduce(
-          (list, technology) => `${list}, ${technology}`
-        )}
-      </div>
-      {link !== undefined && (
-        <div>
-          {link ? (
-            <a
-              href={link}
-              target='_blank'
-              rel='noreferrer'
-              className={classNames(styles.link, 'purpleText')}
-            >
-              Open
-            </a>
-          ) : (
-            <span className={classNames(styles.link, 'orangeText')}>
-              Currently working on
-            </span>
+        <div className={styles.mainTechnologies}>
+          {technologies.map(technology => (
+            <div key={technology} className={styles.technology}>
+              {technology}
+            </div>
+          ))}
+        </div>
+        <div className={styles.otherTechnologies}>
+          <span className={styles.otherTechnologiesLabel}>
+            Other technologies:{' '}
+          </span>
+          {otherTechnologies.reduce(
+            (list, technology) => `${list}, ${technology}`
           )}
         </div>
-      )}
+      </div>
+      {!isDesktop && <ProjectLink link={link} />}
     </div>
   );
+};
+
+const ProjectCardWrapper: React.VFC<Project> = props => {
+  const { link } = props;
+
+  if (link)
+    return (
+      <a
+        className={styles.cardLink}
+        href={link}
+        target='_blank'
+        rel='noreferrer'
+      >
+        <ProjectCard {...props} />
+      </a>
+    );
+
+  return <ProjectCard {...props} />;
 };
 
 const Projects = () => {
@@ -274,8 +306,11 @@ const Projects = () => {
       </div>
       <div className={styles.projectsList}>
         {visibleProjects.map(project => (
-          <ProjectCard key={project.name} {...project} />
+          <ProjectCardWrapper key={project.name} {...project} />
         ))}
+        <div className='backgroundLinesWrapper'>
+          <Icon name='background-lines' className='backgroundLines' />
+        </div>
       </div>
       {!isAllProjectsOpen && (
         <div
@@ -285,7 +320,6 @@ const Projects = () => {
           See All Projects
         </div>
       )}
-      <Icon name={'lines-grid'} className={classNames('grid', 'bottomGrid')} />
     </div>
   );
 };

@@ -11,17 +11,19 @@ const Internship = () => {
   } = useScrollState();
 
   return (
-    <div ref={internship} className={styles.root}>
-      <div className={styles.textBlock}>
-        <div className={styles.header}>Internship with us</div>
-        <div className={styles.description}>
-          As part of a co-op with the famous blockchain funds, we invite
-          talented interns who want to gain experience in the commercial
-          development of our own high-tech open source projects
+    <div className={styles.wrapper}>
+      <div ref={internship} className={styles.root}>
+        <div className={styles.textBlock}>
+          <div className={styles.header}>Internship with us</div>
+          <div className={styles.description}>
+            As part of a co-op with the famous blockchain funds, we invite
+            talented interns who want to gain experience in the commercial
+            development of our own high-tech open source projects
+          </div>
+          <div className={styles.contactUsButton}>Contact us</div>
         </div>
-        <div className={styles.contactUsButton}>Contact us</div>
+        <Icon name={'internship'} style={{ width: 254, alignSelf: 'end' }} />
       </div>
-      <Icon name={'internship'} style={{ width: 254, alignSelf: 'end' }} />
     </div>
   );
 };

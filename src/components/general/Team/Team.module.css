@@ -1,7 +1,17 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--dark);
+}
+
 .root {
+  box-sizing: content-box;
+  width: 100%;
+  max-width: 1200px;
   display: grid;
   padding: 80px 20px;
-  background-color: var(--dark);
   grid-row-gap: 24px;
   grid-template-areas:
     'h1 h1'
@@ -109,6 +119,7 @@
 
 .founderImageWrapper {
   border: 4px solid var(--orange);
+  background-color: var(--orange);
   border-radius: 16px;
   overflow: hidden;
   width: 150px;

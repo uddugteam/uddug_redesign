@@ -1,3 +1,3 @@
-import Internship from 'components/general/Internship/Internship';
+import Internship from './Internship';
 
 export default Internship;

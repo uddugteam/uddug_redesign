@@ -1,3 +1,3 @@
-import Careers from 'components/general/Careers/Careers';
+import Careers from './Careers';
 
 export default Careers;

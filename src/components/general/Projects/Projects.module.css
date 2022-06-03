@@ -1,7 +1,7 @@
 .root {
   z-index: 1;
   background-color: var(--light);
-  padding: 80px 18px 120px;
+  padding: 80px 18px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,15 +9,15 @@
   overflow-x: hidden;
 
   @media (--tablet-vertical) {
-    padding: 100px 30px 120px;
+    padding: 100px 30px 20px;
   }
 
   @media (--tablet-landscape) {
-    padding: 100px 60px 120px;
+    padding: 100px 60px 20px;
   }
 
   @media (--desktop) {
-    padding: 100px 120px 120px;
+    padding: 100px 120px 20px;
   }
 }
 
@@ -38,14 +38,33 @@
 }
 
 .projectsList {
+  position: relative;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   gap: 16px;
   z-index: 1;
+
+  @media (--tablet-vertical) {
+    margin-top: 32px;
+  }
+
+  @media (--tablet-landscape) {
+    margin-top: 40px;
+  }
+}
+
+.cardLink {
+  max-width: 1200px;
+  width: 100%;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .card {
+  z-index: 2;
   background: white;
   border: 1px solid var(--grey);
   border-radius: 16px;
@@ -55,6 +74,7 @@
   grid-gap: 16px;
   align-items: start;
   transition: .3s;
+  max-width: 1200px;
 
   &:hover {
     border-color: var(--purple);
@@ -84,6 +104,10 @@
   line-height: 133%;
   color: var(--dark);
 
+  @media (--tablet-vertical) {
+    font-size: 20px;
+  }
+
   @media (--desktop) {
     grid-area: h;
   }
@@ -103,12 +127,20 @@
 
 .technologies {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  max-height: max-content;
+  flex-direction: column;
+  row-gap: 16px;
+
   @media (--desktop) {
     grid-area: t;
   }
+}
+
+.mainTechnologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-height: max-content;
+
 }
 
 .technology {
@@ -130,23 +162,19 @@
   font-size: 14px;
   line-height: 157%;
   color: var(--dark);
-
-  @media (--desktop) {
-    grid-area: o;
-  }
 }
 
 .otherTechnologiesLabel {
   opacity: .6;
 }
 
-.link {
+.projectLink {
   font-weight: 500;
   font-size: 14px;
   line-height: 157%;
 
   @media (--desktop) {
-    grid-area: l;
+    margin-top: 20px;
   }
 }
 

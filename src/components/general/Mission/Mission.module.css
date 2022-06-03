@@ -1,0 +1,38 @@
+.root {
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  
+  @media (--tablet-vertical) {
+    padding: 100px 32px;
+  }
+
+  @media (--tablet-landscape) {
+    padding: 100px 60px;
+  }
+
+  @media (--desktop) {
+    padding: 100px 223px 120px;
+  }
+}
+
+.header {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--dark);
+  text-align: center;
+  z-index: 1;
+
+  @media (--tablet-vertical) {
+    font-size: 32px;
+  }
+
+  @media (--tablet-landscape) {
+    font-size: 42px;
+  }
+}

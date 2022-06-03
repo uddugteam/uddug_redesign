@@ -1,14 +1,26 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--dark);
+  transition: .3s;
+  color: var(--light);
+  &.light {
+    background-color: white;
+    color: var(--dark);
+  }
+}
+
 .root {
   width: 100%;
+  max-width: 1440px;
   height: 58px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  background-color: var(--dark);
-  color: var(--light);
+
   line-height: calc(11/8);
-  transition: .3s;
 
   @media (--tablet-vertical) {
     padding: 0 32px;
@@ -21,10 +33,6 @@
 
   @media (--desktop) {
     padding: 0 120px;
-  }
-  &.light {
-    background-color: var(--light);
-    color: var(--dark);
   }
 }
 

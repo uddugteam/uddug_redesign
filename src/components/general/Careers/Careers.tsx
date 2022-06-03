@@ -16,25 +16,35 @@ interface Vacation {
 
 const vacations: Vacation[] = [
   {
-    name: 'Rust developer',
+    name: 'Golang developer',
     sphere: 'Fin tech',
     position: 'Middle',
-    type: 'Full Time',
-    techStack: ['POA', 'LibP2P', 'Python', 'Swagger', 'GCP', 'Docker'],
+    type: 'Part Time',
+    techStack: [
+      'Go',
+      'PostgreSQL',
+      'Redis',
+      'Docker',
+      'Kubernetes',
+      'Go-swagger',
+      'Cobra',
+      'Viper',
+    ],
   },
   {
-    name: 'Rust developer2',
-    sphere: 'Fin tech',
-    position: 'Middle',
-    type: 'Full Time',
-    techStack: ['POA', 'LibP2P', 'Python', 'Swagger', 'GCP', 'Docker'],
-  },
-  {
-    name: 'Rust developer3',
-    sphere: 'Fin tech',
-    position: 'Middle',
-    type: 'Full Time',
-    techStack: ['POA', 'LibP2P', 'Python', 'Swagger', 'GCP', 'Docker'],
+    name: 'Solidity dev',
+    sphere: 'NFT marketplace',
+    position: 'Senior',
+    type: 'Part Time',
+    techStack: [
+      'Solidity',
+      'JavaScript',
+      'NodeJS',
+      'Polygon',
+      'React',
+      'truffle',
+      'hardhat',
+    ],
   },
 ];
 
@@ -42,7 +52,7 @@ const VacationCard: React.VFC<Vacation> = props => {
   const { sphere, type, techStack, position, name } = props;
 
   return (
-    <div className={classNames(styles.vacationCard, styles.attributeValue)}>
+    <div className={classNames(styles.vacationCard)}>
       <div className={styles.name}>{name}</div>
       <Icon name={'arrow'} className={styles.arrow} />
       <div className={classNames(styles.sphere, styles.attributeValue)}>
@@ -76,6 +86,7 @@ const Careers = () => {
 
   return (
     <div className={styles.root} ref={careers}>
+      <Icon name='lines-grid' className={classNames('grid', 'topGrid')} />
       <div className={styles.header}>
         We are <span className='purpleText'>hiring</span> professionals for our{' '}
         <span className='orangeText'>team</span>
@@ -89,11 +100,27 @@ const Careers = () => {
         {vacations.map(vacation => (
           <VacationCard key={vacation.name} {...vacation} />
         ))}
+        <div className='backgroundLinesWrapper'>
+          <Icon name='background-lines' className='backgroundLines' />
+        </div>
       </div>
       <div className={styles.contactsText}>
         Send your CV to{' '}
-        <a className={classNames(styles.links, 'orangeText')}>hr@uddug.com</a>{' '}
-        or <a className={classNames(styles.links, 'purpleText')}>LinkedIn</a>
+        <a
+          href='mailto:hr@uddug.com'
+          className={classNames(styles.links, 'orangeText')}
+        >
+          hr@uddug.com
+        </a>{' '}
+        or{' '}
+        <a
+          href={'https://www.linkedin.com/company/uddug'}
+          target='_blank'
+          rel='noreferrer'
+          className={classNames(styles.links, 'purpleText')}
+        >
+          LinkedIn
+        </a>
       </div>
     </div>
   );

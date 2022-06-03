@@ -1,45 +1,10 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
-import { ScreenSize, useScreenSize } from 'hooks/useScreenSize';
+import { useScreenSize } from 'hooks/useScreenSize';
 import Icon from 'components/general/Icon';
 
 import styles from './MainBlock.module.css';
-
-const descriptionTexts: Record<ScreenSize, ReactNode> = {
-  mobile: (
-    <>
-      Have strong experience in the IT
-      <br />
-      development of startups, independent
-      <br />
-      private projects, public business
-    </>
-  ),
-  'tablet-vertical': (
-    <>
-      Have strong experience in the IT development of
-      <br />
-      startups, independent private projects, public business
-    </>
-  ),
-  'tablet-landscape': (
-    <>
-      Have strong experience in the IT development of startups, independent
-      private
-      <br />
-      projects, public business
-    </>
-  ),
-  desktop: (
-    <>
-      Have strong experience in the IT development of startups, independent
-      private
-      <br />
-      projects, public business
-    </>
-  ),
-};
 
 const MainBlock: React.VFC = () => {
   const screenSize = useScreenSize();
@@ -52,7 +17,8 @@ const MainBlock: React.VFC = () => {
         <span className='orangeText'>development</span> team
       </span>
       <span className={styles.descriptionText}>
-        {descriptionTexts[screenSize]}
+        Have strong experience in the IT development of startups, independent
+        private projects, public business
       </span>
       <div className={styles.directionsList}>
         <div
@@ -82,8 +48,8 @@ const MainBlock: React.VFC = () => {
           Machine Learning
         </div>
       </div>
-      <Icon name={'grid'} className={styles.grid} />
-      <Icon name={'arrow-scroll'} className={styles.arrowScroll} />
+      <Icon name='grid' className={styles.grid} />
+      <Icon name='arrow-scroll' className={styles.arrowScroll} />
     </div>
   );
 };

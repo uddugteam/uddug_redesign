@@ -17,48 +17,50 @@ const Header: React.VFC = () => {
   };
 
   return (
-    <nav className={classNames(styles.root, { [styles.light]: isScrolled })}>
-      <Icon
-        name={isScrolled ? 'dark-logotype' : 'light-logotype'}
-        className={styles.logo}
-      />
-      <div className={styles.buttonsWrapper}>
-        {isWide && (
-          <>
-            <div
-              onClick={() => scrollToElement('projects')}
-              className={styles.navButton}
-            >
-              Projects
-            </div>
-            <div
-              onClick={() => scrollToElement('team')}
-              className={styles.navButton}
-            >
-              Team
-            </div>
-            <div
-              onClick={() => scrollToElement('careers')}
-              className={styles.navButton}
-            >
-              Careers
-            </div>
-            <div
-              onClick={() => scrollToElement('internship')}
-              className={styles.navButton}
-            >
-              Internship
-            </div>
-          </>
-        )}
-        <div
-          onClick={() => scrollToElement('contactUs')}
-          className={styles.contactUs}
-        >
-          Contact us
+    <div className={classNames(styles.wrapper, { [styles.light]: isScrolled })}>
+      <nav className={styles.root}>
+        <Icon
+          name={isScrolled ? 'dark-logotype' : 'light-logotype'}
+          className={styles.logo}
+        />
+        <div className={styles.buttonsWrapper}>
+          {isWide && (
+            <>
+              <div
+                onClick={() => scrollToElement('projects')}
+                className={styles.navButton}
+              >
+                Projects
+              </div>
+              <div
+                onClick={() => scrollToElement('team')}
+                className={styles.navButton}
+              >
+                Team
+              </div>
+              <div
+                onClick={() => scrollToElement('careers')}
+                className={styles.navButton}
+              >
+                Careers
+              </div>
+              <div
+                onClick={() => scrollToElement('internship')}
+                className={styles.navButton}
+              >
+                Internship
+              </div>
+            </>
+          )}
+          <div
+            onClick={() => scrollToElement('contactUs')}
+            className={styles.contactUs}
+          >
+            Contact us
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
 

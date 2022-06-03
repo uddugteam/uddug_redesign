@@ -1,8 +1,11 @@
 .root {
+  position: relative;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 80px 20px;
+  background-color: var(--light);
 
   @media (--tablet-vertical) {
     padding: 100px 32px;
@@ -18,6 +21,7 @@
 }
 
 .header {
+  z-index: 1;
   font-weight: 700;
   font-size: 24px;
   line-height: 133%;
@@ -44,27 +48,38 @@
   text-align: center;
   color: var(--dark);
   opacity: .6;
+  max-width: 320px;
 
   @media (--tablet-vertical) {
     font-size: 18px;
     line-height: 156%;
     margin-top: 16px;
+    max-width: 656px;
   }
 
   @media (--tablet-landscape) {
     margin-top: 24px;
+    max-width: 710px;
   }
 }
 
 .vacationsList {
+  position: relative;
   margin-top: 32px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  row-gap: 12px;
   width: 100%;
+  align-items: center;
+
+  @media (--tablet-vertical) {
+    row-gap: 16px;
+  }
 }
 
 .vacationCard {
+  z-index: 1;
+  max-width: 1200px;
   width: 100%;
   background: white;
   border: 1px solid var(--grey);
@@ -72,6 +87,7 @@
   display: grid;
   padding: 20px 20px 24px;
   transition: .3s;
+  cursor: pointer;
   grid-template-areas:
     'n a'
     's s'
@@ -92,6 +108,7 @@
   }
 
   @media (--tablet-vertical) {
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
       'n n a'
       's p t'
@@ -99,12 +116,14 @@
   }
 
   @media (--tablet-landscape) {
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
       'n n n a'
       's p t ts';
   }
 
   @media (--desktop) {
+    grid-template-columns: 5fr repeat(3, 4fr) 9fr;
     grid-template-areas:
       'n s p t ts a';
     align-items: center;
@@ -117,13 +136,16 @@
   line-height: 133%;
   color: var(--dark);
   grid-area: n;
+
+  @media (--tablet-vertical) {
+    font-size: 20px;
+  }
 }
 
 .arrow {
   width: 24px;
   height: 24px;
   grid-area: a;
-  cursor: pointer;
   justify-self: end;
 }
 

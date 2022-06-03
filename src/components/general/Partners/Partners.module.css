@@ -27,12 +27,16 @@
 }
 
 .partners {
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  row-gap: 16px;
 
   @media (--tablet-vertical) {
+    margin-top: 40px;
     width: 680px;
+    row-gap: 32px;
   }
 
   @media (--tablet-landscape) {

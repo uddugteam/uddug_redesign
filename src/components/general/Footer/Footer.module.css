@@ -1,9 +1,20 @@
-.root {
+.wrapper {
   position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--light);
+  overflow-x: hidden;
+}
+
+.root {
   display: flex;
   padding: 60px 20px 20px;
   overflow-x: hidden;
   justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  z-index: 1;
 }
 
 .content {
@@ -22,6 +33,10 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 133%;
+
+  @media (--tablet-vertical) {
+    font-size: 32px;
+  }
 }
 
 .description {
@@ -31,6 +46,20 @@
   font-size: 16px;
   line-height: 138%;
   opacity: .6;
+  max-width: 275px;
+  
+  @media (--tablet-vertical) {
+    font-size: 18px;
+    max-width: 656px;
+  }
+
+  @media (--tablet-landscape) {
+    max-width: 442px;
+  }
+
+  @media (--desktop) {
+    max-width: 470px;
+  }
 }
 
 .link {
@@ -50,6 +79,11 @@
 .icon {
   width: 28px;
   height: 28px;
+
+  & path {
+    transition: .3s;
+  }
+
   &:hover path {
     fill: var(--purple);
   }
@@ -93,5 +127,5 @@
 .grid {
   bottom: 0;
   position: absolute;
-  z-index: -1;
+  z-index: 0;
 }
