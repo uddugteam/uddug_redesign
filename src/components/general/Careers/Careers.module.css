@@ -99,11 +99,14 @@
     transition: .3s;
   }
 
-  &:hover {
-    border-color: var(--purple);
 
-    & .arrow path {
-      fill: var(--purple);
+  @media (--desktop) {
+    &:hover {
+      border-color: var(--purple);
+
+      & .arrow path {
+        fill: var(--purple);
+      }
     }
   }
 

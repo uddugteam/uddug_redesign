@@ -1,4 +1,4 @@
-import React, { UIEvent } from 'react';
+import React, { UIEvent, useEffect } from 'react';
 
 import { getLayout } from 'components/layout/MainLayout';
 import { useScrollState } from 'contexts/scrollStateContext/scrollStateContext';
@@ -15,16 +15,16 @@ import { AppNextPage } from '../../../../global';
 import styles from './HomePage.module.css';
 
 const HomePage: AppNextPage = () => {
-  const [_, setIsScrolled] = useScrollState().scroll;
+  const [isScrolled, setIsScrolled] = useScrollState().scroll;
 
   const scrollHandler = (e: UIEvent<HTMLDivElement>) => {
     const scrollTop = e.currentTarget.scrollTop;
-    if (scrollTop === 0) setIsScrolled(false);
-    else setIsScrolled(true);
+    const newIsScrolled = !(scrollTop === 0);
+    if (newIsScrolled !== isScrolled) setIsScrolled(newIsScrolled);
   };
 
   return (
-    <div className={styles.root} onScroll={scrollHandler}>
+    <div id={'home-page'} className={styles.root} onScroll={scrollHandler}>
       <MainBlock />
       <Partners />
       <Projects />

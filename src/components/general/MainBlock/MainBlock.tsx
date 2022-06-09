@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import { useScreenSize } from 'hooks/useScreenSize';
+import { useScrollState } from 'contexts/scrollStateContext';
 import Icon from 'components/general/Icon';
 
 import styles from './MainBlock.module.css';
@@ -9,6 +10,13 @@ import styles from './MainBlock.module.css';
 const MainBlock: React.VFC = () => {
   const screenSize = useScreenSize();
   const isMobile = screenSize === 'mobile';
+  const {
+    refs: { partners },
+  } = useScrollState();
+
+  const scrollToPartners = () => {
+    partners.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <div className={styles.root}>
@@ -49,9 +57,13 @@ const MainBlock: React.VFC = () => {
         </div>
       </div>
       <Icon name='grid' className={styles.grid} />
-      <Icon name='arrow-scroll' className={styles.arrowScroll} />
+      <Icon
+        name='arrow-scroll'
+        className={styles.arrowScroll}
+        onClick={scrollToPartners}
+      />
     </div>
   );
 };
 
-export default MainBlock;
+export default React.memo(MainBlock);

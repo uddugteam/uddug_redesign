@@ -6,6 +6,7 @@ export interface ScrollRefs {
   careers: RefObject<any>;
   internship: RefObject<any>;
   contactUs: RefObject<any>;
+  partners: RefObject<any>;
 }
 
 interface ScrollContext {

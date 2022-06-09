@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import { useScrollState } from 'contexts/scrollStateContext';
+import { useScreenSize } from 'hooks/useScreenSize';
 import Icon from 'components/general/Icon';
 
 import styles from './Careers.module.css';
@@ -84,6 +85,9 @@ const Careers = () => {
     refs: { careers },
   } = useScrollState();
 
+  const screenSize = useScreenSize();
+  const isWide = screenSize === 'desktop' || screenSize === 'tablet-landscape';
+
   return (
     <div className={styles.root} ref={careers}>
       <Icon name='lines-grid' className={classNames('grid', 'topGrid')} />
@@ -101,7 +105,10 @@ const Careers = () => {
           <VacationCard key={vacation.name} {...vacation} />
         ))}
         <div className='backgroundLinesWrapper'>
-          <Icon name='background-lines' className='backgroundLines' />
+          <Icon
+            name={isWide ? 'background-lines' : 'mobile-background-lines'}
+            className='backgroundLines'
+          />
         </div>
       </div>
       <div className={styles.contactsText}>
@@ -126,4 +133,4 @@ const Careers = () => {
   );
 };
 
-export default Careers;
+export default React.memo(Careers);

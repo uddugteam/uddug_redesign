@@ -63,7 +63,7 @@
   }
 }
 
-.openAllPartnersButton {
+.togglePartnersVisibilityButton {
   margin-top: 40px;
   background: white;
   border: 1px solid var(--grey);
@@ -78,7 +78,9 @@
   cursor: pointer;
   transition: .3s;
 
-  &:hover {
-    border-color: var(--purple);
+  @media (--desktop) {
+    &:hover {
+      border-color: var(--purple);
+    }
   }
 }

@@ -90,3 +90,9 @@
     background-color: var(--orange-hover);
   }
 }
+
+.photo {
+  width: 254px;
+  align-self: flex-end;
+  -webkit-align-self: flex-end;
+}

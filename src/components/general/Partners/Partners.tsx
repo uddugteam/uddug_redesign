@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
-import { useMedia } from 'react-use';
 
 import Icon from 'components/general/Icon';
 import { useScreenSize } from 'hooks/useScreenSize';
+import { useScrollState } from 'contexts/scrollStateContext';
 
 import styles from './Partners.module.css';
 
@@ -55,13 +55,18 @@ const partners: Partner[] = [
 ];
 
 const Partners = () => {
+  const {
+    refs: { partners: partnersRef },
+  } = useScrollState();
+
   const [isAllPartnersOpen, setIsAllPartnersOpen] = useState(false);
   const [hoverState, setHoverState] = useState(() =>
     new Array(partners.length).fill(false)
   );
 
-  const isWide = useMedia('(min-width: 1024px)');
-  const isDesktop = useScreenSize() === 'desktop';
+  const screenSize = useScreenSize();
+  const isDesktop = screenSize === 'desktop';
+  const isWide = isDesktop || screenSize === 'tablet-landscape';
 
   const visiblePartners = useMemo(
     () => (isAllPartnersOpen ? partners : partners.slice(0, isWide ? 9 : 8)),
@@ -69,15 +74,21 @@ const Partners = () => {
   );
 
   const handleMouseOverPartnerLogo = (index: number) => {
+    if (!isDesktop) return;
     setHoverState(hoverState.map((status, i) => i === index));
   };
 
   const handleMouseLeavePartnerLogo = () => {
+    if (!isDesktop) return;
     setHoverState(new Array(partners.length).fill(false));
   };
 
+  const handleTogglePartnersVisibilityButtonClick = () => {
+    setIsAllPartnersOpen(!isAllPartnersOpen);
+  };
+
   return (
-    <div className={styles.root}>
+    <div className={styles.root} ref={partnersRef}>
       <div className={styles.header}>
         Trusted development <span className='orangeText'>partners</span>
       </div>
@@ -87,9 +98,7 @@ const Partners = () => {
             <a target='_blank' rel='noreferrer' href={partner.url}>
               <Icon
                 name={
-                  hoverState[index] || !isDesktop
-                    ? `colored-${partner.name}`
-                    : partner.name
+                  hoverState[index] ? `colored-${partner.name}` : partner.name
                 }
                 onMouseOver={() => handleMouseOverPartnerLogo(index)}
                 onMouseLeave={handleMouseLeavePartnerLogo}
@@ -98,16 +107,14 @@ const Partners = () => {
           </div>
         ))}
       </div>
-      {!isAllPartnersOpen && (
-        <div
-          className={styles.openAllPartnersButton}
-          onClick={() => setIsAllPartnersOpen(true)}
-        >
-          Open all partners
-        </div>
-      )}
+      <div
+        className={styles.togglePartnersVisibilityButton}
+        onClick={handleTogglePartnersVisibilityButtonClick}
+      >
+        {isAllPartnersOpen ? 'Roll Up' : 'Open all partners'}
+      </div>
     </div>
   );
 };
 
-export default Partners;
+export default React.memo(Partners);

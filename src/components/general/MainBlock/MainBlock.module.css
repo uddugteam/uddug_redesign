@@ -79,7 +79,7 @@
     'm m';
 
   @media (--tablet-vertical) {
-    margin-top: 44px;
+    margin-top: 48px;
     font-size: 16px;
     grid-template-areas:
       't b f'
@@ -89,6 +89,7 @@
   }
 
   @media (--tablet-landscape) {
+    margin-top: 56px;
     font-size: 18px;
     grid-template-areas:
       't b m'
@@ -175,8 +176,10 @@
     transition: .3s;
   }
 
-  &:hover path {
-    fill: var(--orange);
+  @media (--desktop) {
+    &:hover path {
+      fill: var(--orange);
+    }
   }
 }
 

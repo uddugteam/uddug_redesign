@@ -24,4 +24,4 @@ const Mission = () => {
   );
 };
 
-export default Mission;
+export default React.memo(Mission);

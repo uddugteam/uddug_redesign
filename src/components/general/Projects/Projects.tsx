@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { RefObject, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import { useScrollState } from 'contexts/scrollStateContext';
@@ -233,13 +233,18 @@ const ProjectLink: React.VFC<ProjectLinkProps> = props => {
   );
 };
 
-const ProjectCard: React.VFC<Project> = props => {
-  const { name, description, otherTechnologies, technologies, link } = props;
+interface ProjectProps extends Project {
+  myRef?: RefObject<any>;
+}
+
+const ProjectCard: React.VFC<ProjectProps> = props => {
+  const { name, description, otherTechnologies, technologies, link, myRef } =
+    props;
 
   const isDesktop = useScreenSize() === 'desktop';
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} ref={myRef}>
       <div className={styles.cardHeader}>{name}</div>
       <div className={styles.description}>
         {description}
@@ -267,7 +272,7 @@ const ProjectCard: React.VFC<Project> = props => {
   );
 };
 
-const ProjectCardWrapper: React.VFC<Project> = props => {
+const ProjectCardWrapper: React.VFC<ProjectProps> = props => {
   const { link } = props;
 
   if (link)
@@ -289,13 +294,23 @@ const Projects = () => {
   const {
     refs: { projects: projectsRef },
   } = useScrollState();
-
+  const projectToScroll = useRef<HTMLDivElement>();
   const [isAllProjectsOpen, setIsAllProjectsOpen] = useState(false);
+
+  const screenSize = useScreenSize();
+  const isWide = screenSize === 'desktop' || screenSize === 'tablet-landscape';
 
   const visibleProjects = useMemo(
     () => (isAllProjectsOpen ? projects : projects.slice(0, 4)),
     [isAllProjectsOpen]
   );
+
+  const handleProjectsVisibilityButtonClick = () => {
+    if (isAllProjectsOpen) {
+      projectToScroll.current?.scrollIntoView();
+    }
+    setIsAllProjectsOpen(!isAllProjectsOpen);
+  };
 
   return (
     <div ref={projectsRef} className={styles.root}>
@@ -305,21 +320,26 @@ const Projects = () => {
         <span className='orangeText'>technologies</span>
       </div>
       <div className={styles.projectsList}>
-        {visibleProjects.map(project => (
-          <ProjectCardWrapper key={project.name} {...project} />
+        {visibleProjects.map((project, index) => (
+          <ProjectCardWrapper
+            key={project.name}
+            {...project}
+            myRef={index === 3 ? projectToScroll : undefined}
+          />
         ))}
         <div className='backgroundLinesWrapper'>
-          <Icon name='background-lines' className='backgroundLines' />
+          <Icon
+            name={isWide ? 'background-lines' : 'mobile-background-lines'}
+            className='backgroundLines'
+          />
         </div>
       </div>
-      {!isAllProjectsOpen && (
-        <div
-          className={styles.seeAllProjects}
-          onClick={() => setIsAllProjectsOpen(true)}
-        >
-          See All Projects
-        </div>
-      )}
+      <div
+        className={styles.projectsVisibilityButton}
+        onClick={handleProjectsVisibilityButtonClick}
+      >
+        {isAllProjectsOpen ? 'Roll Up' : 'See All Projects'}
+      </div>
     </div>
   );
 };

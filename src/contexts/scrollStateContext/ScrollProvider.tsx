@@ -1,4 +1,4 @@
-import React, { createRef, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
 import {
   ScrollRefs,
@@ -10,11 +10,12 @@ const scrollReducer = (state: boolean, newState: boolean): boolean => {
 };
 
 const refs: ScrollRefs = {
-  careers: createRef(),
-  internship: createRef(),
-  projects: createRef(),
-  team: createRef(),
-  contactUs: createRef(),
+  careers: React.createRef(),
+  internship: React.createRef(),
+  projects: React.createRef(),
+  team: React.createRef(),
+  contactUs: React.createRef(),
+  partners: React.createRef(),
 };
 
 const ScrollProvider: React.FC = ({ children }) => {

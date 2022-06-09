@@ -76,8 +76,10 @@
   transition: .3s;
   max-width: 1200px;
 
-  &:hover {
-    border-color: var(--purple);
+  @media (--desktop) {
+    &:hover {
+      border-color: var(--purple);
+    }
   }
 
   @media (--tablet-vertical) {
@@ -178,7 +180,7 @@
   }
 }
 
-.seeAllProjects {
+.projectsVisibilityButton {
   margin-top: 40px;
   display: flex;
   justify-content: center;
@@ -195,7 +197,9 @@
   transition: .3s;
   z-index: 1;
 
-  &:hover {
-    border-color: var(--purple);
+  @media (--desktop) {
+    &:hover {
+      border-color: var(--purple);
+    }
   }
 }

@@ -1,19 +1,32 @@
 import React from 'react';
 import classNames from 'classnames';
-import { useMedia } from 'react-use';
+import * as Scroll from 'react-scroll';
+
+const { scroller } = Scroll;
 
 import Icon from 'components/general/Icon';
 import { ScrollRefs, useScrollState } from 'contexts/scrollStateContext';
+import { useScreenSize } from 'hooks/useScreenSize';
 
 import styles from './Header.module.css';
 
 const Header: React.VFC = () => {
   const { scroll, refs } = useScrollState();
   const [isScrolled] = scroll;
-  const isWide = useMedia('(min-width: 1024px)', false);
+
+  const screenSize = useScreenSize();
+  const isWide = screenSize === 'desktop' || screenSize === 'tablet-landscape';
 
   const scrollToElement = (ref: keyof ScrollRefs) => {
     refs[ref].current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const smoothScrollToTheContactUs = () => {
+    scroller.scrollTo('contactUs', {
+      duration: isWide ? 1000 : 3000,
+      containerId: 'home-page',
+      smooth: true,
+    });
   };
 
   return (
@@ -53,7 +66,7 @@ const Header: React.VFC = () => {
             </>
           )}
           <div
-            onClick={() => scrollToElement('contactUs')}
+            onClick={smoothScrollToTheContactUs}
             className={styles.contactUs}
           >
             Contact us
