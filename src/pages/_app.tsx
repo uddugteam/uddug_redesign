@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       }
     ).getLayout || ((page: JSX.Element) => <>{page}</>);
 
+  // @ts-ignore
   return getLayout(<Component {...pageProps} />);
 }
 
