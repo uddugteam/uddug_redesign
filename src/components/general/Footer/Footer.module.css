@@ -10,6 +10,7 @@
 .root {
   display: flex;
   padding: 60px 20px 20px;
+  gap: 100px;
   overflow-x: hidden;
   justify-content: center;
   width: 100%;
@@ -64,6 +65,7 @@
 
 .link {
   margin-top: 16px;
+  width: max-content;
   font-weight: 700;
   font-size: 20px;
   line-height: 28px;
@@ -122,6 +124,130 @@
   &:hover {
     opacity: 1;
   }
+}
+
+.form {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formHeader {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 125%;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fieldWrapper {
+  position: relative;
+
+  width: 100%;
+}
+
+.field {
+  height: 56px;
+  width: 100%;
+
+  background: white;
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+
+  outline: none;
+  padding: 0 20px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 138%;
+  color: var(--dark);
+
+  &:hover {
+    border-color: var(--purple);
+  }
+}
+
+.button {
+  transition: .5s;
+}
+
+.errorField {
+  & .field {
+    border-color: var(--red);
+  }
+
+  &:after {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 133%;
+    color: var(--red);
+  }
+
+  &.requiredField:after {
+    content: 'Required';
+  }
+
+  &.invalidField:after {
+    content: 'Ivalid';
+  }
+}
+
+.submitButton {
+  width: 146px;
+  height: 40px;
+
+  background: var(--purple);
+  border: none;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 138%;
+  color: white;
+
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover {
+    background-color: var(--purple-hover);
+  }
+}
+
+.sent {
+  width: 146px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  background: var(--green);
+  border-radius: 8px;
+  border: none;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 138%;
+  color: white;
+}
+
+.checkIcon {
+  width: 24px;
+  height: 24px;
 }
 
 .grid {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { Element } from 'react-scroll';
 
@@ -11,6 +11,41 @@ const Footer = () => {
   const {
     refs: { contactUs },
   } = useScrollState();
+
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [text, setText] = useState('');
+  const [emailError, setEmailError] = useState<null | 'invalid' | 'required'>(
+    null
+  );
+  const [nameError, setNameError] = useState<null | 'required'>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isFormSent, setIsFormSent] = useState(false);
+
+  const submitHandler = async () => {
+    setEmailError(null);
+    setNameError(null);
+    if (isLoading || isFormSent) return;
+    if (name.length === 0) return setNameError('required');
+    if (email.length === 0) return setEmailError('required');
+    setIsLoading(true);
+    const result = await fetch('/api/mailchimp', {
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+        name,
+        text,
+      }),
+    });
+    setIsLoading(false);
+    if (!result.ok) return setEmailError('invalid');
+    setEmailError(null);
+    setNameError(null);
+    setIsFormSent(true);
+    setTimeout(() => {
+      setIsFormSent(false);
+    }, 3000);
+  };
 
   return (
     <Element name={'contactUs'}>
@@ -67,6 +102,65 @@ const Footer = () => {
               <div>Uddug © 2013</div>
             </div>
           </div>
+          <form className={styles.form}>
+            <div className={styles.formHeader}>Write to us</div>
+            <div className={styles.fields}>
+              <div
+                className={classNames(styles.fieldWrapper, {
+                  [styles.errorField]: nameError,
+                  [styles.requiredField]: nameError === 'required',
+                })}
+              >
+                <input
+                  className={styles.field}
+                  placeholder='Name'
+                  value={name}
+                  onChange={e => setName(e.currentTarget.value)}
+                />
+              </div>
+              <div
+                className={classNames(styles.fieldWrapper, {
+                  [styles.errorField]: emailError,
+                  [styles.invalidField]: emailError === 'invalid',
+                  [styles.requiredField]: emailError === 'required',
+                })}
+              >
+                <input
+                  className={styles.field}
+                  placeholder='E-mail'
+                  value={email}
+                  onChange={e => setEmail(e.currentTarget.value)}
+                />
+              </div>
+              <div className={styles.fieldWrapper}>
+                <input
+                  className={styles.field}
+                  placeholder='What do you want to discuss'
+                  value={text}
+                  onChange={e => setText(e.currentTarget.value)}
+                />
+              </div>
+            </div>
+            <button
+              className={classNames(styles.button, {
+                [styles.sent]: isFormSent,
+                [styles.submitButton]: !isFormSent,
+              })}
+              onClick={async e => {
+                e.preventDefault();
+                await submitHandler();
+              }}
+            >
+              {isFormSent ? (
+                <>
+                  <Icon name='check' width={24} height={24} />
+                  Sent
+                </>
+              ) : (
+                'Send message'
+              )}
+            </button>
+          </form>
         </div>
         <Icon name='grid' className={styles.grid} />
       </div>
