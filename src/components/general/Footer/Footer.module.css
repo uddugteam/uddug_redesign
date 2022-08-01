@@ -152,6 +152,17 @@
   width: 100%;
 }
 
+.charactersLimit {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--grey-dark);
+}
+
 .field {
   height: 56px;
   width: 100%;

@@ -137,8 +137,14 @@ const Footer = () => {
                   className={styles.field}
                   placeholder='What do you want to discuss'
                   value={text}
-                  onChange={e => setText(e.currentTarget.value)}
+                  onChange={e => {
+                    if (e.currentTarget.value.length > 100) return;
+                    setText(e.currentTarget.value);
+                  }}
                 />
+                <span className={styles.charactersLimit}>
+                  {text.length} / 100
+                </span>
               </div>
             </div>
             <button
