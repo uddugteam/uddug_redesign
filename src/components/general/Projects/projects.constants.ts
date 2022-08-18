@@ -1,10 +1,68 @@
 import { Project } from 'components/general/Projects/Projects';
 
 export const projects: Project[] = [
+ {
+    link: null,
+    description:
+      'Secured decentralized hosting service for opensource software development projects.',
+    technologies: [
+      'Rust', 
+      'Filecoin', 
+      'Solidity', 
+      'Wasm', 
+      'IPFS',
+      'LibP2P', 
+      'React.js', 
+      'next.js', 
+      'Go', 
+      'Blake2B', 
+      'Argon2'
+    ],
+    name: 'GitSec',
+  },
+  {
+    link: 'https://github.com/uddugteam/juniDB',
+    description:
+      "Substrate pallet provides a configurable database module allows to store and manipulate a big amount of data. Pallet works as an offchain worker and connect data btwn blockchain and uses ipfs as a data storage and store on-chain only hashes.",
+    technologies: ['Rust', 'Substrate', 'Offchain::ipfs', 'IPFS'],
+    otherTechnologies: ['[ecies-ed25519]'],
+    name: 'Juni::Db',
+  },
+  {	
+	link: 'https://snark.art/',
+	description:
+	  'NFT marketplace. Snark.art uses the power of blockchain as a creative media to change the way art is made and collected.',
+	technologies: [
+	  'Go',
+  	'Ethereum',
+	  'Solidity',
+  	'Nats',
+  	'GRPC',
+  	'PostgreSql',
+  	'Swagger',
+  	'React',
+	  'EKS',
+	],
+	otherTechnologies: [
+	  'Node.js',
+  	'Microservices',
+	  'Redis',
+	  'AWS',
+	  'Kubernetes',
+	  'S3',
+	  'Docker',
+	  'Next.js',
+	  'Web3.js',
+	  'Angular2',
+	  'stripe',
+	  'ffmpeg',
+	],
+	name: 'Snark.art',
+	},
   {
     link: null,
     description:
-      'Platform performs real-time medical data deep analisis and automate decisions using machine learning algoritms. System empowers patients, providers, and payers delivering a highly connected, seamless experience along every step in the care journey. Peer-to-peer database architecture provides secure and anonymous data.',
+      'Health Consul implements medical tests decoding with issuing recommendations for the indicators obtained. Decentralized service focuses on anonymizing and depersonalizing user data (EHR). These accounts validate transactions through the interaction with Ml models via the built-in ML mechanisms, and subsequently produce predictions for certain conditions. If the user has given consent to a further data processing, machines will be retrained.',
     technologies: [
       'Rust',
       'Substrate',
@@ -14,7 +72,7 @@ export const projects: Project[] = [
       'Healthcare.ai',
       'React',
       'Terraform',
-    ],
+      ],
     otherTechnologies: [
       'LibP2P',
       'POA',
@@ -23,16 +81,23 @@ export const projects: Project[] = [
       'Kubernetes',
       'GCP',
       'Docker',
-    ],
+     ],
     name: 'Health Consul',
   },
   {
-    link: 'https://github.com/uddugteam/juniDB',
+    link: 'https://ogcrystals.com/',
     description:
-      "Substrate pallet provides a configurable database module with allowance to store and  manipulate a big amount of data. It's a very highload action to store large amounts of data on-chain. The most-common and useful solution for decentralised apps is to use IPFS as a data storage and store on-chain only hashes. Our team inspired by the OrbitDB focuses on the scalability, decentralised, easy-learning solution for Substrat developers. that want to manipulate big amounts of data easily. Available storage data types: key-value and hash.",
-    technologies: ['Rust', 'Substrate', 'Offchain::ipfs', 'IPFS'],
-    otherTechnologies: ['[ecies-ed25519]'],
-    name: 'Juni::Db',
+      'OG:CR transforms static NFTs into a flourishing digital reefscape, where each uniquely individual piece of digital art grows every time it is re-sold.  All 10,301 OG:Crystals is a direct reflection of both their owner and future transactional history, creating a visual record of combined digital and organic processes.',
+    technologies: ['Go', 'Solidity', 'IPFS', 'aws S3', 'k8s'],
+    otherTechnologies: [
+      'Docker',
+      'GCP',
+      'PostgreSql',
+      'Redis',
+      'websockets',
+      'Swagger',
+    ],
+    name: 'OG Crystals',
   },
   {
     link: 'https://www.kickstox.com/',
@@ -59,37 +124,6 @@ export const projects: Project[] = [
       'Ansible',
     ],
     name: 'Kickstox',
-  },
-  {
-    link: 'https://snark.art/',
-    description:
-      'Snark.art uses the power of blockchain as a creative media to change the way art is made and collected.',
-    technologies: [
-      'Go',
-      'Ethereum',
-      'Solidity',
-      'Nats',
-      'GRPC',
-      'PostgreSql',
-      'Swagger',
-      'React',
-      'EKS',
-    ],
-    otherTechnologies: [
-      'Node.js',
-      'Microservices',
-      'Redis',
-      'AWS',
-      'Kubernetes',
-      'S3',
-      'Docker',
-      'Next.js',
-      'Web3.js',
-      'Angular2',
-      'stripe',
-      'ffmpeg',
-    ],
-    name: 'Snark.art',
   },
   {
     link: 'https://zam.io/',
@@ -150,24 +184,9 @@ export const projects: Project[] = [
     name: 'Icex',
   },
   {
-    link: 'https://ogcrystals.com/',
-    description:
-      'OG:CR transforms static NFTs into a flourishing digital reefscape, where each uniquely individual piece of digital art grows every time it is re-sold.  All 10,301 OG:Crystals is a direct reflection of both their owner and future transactional  history, creating a visual record of combined digital and organic processes.  Like the living architecture formed by the exo-skeletons of coral polyps, past, present and future coexist, offering a new take on NFTs, value, and the creative process.',
-    technologies: ['Go', 'Solidity', 'IPFS', 'aws S3', 'k8s'],
-    otherTechnologies: [
-      'Docker',
-      'GCP',
-      'PostgreSql',
-      'Redis',
-      'websockets',
-      'Swagger',
-    ],
-    name: 'OG Crystals',
-  },
-  {
     link: null,
     description:
-      'Mobile messenger applications iOS/Android for the scientific community, developed for government agencies. A feature here is the interaction with an exclusive object-relational database management system for general and special purposes with extended functionality through the use of plug-in modules.',
+      'Mobile messenger applications iOS/Android for the scientific community. Developed for government agencies.',
     technologies: ['Node.js', 'Kotlin', 'Swift'],
     otherTechnologies: ['OpenAPI', 'websockets', 'Docker', 'docker-compose'],
     name: 'Naukotheca',
