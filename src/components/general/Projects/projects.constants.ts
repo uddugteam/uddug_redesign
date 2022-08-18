@@ -85,6 +85,24 @@ export const projects: Project[] = [
     name: 'Health Consul',
   },
   {
+    link: null,
+    description:
+      'Cross-chain open-source Oracle protocol is an infrastructure service usable to operate decentralized Information assets. Based on a set of smart contracts, the Quasar Dust’ algorithm optimizes on-chain data acquisition and provides the beneficiary with qualified indicative data at exceptional speed.',
+    technologies: [
+       'Rust', 
+       'websockets', 
+       'nosql', 
+       'react.js', 
+       'next.js', 
+       'solana', 
+       'near', 
+       'ethereum', 
+       'solidity', 
+       'wasm'
+      ],
+    name: 'Quasar',
+  },
+  {
     link: 'https://ogcrystals.com/',
     description:
       'OG:CR transforms static NFTs into a flourishing digital reefscape, where each uniquely individual piece of digital art grows every time it is re-sold.  All 10,301 OG:Crystals is a direct reflection of both their owner and future transactional history, creating a visual record of combined digital and organic processes.',
