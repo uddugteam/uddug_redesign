@@ -64,6 +64,7 @@
 }
 
 .card {
+  position: relative;
   z-index: 2;
   background: white;
   border: 1px solid var(--grey);
@@ -75,6 +76,7 @@
   align-items: start;
   transition: .3s;
   max-width: 1200px;
+  overflow: hidden;
 
   @media (--desktop) {
     &:hover {
@@ -201,5 +203,15 @@
     &:hover {
       border-color: var(--purple);
     }
+  }
+}
+
+.badge {
+
+  @media (--tablet-vertical) {
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    right: -50px;
   }
 }

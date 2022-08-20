@@ -207,6 +207,7 @@ export const projects: Project[] = [
     name: 'Icex',
   },
   {
+    link: 'https://naukotheka.ru/login',
     description:
       'Mobile messenger applications iOS/Android for the scientific community. Developed for government agencies.',
     technologies: ['Node.js', 'Kotlin', 'Swift'],

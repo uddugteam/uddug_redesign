@@ -71,6 +71,9 @@ const ProjectCard: React.VFC<ProjectProps> = props => {
         )}
       </div>
       {!isDesktop && <ProjectLink link={link} />}
+      {name === 'Juni::Db' && (
+        <Icon name={'web3-badge'} className={styles.badge} />
+      )}
     </div>
   );
 };

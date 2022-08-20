@@ -13,6 +13,7 @@ interface Vacation {
   position: string;
   techStack: string[];
   type: string;
+  link: string;
 }
 
 const vacations: Vacation[] = [
@@ -31,6 +32,7 @@ const vacations: Vacation[] = [
       'Cobra',
       'Viper',
     ],
+    link: 'https://pyrite-yumberry-ec6.notion.site/Junior-Middle-Go-developer-34372d88fc9b412c9f2a4e80ce21de2e',
   },
   {
     name: 'Solidity dev',
@@ -46,14 +48,20 @@ const vacations: Vacation[] = [
       'truffle',
       'hardhat',
     ],
+    link: 'https://pyrite-yumberry-ec6.notion.site/Solidity-developer-d9034a5767a44c5095da055ea3e960c3',
   },
 ];
 
 const VacationCard: React.VFC<Vacation> = props => {
-  const { sphere, type, techStack, position, name } = props;
+  const { sphere, type, techStack, position, name, link } = props;
 
   return (
-    <div className={classNames(styles.vacationCard)}>
+    <a
+      target='_blank'
+      rel='noreferrer'
+      href={link}
+      className={classNames(styles.vacationCard)}
+    >
       <div className={styles.name}>{name}</div>
       <Icon name={'arrow'} className={styles.arrow} />
       <div className={classNames(styles.sphere, styles.attributeValue)}>
@@ -76,7 +84,7 @@ const VacationCard: React.VFC<Vacation> = props => {
           )}
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 
