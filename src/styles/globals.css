@@ -21,6 +21,15 @@ a {
   }
 }
 
+body {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
 #main-layout {
   display: grid;
   grid-template-rows: max-content 1fr;

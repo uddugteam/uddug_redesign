@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import classNames from 'classnames';
 import * as Scroll from 'react-scroll';
+import { useRouter } from 'next/router';
 
 const { scroller } = Scroll;
 
@@ -11,17 +12,38 @@ import { useScreenSize } from 'hooks/useScreenSize';
 import styles from './Header.module.css';
 
 const Header: React.VFC = () => {
+  const router = useRouter();
+
+  const isPrivacyPolicyPage = useMemo(
+    () => router.pathname.indexOf('privacy-policy'),
+    [router.pathname]
+  );
+
   const { scroll, refs } = useScrollState();
   const [isScrolled] = scroll;
 
   const screenSize = useScreenSize();
   const isWide = screenSize === 'desktop' || screenSize === 'tablet-landscape';
 
-  const scrollToElement = (ref: keyof ScrollRefs) => {
+  const scrollToElement = async (ref: keyof ScrollRefs) => {
+    if (isPrivacyPolicyPage) {
+      await router.push('/');
+      refs[ref].current?.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
     refs[ref].current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const smoothScrollToTheContactUs = () => {
+  const smoothScrollToTheContactUs = async () => {
+    if (isPrivacyPolicyPage) {
+      await router.push('/');
+      scroller.scrollTo('contactUs', {
+        duration: isWide ? 2000 : 4000,
+        containerId: 'home-page',
+        smooth: true,
+      });
+      return;
+    }
     scroller.scrollTo('contactUs', {
       duration: isWide ? 1000 : 3000,
       containerId: 'home-page',
@@ -30,7 +52,11 @@ const Header: React.VFC = () => {
   };
 
   return (
-    <div className={classNames(styles.wrapper, { [styles.light]: isScrolled })}>
+    <div
+      className={classNames(styles.wrapper, {
+        [styles.light]: isScrolled && isPrivacyPolicyPage,
+      })}
+    >
       <nav className={styles.root}>
         <Icon
           name={isScrolled ? 'dark-logotype' : 'light-logotype'}

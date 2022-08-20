@@ -55,8 +55,8 @@ const Footer = () => {
             <div className={styles.contactInfo}>
               <div className={styles.header}>Contact us</div>
               <div className={styles.description}>
-                Write about your idea or ask a question via the feedback form or
-                in another convenient way
+                Write about your idea concept or ask a question via the feedback
+                form or in another convenient way
               </div>
               <a
                 href='mailto:info@uddug.com'
@@ -89,14 +89,13 @@ const Footer = () => {
             </div>
             <div className={styles.footerInfo}>
               <div className={styles.infoLinks}>
-                <a className={styles.infoLink} target='_blank' rel='noreferrer'>
+                <a
+                  className={styles.infoLink}
+                  target='_blank'
+                  rel='noreferrer'
+                  href='/privacy-policy'
+                >
                   Privacy policy
-                </a>
-                <a className={styles.infoLink} target='_blank' rel='noreferrer'>
-                  Terms & Conditions
-                </a>
-                <a className={styles.infoLink} target='_blank' rel='noreferrer'>
-                  Cookie Policy
                 </a>
               </div>
               <div>Uddug © 2013</div>
@@ -135,7 +134,7 @@ const Footer = () => {
               <div className={styles.fieldWrapper}>
                 <input
                   className={styles.field}
-                  placeholder='What do you want to discuss'
+                  placeholder='Your message here'
                   value={text}
                   onChange={e => {
                     if (e.currentTarget.value.length > 100) return;

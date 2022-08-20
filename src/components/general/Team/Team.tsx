@@ -143,7 +143,7 @@ const Team = () => {
           />
           <TeamMember
             name={'Alexander Aglerimov'}
-            position={'Senior Frontend Developer'}
+            position={'Senior Backend Developer'}
             img={alexanderA}
             socialLinks={{
               facebook: null,

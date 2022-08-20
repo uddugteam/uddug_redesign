@@ -9,6 +9,7 @@
 
 .root {
   display: flex;
+  flex-direction: column-reverse;
   padding: 60px 20px 20px;
   gap: 100px;
   overflow-x: hidden;
@@ -16,6 +17,10 @@
   width: 100%;
   max-width: 1200px;
   z-index: 1;
+
+  @media (--tablet-vertical) {
+    flex-direction: row;
+  }
 }
 
 .content {
@@ -103,7 +108,7 @@
 
   @media (--tablet-vertical) {
     flex-direction: row-reverse;
-    justify-content: space-between;
+    justify-content: start;
   }
 }
 

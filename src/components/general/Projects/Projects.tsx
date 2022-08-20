@@ -4,17 +4,12 @@ import classNames from 'classnames';
 import { useScrollState } from 'contexts/scrollStateContext';
 import Icon from 'components/general/Icon';
 import { useScreenSize } from 'hooks/useScreenSize';
-import { projects } from 'components/general/Projects/projects.constants';
+import {
+  Project,
+  projects,
+} from 'components/general/Projects/projects.constants';
 
 import styles from './Projects.module.css';
-
-export interface Project {
-  name: string;
-  description: string;
-  technologies: string[];
-  otherTechnologies: string[];
-  link?: string | null;
-}
 
 interface ProjectLinkProps {
   link?: string | null;
@@ -64,14 +59,16 @@ const ProjectCard: React.VFC<ProjectProps> = props => {
             </div>
           ))}
         </div>
-        <div className={styles.otherTechnologies}>
-          <span className={styles.otherTechnologiesLabel}>
-            Other technologies:{' '}
-          </span>
-          {otherTechnologies.reduce(
-            (list, technology) => `${list}, ${technology}`
-          )}
-        </div>
+        {otherTechnologies && (
+          <div className={styles.otherTechnologies}>
+            <span className={styles.otherTechnologiesLabel}>
+              Other technologies:{' '}
+            </span>
+            {otherTechnologies.reduce(
+              (list, technology) => `${list}, ${technology}`
+            )}
+          </div>
+        )}
       </div>
       {!isDesktop && <ProjectLink link={link} />}
     </div>

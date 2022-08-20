@@ -25,8 +25,8 @@ const MainBlock: React.VFC = () => {
         <span className='orangeText'>development</span> team
       </span>
       <span className={styles.descriptionText}>
-        Have strong experience in the IT development of startups, independent
-        private projects, public business
+        Team have deep industry IT expertise in the development of startups,
+        independent private projects, public business.
       </span>
       <div className={styles.directionsList}>
         <div

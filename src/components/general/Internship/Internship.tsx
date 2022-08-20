@@ -27,9 +27,9 @@ const Internship = () => {
         <div className={styles.textBlock}>
           <div className={styles.header}>Internship with us</div>
           <div className={styles.description}>
-            As part of a co-op with the famous blockchain funds, we invite
-            talented interns who want to gain experience in the commercial
-            development of our own high-tech open source projects
+            As part of a co-op with world famous blockchain ecosystems, we
+            invite talented interns who want to gain experience in the
+            commercial development of our own high-tech open source projects
           </div>
           <div
             className={styles.contactUsButton}

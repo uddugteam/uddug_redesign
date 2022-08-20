@@ -17,23 +17,11 @@ const partners: Partner[] = [
     url: 'https://lime-expo.ru/',
   },
   {
-    name: 'partner2',
-    url: 'https://macbio.ru/',
-  },
-  {
-    name: 'partner3',
-    url: 'https://spamorez.ru/',
-  },
-  {
     name: 'partner4',
     url: 'google.com',
   },
   {
     name: 'partner5',
-    url: 'google.com',
-  },
-  {
-    name: 'partner6',
     url: 'google.com',
   },
   {
@@ -52,6 +40,22 @@ const partners: Partner[] = [
     name: 'partner10',
     url: 'https://revitt.consulting/',
   },
+  {
+    name: 'partner11',
+    url: 'https://www.final01.agency/',
+  },
+  {
+    name: 'partner2',
+    url: 'https://macbio.ru/',
+  },
+  {
+    name: 'partner3',
+    url: 'https://spamorez.ru/',
+  },
+  {
+    name: 'partner6',
+    url: 'google.com',
+  },
 ];
 
 const Partners = () => {
@@ -69,7 +73,7 @@ const Partners = () => {
   const isWide = isDesktop || screenSize === 'tablet-landscape';
 
   const visiblePartners = useMemo(
-    () => (isAllPartnersOpen ? partners : partners.slice(0, isWide ? 9 : 8)),
+    () => (isAllPartnersOpen ? partners : partners.slice(0, isWide ? 8 : 7)),
     [isAllPartnersOpen, isWide]
   );
 
@@ -100,6 +104,9 @@ const Partners = () => {
                 name={
                   hoverState[index] ? `colored-${partner.name}` : partner.name
                 }
+                style={{
+                  cursor: 'pointer',
+                }}
                 onMouseOver={() => handleMouseOverPartnerLogo(index)}
                 onMouseLeave={handleMouseLeavePartnerLogo}
               />

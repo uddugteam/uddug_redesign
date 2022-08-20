@@ -1,66 +1,71 @@
-import { Project } from 'components/general/Projects/Projects';
+export interface Project {
+  name: string;
+  description: string;
+  technologies: string[];
+  otherTechnologies?: string[];
+  link?: string | null;
+}
 
 export const projects: Project[] = [
- {
+  {
     link: null,
     description:
       'Secured decentralized hosting service for opensource software development projects.',
     technologies: [
-      'Rust', 
-      'Filecoin', 
-      'Solidity', 
-      'Wasm', 
+      'Rust',
+      'Filecoin',
+      'Solidity',
+      'Wasm',
       'IPFS',
-      'LibP2P', 
-      'React.js', 
-      'next.js', 
-      'Go', 
-      'Blake2B', 
-      'Argon2'
+      'LibP2P',
+      'React.js',
+      'next.js',
+      'Go',
+      'Blake2B',
+      'Argon2',
     ],
     name: 'GitSec',
   },
   {
-    link: 'https://github.com/uddugteam/juniDB',
+    link: null,
     description:
-      "Substrate pallet provides a configurable database module allows to store and manipulate a big amount of data. Pallet works as an offchain worker and connect data btwn blockchain and uses ipfs as a data storage and store on-chain only hashes.",
+      'Substrate pallet provides a configurable database module allows to store and manipulate a big amount of data. Pallet works as an offchain worker and connect data btwn blockchain and uses ipfs as a data storage and store on-chain only hashes.',
     technologies: ['Rust', 'Substrate', 'Offchain::ipfs', 'IPFS'],
     otherTechnologies: ['[ecies-ed25519]'],
     name: 'Juni::Db',
   },
-  {	
-	link: 'https://snark.art/',
-	description:
-	  'NFT marketplace. Snark.art uses the power of blockchain as a creative media to change the way art is made and collected.',
-	technologies: [
-	  'Go',
-  	'Ethereum',
-	  'Solidity',
-  	'Nats',
-  	'GRPC',
-  	'PostgreSql',
-  	'Swagger',
-  	'React',
-	  'EKS',
-	],
-	otherTechnologies: [
-	  'Node.js',
-  	'Microservices',
-	  'Redis',
-	  'AWS',
-	  'Kubernetes',
-	  'S3',
-	  'Docker',
-	  'Next.js',
-	  'Web3.js',
-	  'Angular2',
-	  'stripe',
-	  'ffmpeg',
-	],
-	name: 'Snark.art',
-	},
   {
-    link: null,
+    link: 'https://snark.art/',
+    description:
+      'NFT marketplace. Snark.art uses the power of blockchain as a creative media to change the way art is made and collected.',
+    technologies: [
+      'Go',
+      'Ethereum',
+      'Solidity',
+      'Nats',
+      'GRPC',
+      'PostgreSql',
+      'Swagger',
+      'React',
+      'EKS',
+    ],
+    otherTechnologies: [
+      'Node.js',
+      'Microservices',
+      'Redis',
+      'AWS',
+      'Kubernetes',
+      'S3',
+      'Docker',
+      'Next.js',
+      'Web3.js',
+      'Angular2',
+      'stripe',
+      'ffmpeg',
+    ],
+    name: 'Snark.art',
+  },
+  {
     description:
       'Health Consul implements medical tests decoding with issuing recommendations for the indicators obtained. Decentralized service focuses on anonymizing and depersonalizing user data (EHR). These accounts validate transactions through the interaction with Ml models via the built-in ML mechanisms, and subsequently produce predictions for certain conditions. If the user has given consent to a further data processing, machines will be retrained.',
     technologies: [
@@ -72,7 +77,7 @@ export const projects: Project[] = [
       'Healthcare.ai',
       'React',
       'Terraform',
-      ],
+    ],
     otherTechnologies: [
       'LibP2P',
       'POA',
@@ -81,7 +86,7 @@ export const projects: Project[] = [
       'Kubernetes',
       'GCP',
       'Docker',
-     ],
+    ],
     name: 'Health Consul',
   },
   {
@@ -89,17 +94,17 @@ export const projects: Project[] = [
     description:
       'Cross-chain open-source Oracle protocol is an infrastructure service usable to operate decentralized Information assets. Based on a set of smart contracts, the Quasar Dust’ algorithm optimizes on-chain data acquisition and provides the beneficiary with qualified indicative data at exceptional speed.',
     technologies: [
-       'Rust', 
-       'websockets', 
-       'nosql', 
-       'react.js', 
-       'next.js', 
-       'solana', 
-       'near', 
-       'ethereum', 
-       'solidity', 
-       'wasm'
-      ],
+      'Rust',
+      'websockets',
+      'nosql',
+      'react.js',
+      'next.js',
+      'solana',
+      'near',
+      'ethereum',
+      'solidity',
+      'wasm',
+    ],
     name: 'Quasar',
   },
   {
@@ -202,7 +207,6 @@ export const projects: Project[] = [
     name: 'Icex',
   },
   {
-    link: null,
     description:
       'Mobile messenger applications iOS/Android for the scientific community. Developed for government agencies.',
     technologies: ['Node.js', 'Kotlin', 'Swift'],
