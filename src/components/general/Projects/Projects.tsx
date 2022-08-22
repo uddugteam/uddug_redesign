@@ -45,7 +45,12 @@ const ProjectCard: React.VFC<ProjectProps> = props => {
   const isDesktop = useScreenSize() === 'desktop';
 
   return (
-    <div className={styles.card} ref={myRef}>
+    <div
+      className={classNames(styles.card, {
+        [styles.juni]: name === 'Juni::Db',
+      })}
+      ref={myRef}
+    >
       <div className={styles.cardHeader}>{name}</div>
       <div className={styles.description}>
         {description}
@@ -72,7 +77,9 @@ const ProjectCard: React.VFC<ProjectProps> = props => {
       </div>
       {!isDesktop && <ProjectLink link={link} />}
       {name === 'Juni::Db' && (
-        <Icon name={'web3-badge'} className={styles.badge} />
+        <div className={styles.badge}>
+          <Icon name={'web3-badge'} height={150} />
+        </div>
       )}
     </div>
   );

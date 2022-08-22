@@ -6,7 +6,6 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  overflow-x: hidden;
 
   @media (--tablet-vertical) {
     padding: 100px 30px 20px;
@@ -77,10 +76,20 @@
   transition: .3s;
   max-width: 1200px;
   overflow: hidden;
+  grid-template-areas:
+    'h'
+    'd'
+    't'
+    'l'
+    'o'
+    'b';
 
   @media (--desktop) {
     &:hover {
       border-color: var(--purple);
+      & .cardHeader {
+        color: var(--purple);
+      }
     }
   }
 
@@ -97,8 +106,21 @@
     grid-template-areas:
       'h h'
       'd t'
-      'l o';
+      'l o'
+      'b b';
     grid-column-gap: 40px;
+  }
+}
+
+.juni {
+  padding: 20px 20px 0;
+
+  @media (--tablet-vertical) {
+    padding: 32px 40px 0;
+  }
+
+  @media (--desktop) {
+    padding: 32px 40px 10px;
   }
 }
 
@@ -208,10 +230,14 @@
 
 .badge {
 
-  @media (--tablet-vertical) {
-    height: 50%;
-    position: absolute;
-    bottom: 0;
-    right: -50px;
+  @media (--desktop) {
+    grid-area: b;
+    margin-top: -100px;
+
+    width: 100%;
+    height: 120px;
+
+    display: flex;
+    justify-content: flex-end;
   }
 }
