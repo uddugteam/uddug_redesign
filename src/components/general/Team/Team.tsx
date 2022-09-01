@@ -2,14 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 
-import mike from '/public/team/mike.jpg';
-import andrew from '/public/team/andrew.jpg';
-import ivan from '/public/team/ivan.jpg';
-import anuar from '/public/team/anuar.jpg';
-import nikita from '/public/team/nikita.jpg';
-import constantine from '/public/team/constantine.jpg';
-import alexanderA from '/public/team/alexanderA.jpg';
-import alexanderK from '/public/team/alexanderK.jpg';
+// import mike from '/public/team/mike.jpg';
+// import andrew from '/public/team/andrew.jpg';
+// import ivan from '/public/team/ivan.jpg';
+// import anuar from '/public/team/anuar.jpg';
+// import nikita from '/public/team/nikita.jpg';
+// import constantine from '/public/team/constantine.jpg';
+// import alexanderA from '/public/team/alexanderA.jpg';
+// import alexanderK from '/public/team/alexanderK.jpg';
 
 import { useScrollState } from 'contexts/scrollStateContext';
 import Icon from 'components/general/Icon';
@@ -55,7 +55,7 @@ const SocialLinks: React.VFC<SocialLinks> = props => {
 interface TeamMemberProps {
   name: string;
   position: string;
-  img: typeof mike;
+  img: string;
   socialLinks: SocialLinks;
 }
 
@@ -65,7 +65,7 @@ const TeamMember: React.VFC<TeamMemberProps> = props => {
   return (
     <div className={styles.teamMember}>
       <div className={styles.teamMemberImageWrapper}>
-        <Image src={img} alt={name} />
+        <Image src={img} alt={name} width={82} height={82} />
       </div>
       <div className={styles.teamMemberInfos}>
         <div className={classNames(styles.name, styles.teamMemberName)}>
@@ -91,7 +91,12 @@ const Team = () => {
         </div>
         <div className={styles.founder} style={{ gridArea: 'f1' }}>
           <div className={styles.founderImageWrapper}>
-            <Image src={mike} alt='founder' />
+            <Image
+              src='/team/mike.jpg'
+              alt='founder'
+              width={300}
+              height={300}
+            />
           </div>
           <div className={styles.name}>Mike Manko</div>
           <div className={styles.position}>Head of Product</div>
@@ -104,7 +109,12 @@ const Team = () => {
         </div>
         <div className={styles.founder} style={{ gridArea: 'f2' }}>
           <div className={styles.founderImageWrapper}>
-            <Image src={andrew} alt='founder' />
+            <Image
+              src='/team/andrew.jpg'
+              alt='founder'
+              width={300}
+              height={300}
+            />
           </div>
           <div className={styles.name}>Andrey Skurlatov</div>
           <div className={styles.position}>Technical Lead</div>
@@ -122,7 +132,7 @@ const Team = () => {
           <TeamMember
             name={'Anuar Zhumaev'}
             position={'Lead Designer'}
-            img={anuar}
+            img='/team/anuar.jpg'
             socialLinks={{
               linkedIn: 'https://www.linkedin.com/in/yxorama/',
               twitter: null,
@@ -133,7 +143,7 @@ const Team = () => {
           <TeamMember
             name={'Nikita Velko'}
             position={'Senior Frontend Developer'}
-            img={nikita}
+            img='/team/nikita.jpg'
             socialLinks={{
               facebook: 'https://www.facebook.com/n1ckgreat',
               linkedIn: 'https://www.linkedin.com/in/nikichv/',
@@ -144,7 +154,7 @@ const Team = () => {
           <TeamMember
             name={'Alexander Aglerimov'}
             position={'Senior Backend Developer'}
-            img={alexanderA}
+            img='/team/alexanderA.jpg'
             socialLinks={{
               facebook: null,
               linkedIn: 'https://www.linkedin.com/in/formiat/',
@@ -157,7 +167,7 @@ const Team = () => {
           <TeamMember
             name={'Constantine Czerniak'}
             position={'Data Scientist'}
-            img={constantine}
+            img='/team/constantine.jpg'
             socialLinks={{
               linkedIn: 'https://www.linkedin.com/in/%D1%81czerniak/',
               github: 'https://github.com/Snaaby',
@@ -168,7 +178,7 @@ const Team = () => {
           <TeamMember
             name={'Ivan Podtsebnev'}
             position={'DevOps Engineer'}
-            img={ivan}
+            img='/team/ivan.jpg'
             socialLinks={{
               facebook: 'https://www.facebook.com/ivan.podtsebnev',
               linkedIn: 'https://www.linkedin.com/in/naykip/',
@@ -179,7 +189,7 @@ const Team = () => {
           <TeamMember
             name={'Alexander Kuzin'}
             position={'DevOps Engineer'}
-            img={alexanderK}
+            img='/team/alexanderK.jpg'
             socialLinks={{
               linkedIn: 'https://www.linkedin.com/in/alexanderkuzin',
               github: 'https://github.com/KuzinAU',
