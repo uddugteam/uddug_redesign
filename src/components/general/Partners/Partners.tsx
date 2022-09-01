@@ -80,17 +80,14 @@ const Partners = () => {
     () => (isAllPartnersOpen ? partners : partners.slice(0, isWide ? 8 : 7)),
     [isAllPartnersOpen, isWide]
   );
-
   const handleMouseOverPartnerLogo = (index: number) => {
     if (!isDesktop) return;
     setHoverState(hoverState.map((status, i) => i === index));
   };
-
   const handleMouseLeavePartnerLogo = () => {
     if (!isDesktop) return;
     setHoverState(new Array(partners.length).fill(false));
   };
-
   const handleTogglePartnersVisibilityButtonClick = () => {
     setIsAllPartnersOpen(!isAllPartnersOpen);
   };
