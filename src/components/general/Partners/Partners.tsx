@@ -8,7 +8,7 @@ import styles from './Partners.module.css';
 
 interface Partner {
   name: string;
-  url: string;
+  url: string | null;
 }
 
 const partners: Partner[] = [
@@ -22,15 +22,15 @@ const partners: Partner[] = [
   },
   {
     name: 'partner4',
-    url: 'google.com',
+    url: null,
   },
   {
     name: 'partner5',
-    url: 'google.com',
+    url: null,
   },
   {
     name: 'partner7',
-    url: 'google.com',
+    url: null,
   },
   {
     name: 'partner8',
@@ -38,7 +38,7 @@ const partners: Partner[] = [
   },
   {
     name: 'partner9',
-    url: 'google.com',
+    url: null,
   },
   {
     name: 'partner10',
@@ -58,7 +58,7 @@ const partners: Partner[] = [
   },
   {
     name: 'partner6',
-    url: 'google.com',
+    url: null,
   },
 ];
 
@@ -100,7 +100,14 @@ const Partners = () => {
       <div className={styles.partners}>
         {visiblePartners.map((partner, index) => (
           <div key={partner.name} className={styles.iconWrapper}>
-            <a target='_blank' rel='noreferrer' href={partner.url}>
+            <a
+              target='_blank'
+              rel='noreferrer'
+              href={partner.url ?? '#'}
+              onClick={e => {
+                if (!partner.url) e.preventDefault();
+              }}
+            >
               <Icon
                 name={
                   hoverState[index] ? `colored-${partner.name}` : partner.name

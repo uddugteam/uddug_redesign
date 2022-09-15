@@ -195,7 +195,7 @@
 
 .errorField {
   & .field {
-    border-color: var(--red);
+    border-color: var(--red) !important;
   }
 
   &:after {
@@ -270,4 +270,8 @@
   bottom: 0;
   position: absolute;
   z-index: 0;
+}
+
+.hide {
+  display: none !important;
 }
