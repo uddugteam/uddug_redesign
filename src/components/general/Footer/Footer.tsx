@@ -159,8 +159,8 @@ const Footer = () => {
                 <div
                   className={classNames('mc-field-group', styles.fieldWrapper)}
                 >
-                  <label htmlFor='mce-LNAME' className={styles.hide}>
-                    Last Name{' '}
+                  <label htmlFor='mce-MMERGE6' className={styles.hide}>
+                    Message{' '}
                   </label>
                   <input
                     type='text'
@@ -169,16 +169,16 @@ const Footer = () => {
                       if (e.currentTarget.value.length > 100) return;
                       setText(e.currentTarget.value);
                     }}
-                    name='LNAME'
+                    name='MMERGE6'
                     className={styles.field}
-                    id='mce-LNAME'
+                    id='mce-MMERGE6'
                     placeholder='Your message here'
                   />
                   <span className={styles.charactersLimit}>
                     {text.length} / 100
                   </span>
                   <span
-                    id='mce-LNAME-HELPERTEXT'
+                    id='mce-MMERGE6-HELPERTEXT'
                     className='helper_text'
                   ></span>
                 </div>
