@@ -7,6 +7,8 @@ export default function Document() {
     <Html lang='en'>
       <Head>
         <meta name='theme-color' content='white' />
+        <link rel='icon' href='./team/favicon.png' type='image/png' />
+        <link rel='icon' href='/team/favicon.png' type='image/png' />
       </Head>
       <link rel='preconnect' href='https://fonts.googleapis.com' />
       <link
