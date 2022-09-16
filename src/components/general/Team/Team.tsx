@@ -122,7 +122,7 @@ const Team = () => {
         <div style={{ gridArea: 'c1' }} className={styles.teamColumn}>
           <TeamMember
             name={'Anuar Zhumaev'}
-            position={'Lead Designer'}
+            position={'Art Director'}
             img='./team/anuar.jpg'
             socialLinks={{
               linkedIn: 'https://www.linkedin.com/in/yxorama/',
@@ -133,7 +133,7 @@ const Team = () => {
           />
           <TeamMember
             name={'Nikita Velko'}
-            position={'Senior Frontend Developer'}
+            position={'Frontend Developer'}
             img='./team/nikita.jpg'
             socialLinks={{
               facebook: 'https://www.facebook.com/n1ckgreat',
