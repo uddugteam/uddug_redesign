@@ -143,13 +143,24 @@ const Team = () => {
             }}
           />
           <TeamMember
-            name={'Alexander Aglerimov'}
-            position={'Senior Backend Developer'}
-            img='./team/alexanderA.jpg'
+            name={'Antero Selin'}
+            position={'Full Stack Developer'}
+            img='./team/antero.png'
             socialLinks={{
               facebook: null,
-              linkedIn: 'https://www.linkedin.com/in/formiat/',
-              github: 'https://github.com/formiat',
+              linkedIn: 'www.linkedin.com/in/antero-s',
+              github: 'https://github.com/superdev0701',
+              twitter: null,
+            }}
+          />
+          <TeamMember
+            name={'Daniel Mironov'}
+            position={'Full Stack Developer'}
+            img='./team/daniel.jpeg'
+            socialLinks={{
+              facebook: null,
+              linkedIn: 'https://www.linkedin.com/in/daniel-mironov7/',
+              github: 'https://github.com/1ance3t',
               twitter: null,
             }}
           />
