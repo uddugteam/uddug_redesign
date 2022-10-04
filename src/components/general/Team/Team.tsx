@@ -155,7 +155,7 @@ const Team = () => {
           />
           <TeamMember
             name={'Daniel Mironov'}
-            position={'Full Stack Developer'}
+            position={'QA Engineer'}
             img='./team/daniel.jpeg'
             socialLinks={{
               facebook: null,
@@ -185,17 +185,6 @@ const Team = () => {
               facebook: 'https://www.facebook.com/ivan.podtsebnev',
               linkedIn: 'https://www.linkedin.com/in/naykip/',
               github: 'https://github.com/naykip',
-              twitter: null,
-            }}
-          />
-          <TeamMember
-            name={'Alexander Kuzin'}
-            position={'DevOps Engineer'}
-            img='./team/alexanderK.jpg'
-            socialLinks={{
-              linkedIn: 'https://www.linkedin.com/in/alexanderkuzin',
-              github: 'https://github.com/KuzinAU',
-              facebook: 'https://facebook.com/alexanderkuzinrus',
               twitter: null,
             }}
           />
