@@ -114,8 +114,13 @@ const Projects = () => {
   const isWide = screenSize === 'desktop' || screenSize === 'tablet-landscape';
 
   const visibleProjects = useMemo(
-    () => (isAllProjectsOpen ? projects : projects.slice(0, 4)),
-    [isAllProjectsOpen]
+    () =>
+      isAllProjectsOpen
+        ? projects
+        : isWide
+        ? projects.slice(0, 4)
+        : projects.slice(0, 2),
+    [isAllProjectsOpen, isWide]
   );
 
   const handleProjectsVisibilityButtonClick = () => {

@@ -143,17 +143,6 @@ const Team = () => {
             }}
           />
           <TeamMember
-            name={'Antero Selin'}
-            position={'Full Stack Developer'}
-            img='./team/antero.png'
-            socialLinks={{
-              facebook: null,
-              linkedIn: 'www.linkedin.com/in/antero-s',
-              github: 'https://github.com/superdev0701',
-              twitter: null,
-            }}
-          />
-          <TeamMember
             name={'Daniel Mironov'}
             position={'QA Engineer'}
             img='./team/daniel.jpeg'
@@ -185,6 +174,17 @@ const Team = () => {
               facebook: 'https://www.facebook.com/ivan.podtsebnev',
               linkedIn: 'https://www.linkedin.com/in/naykip/',
               github: 'https://github.com/naykip',
+              twitter: null,
+            }}
+          />
+          <TeamMember
+            name={'Antero Selin'}
+            position={'Full Stack Developer'}
+            img='./team/antero.png'
+            socialLinks={{
+              facebook: null,
+              linkedIn: 'www.linkedin.com/in/antero-s',
+              github: 'https://github.com/superdev0701',
               twitter: null,
             }}
           />
