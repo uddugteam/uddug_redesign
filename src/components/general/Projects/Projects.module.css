@@ -125,6 +125,11 @@
 
   @media (--desktop) {
     padding: 32px 40px 10px;
+    grid-template-columns: 437px 1fr;
+    grid-template-areas:
+      'h h'
+      'd t'
+      'l o';
   }
 }
 
