@@ -70,7 +70,7 @@
   border-radius: 16px;
   width: 100%;
   display: grid;
-  padding: 20px;
+  padding: 20px 20px 4px;
   grid-gap: 16px;
   align-items: start;
   transition: .3s;
@@ -81,8 +81,7 @@
     'd'
     't'
     'l'
-    'o'
-    'b';
+    'o';
 
   &:hover {
     border-color: var(--purple);
@@ -93,11 +92,11 @@
   }
 
   @media (--tablet-vertical) {
-    padding: 32px;
+    padding: 32px 32px 16px;
   }
 
   @media (--tablet-landscape) {
-    padding: 32px 40px;
+    padding: 32px 40px 16px;
   }
 
   @media (--desktop) {
@@ -112,6 +111,13 @@
 
 .juni {
   padding: 20px 20px 0;
+  grid-template-areas:
+    'h'
+    'd'
+    't'
+    'l'
+    'o'
+    'b';
 
   @media (--tablet-vertical) {
     padding: 32px 40px 0;

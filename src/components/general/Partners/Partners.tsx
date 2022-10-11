@@ -93,7 +93,7 @@ const Partners = () => {
   };
 
   return (
-    <div className={styles.root} ref={partnersRef}>
+    <div className={styles.root} ref={partnersRef} id='partners'>
       <div className={styles.header}>
         Trusted development <span className='orangeText'>partners</span>
       </div>

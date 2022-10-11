@@ -97,7 +97,7 @@ const Careers = () => {
   const isWide = screenSize === 'desktop' || screenSize === 'tablet-landscape';
 
   return (
-    <div className={styles.root} ref={careers}>
+    <div className={styles.root} ref={careers} id='careers'>
       <Icon name='lines-grid' className={classNames('grid', 'topGrid')} />
       <div className={styles.header}>
         We are <span className='purpleText'>hiring</span> professionals for our{' '}

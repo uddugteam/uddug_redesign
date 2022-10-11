@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import classNames from 'classnames';
+import * as Scroll from 'react-scroll';
+
+const { scroller } = Scroll;
 
 import { useScreenSize } from 'hooks/useScreenSize';
 import { useScrollState } from 'contexts/scrollStateContext';
@@ -14,12 +17,44 @@ const MainBlock: React.VFC = () => {
     refs: { partners },
   } = useScrollState();
 
+  const rootRef = useRef<HTMLDivElement>(null);
+
   const scrollToPartners = () => {
-    partners.current?.scrollIntoView({ behavior: 'smooth' });
+    scroller.scrollTo('partners', {
+      duration: 1500,
+      containerId: 'home-page',
+      smooth: true,
+    });
   };
 
+  useEffect(() => {
+    const resizeHandler = () => {
+      if (rootRef.current)
+        rootRef.current.style.height =
+          document.documentElement.clientHeight - 58 + 'px';
+    };
+
+    window.addEventListener('resize', resizeHandler);
+    window.addEventListener('orientationchange', resizeHandler);
+
+    resizeHandler();
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+      window.removeEventListener('orientationchange', resizeHandler);
+    };
+  }, []);
+
   return (
-    <div className={styles.root}>
+    <div
+      className={styles.root}
+      ref={rootRef}
+      style={{
+        height:
+          typeof window !== 'undefined'
+            ? window.innerHeight
+            : 'calc(100vh - 60px - 58px)',
+      }}
+    >
       <span className={styles.mainLabel}>
         We are{isMobile ? <br /> : ' '}production-focused{' '}
         <span className='orangeText'>development</span> team

@@ -135,6 +135,14 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
+
+  & path {
+    transition: .3s;
+  }
+
+  &:hover path {
+    fill: var(--purple);
+  }
 }
 
 .team {

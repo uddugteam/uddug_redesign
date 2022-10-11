@@ -75,7 +75,7 @@ const Team = () => {
   } = useScrollState();
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id='team'>
       <div className={styles.root} ref={team}>
         <div className={styles.header} style={{ gridArea: 'h1' }}>
           Meet our <span className='orangeText'>leadership</span>

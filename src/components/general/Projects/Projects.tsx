@@ -131,7 +131,7 @@ const Projects = () => {
   };
 
   return (
-    <div ref={projectsRef} className={styles.root}>
+    <div ref={projectsRef} className={styles.root} id='projects'>
       <Icon name={'lines-grid'} className={classNames('grid', 'topGrid')} />
       <div className={styles.header}>
         Our <span className='purpleText'>projects</span> and{' '}

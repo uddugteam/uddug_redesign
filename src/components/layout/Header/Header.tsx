@@ -11,6 +11,8 @@ import { useScreenSize } from 'hooks/useScreenSize';
 
 import styles from './Header.module.css';
 
+const scrollSpeed = 1;
+
 const Header: React.VFC = () => {
   const router = useRouter();
 
@@ -25,27 +27,16 @@ const Header: React.VFC = () => {
   const screenSize = useScreenSize();
   const isWide = screenSize === 'desktop' || screenSize === 'tablet-landscape';
 
-  const scrollToElement = async (ref: keyof ScrollRefs) => {
+  const smoothScrollElement = async (elementId: keyof ScrollRefs) => {
+    const homePage = document.getElementById('home-page');
+    const scrollToPx = refs[elementId].current?.getBoundingClientRect().top;
+    if (!homePage || !scrollToPx) return;
+    const duration = Math.abs(homePage.scrollTop - scrollToPx) / scrollSpeed;
     if (isPrivacyPolicyPage) {
       await router.push('/');
-      refs[ref].current?.scrollIntoView({ behavior: 'smooth' });
-      return;
     }
-    refs[ref].current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const smoothScrollToTheContactUs = async () => {
-    if (isPrivacyPolicyPage) {
-      await router.push('/');
-      scroller.scrollTo('contactUs', {
-        duration: isWide ? 2000 : 4000,
-        containerId: 'home-page',
-        smooth: true,
-      });
-      return;
-    }
-    scroller.scrollTo('contactUs', {
-      duration: isWide ? 1000 : 3000,
+    scroller.scrollTo(elementId, {
+      duration: duration,
       containerId: 'home-page',
       smooth: true,
     });
@@ -66,25 +57,25 @@ const Header: React.VFC = () => {
           {isWide && (
             <>
               <div
-                onClick={() => scrollToElement('projects')}
+                onClick={() => smoothScrollElement('projects')}
                 className={styles.navButton}
               >
                 Projects
               </div>
               <div
-                onClick={() => scrollToElement('team')}
+                onClick={() => smoothScrollElement('team')}
                 className={styles.navButton}
               >
                 Team
               </div>
               <div
-                onClick={() => scrollToElement('careers')}
+                onClick={() => smoothScrollElement('careers')}
                 className={styles.navButton}
               >
                 Careers
               </div>
               <div
-                onClick={() => scrollToElement('internship')}
+                onClick={() => smoothScrollElement('internship')}
                 className={styles.navButton}
               >
                 Internship
@@ -92,7 +83,7 @@ const Header: React.VFC = () => {
             </>
           )}
           <div
-            onClick={smoothScrollToTheContactUs}
+            onClick={() => smoothScrollElement('contactUs')}
             className={styles.contactUs}
           >
             Contact us

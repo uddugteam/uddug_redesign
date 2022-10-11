@@ -15,14 +15,14 @@ const Internship = () => {
 
   const smoothScrollToTheContactUs = () => {
     scroller.scrollTo('contactUs', {
-      duration: 300,
+      duration: 1000,
       containerId: 'home-page',
       smooth: true,
     });
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id='internship'>
       <div ref={internship} className={styles.root}>
         <div className={styles.textBlock}>
           <div className={styles.header}>Internship with us</div>

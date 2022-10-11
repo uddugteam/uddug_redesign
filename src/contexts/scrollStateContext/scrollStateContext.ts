@@ -21,7 +21,7 @@ export const ScrollStateContext = React.createContext<ScrollContext>(
 export const useScrollState = () => {
   const context = React.useContext(ScrollStateContext);
   if (context === undefined) {
-    throw new Error('useCountState must be used within a CountProvider');
+    throw new Error('useScrollState must be used within a ScrollProvider');
   }
   return context;
 };

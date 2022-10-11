@@ -85,6 +85,7 @@
   border: 1px solid var(--grey);
   border-radius: 16px;
   display: grid;
+  grid-row-gap: 8px;
   padding: 20px 20px 24px;
   transition: .3s;
   cursor: pointer;
@@ -111,6 +112,7 @@
   }
 
   @media (--tablet-vertical) {
+    grid-row-gap: 0;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
       'n n a'
