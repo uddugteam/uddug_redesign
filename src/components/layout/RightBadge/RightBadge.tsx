@@ -18,7 +18,7 @@ const RightBadge = () => {
         className={classNames(styles.formWrapper, { [styles.visible]: isShow })}
         ref={ref}
       >
-        <ContactForm />
+        <ContactForm onFormSend={() => setIsShow(false)} />
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import Icon from 'components/general/Icon';
@@ -6,9 +6,13 @@ import styles from 'components/general/Footer/Footer.module.css';
 
 interface ContactFormProps {
   className?: string;
+  onFormSend?: () => void;
 }
 
-const ContactForm: React.VFC<ContactFormProps> = ({ className }) => {
+const ContactForm: React.VFC<ContactFormProps> = ({
+  onFormSend,
+  className,
+}) => {
   const submitRef = useRef<HTMLInputElement>(null);
 
   const [email, setEmail] = useState('');
@@ -27,11 +31,28 @@ const ContactForm: React.VFC<ContactFormProps> = ({ className }) => {
     if (email.length === 0) return setEmailError('required');
     if (name.length === 0) return setNameError('required');
     submitRef.current?.click();
+    handleSendForm();
     setIsFormSent(true);
     setTimeout(() => {
       setIsFormSent(false);
     }, 3000);
   };
+
+  const handleSendForm = () => {
+    setEmail('');
+    setName('');
+    setText('');
+    setEmailError(null);
+    setNameError(null);
+    if (onFormSend) onFormSend();
+  };
+
+  useEffect(() => {
+    if (onFormSend) {
+      window.addEventListener('blur', handleSendForm);
+      return () => window.removeEventListener('blur', handleSendForm);
+    }
+  }, []);
 
   return (
     <div id='mc_embed_signup' style={{ width: '100%' }} className={className}>
