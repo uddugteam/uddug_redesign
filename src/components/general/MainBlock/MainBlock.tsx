@@ -13,9 +13,6 @@ import styles from './MainBlock.module.css';
 const MainBlock: React.VFC = () => {
   const screenSize = useScreenSize();
   const isMobile = screenSize === 'mobile';
-  const {
-    refs: { partners },
-  } = useScrollState();
 
   const rootRef = useRef<HTMLDivElement>(null);
 

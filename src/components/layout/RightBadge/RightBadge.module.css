@@ -1,0 +1,53 @@
+.root {
+  position: fixed;
+  top: 50%;
+  right: 0;
+
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: var(--orange);
+  transform: translateY(-50%) translateX(50%) rotate(-90deg) translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-weight: 600;
+
+  z-index: 100;
+  transition: background-color .3s;
+
+  overflow: visible;
+
+  &:hover {
+    background-color: var(--orange-hover);
+  }
+}
+
+.text {
+  margin: 8px 10px;
+  cursor: pointer;
+}
+
+.formWrapper {
+  position: fixed;
+  top: 50%;
+  right: 0;
+
+  width: 300px;
+  background-color: white;
+  transform: translateY(-50%) translateX(102%);
+  box-shadow: -2px -2px 4px rgba(0, 0, 0, .3), 2px 2px 4px rgba(0, 0, 0, .3);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+  padding: 10px;
+
+  transition: transform .3s;
+  z-index: 101;
+
+  &.visible {
+    transform: translateY(-50%);
+  }
+}
