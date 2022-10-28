@@ -1,0 +1,53 @@
+<svg width="1440" height="237" viewBox="0 0 1440 237" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_2410_4272)">
+        <mask id="mask0_2410_4272" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="-2" width="1440" height="240">
+            <rect y="-1.5" width="1440" height="239" fill="url(#paint0_linear_2410_4272)"/>
+        </mask>
+        <g mask="url(#mask0_2410_4272)">
+            <path d="M646.53 0.480957L360.477 247.085" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M425 0.000488281L-671 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M351 0.000488281L-1019 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M277 0.000488281L-1367 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M499 0.000488281L-323 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M203 0.000488281L-1715 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M54.9999 0.000488281L-2410 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M129 0.000488281L-2063 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1238 0.000488281L3155 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M719.988 -1.49365V247.085" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1312 0.000488281L3503 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1386 0.000488281L3851 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1164 0.000488281L2807 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1090 0.000488281L2459 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M942 0.000488281L1763 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1016 0.000488281L2111 237" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M794.43 0.480957L1079.5 247.085" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M572.582 0.480957L0.972656 247.085" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M868.375 0.480957L1439.01 247.085" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 32.2278H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 10.9202H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 15.2649H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 20.178H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 3.58134H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 7.05009H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 171.643H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 39.7229H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 25.7825H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 0.454384H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 48.5452H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 59.0862H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 134.8H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 71.8977H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 87.803H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M0.660605 108.075H1440.54" stroke="#D1DAEF" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+    </g>
+    <defs>
+        <linearGradient id="paint0_linear_2410_4272" x1="720" y1="-1.5" x2="720" y2="237.5" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#F8FAFC" stop-opacity="0"/>
+            <stop offset="1" stop-color="white"/>
+        </linearGradient>
+        <clipPath id="clip0_2410_4272">
+            <rect width="1440" height="237" fill="white"/>
+        </clipPath>
+    </defs>
+</svg>

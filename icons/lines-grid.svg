@@ -1,0 +1,34 @@
+<svg viewBox="0 0 1200 178" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_2365_5757)">
+        <mask id="mask0_2365_5757" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="352">
+            <ellipse cx="600" cy="176" rx="600" ry="176" fill="url(#paint0_radial_2365_5757)"/>
+        </mask>
+        <g mask="url(#mask0_2365_5757)">
+            <line x1="334.785" y1="-612.976" x2="334.785" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="510.562" y1="-612.976" x2="510.562" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="422.672" y1="-612.976" x2="422.672" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="686.332" y1="-612.976" x2="686.332" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="598.441" y1="-612.976" x2="598.441" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="949.992" y1="-612.976" x2="949.992" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="71.125" y1="-612.976" x2="71.125" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="774.215" y1="-612.976" x2="774.215" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="1125.75" y1="-612.976" x2="1125.75" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="159.012" y1="-612.976" x2="159.012" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="862.102" y1="-612.976" x2="862.102" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="246.898" y1="-612.976" x2="246.898" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="1037.88" y1="-612.976" x2="1037.88" y2="881.082" stroke="#E1E7F4"/>
+            <line x1="1301.03" y1="90.6113" x2="-193.03" y2="90.6112" stroke="#E1E7F4"/>
+            <line x1="1301.03" y1="2.72461" x2="-193.03" y2="2.7245" stroke="#E1E7F4"/>
+            <line x1="1301.03" y1="178.494" x2="-193.03" y2="178.494" stroke="#E1E7F4"/>
+        </g>
+    </g>
+    <defs>
+        <radialGradient id="paint0_radial_2365_5757" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 176) rotate(90) scale(176 600)">
+            <stop offset="0.276042"/>
+            <stop offset="1" stop-opacity="0"/>
+        </radialGradient>
+        <clipPath id="clip0_2365_5757">
+            <rect width="1200" height="178" fill="white"/>
+        </clipPath>
+    </defs>
+</svg>
