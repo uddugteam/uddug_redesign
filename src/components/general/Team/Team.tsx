@@ -83,7 +83,7 @@ const Team = () => {
         <div className={styles.founder} style={{ gridArea: 'f1' }}>
           <div className={styles.founderImageWrapper}>
             <Image
-              src='./team/mike.jpg'
+              src='./team/mike.png'
               alt='founder'
               width={300}
               height={300}
@@ -101,7 +101,7 @@ const Team = () => {
         <div className={styles.founder} style={{ gridArea: 'f2' }}>
           <div className={styles.founderImageWrapper}>
             <Image
-              src='./team/andrew.jpg'
+              src='./team/andrew.png'
               alt='founder'
               width={300}
               height={300}
@@ -123,7 +123,7 @@ const Team = () => {
           <TeamMember
             name={'Anuar Zhumaev'}
             position={'Art Director'}
-            img='./team/anuar.jpg'
+            img='./team/anuar.png'
             socialLinks={{
               linkedIn: 'https://www.linkedin.com/in/yxorama/',
               twitter: null,
@@ -134,7 +134,7 @@ const Team = () => {
           <TeamMember
             name={'Nikita Velko'}
             position={'Frontend Developer'}
-            img='./team/nikita.jpg'
+            img='./team/nikita.png'
             socialLinks={{
               facebook: 'https://www.facebook.com/n1ckgreat',
               linkedIn: 'https://www.linkedin.com/in/nikichv/',
@@ -145,7 +145,7 @@ const Team = () => {
           <TeamMember
             name={'Daniel Mironov'}
             position={'QA Engineer'}
-            img='./team/daniel.jpeg'
+            img='./team/daniel.png'
             socialLinks={{
               facebook: null,
               linkedIn: 'https://www.linkedin.com/in/daniel-mironov7/',
@@ -155,7 +155,7 @@ const Team = () => {
           />
         </div>
         <div style={{ gridArea: 'c2' }} className={styles.teamColumn}>
-          <TeamMember
+          {/*<TeamMember
             name={'Constantine Czerniak'}
             position={'Data Scientist'}
             img='./team/constantine.jpg'
@@ -165,11 +165,11 @@ const Team = () => {
               facebook: null,
               twitter: null,
             }}
-          />
+          />*/}
           <TeamMember
             name={'Ivan Podtsebnev'}
             position={'DevOps Engineer'}
-            img='./team/ivan.jpg'
+            img='./team/ivan.png'
             socialLinks={{
               facebook: 'https://www.facebook.com/ivan.podtsebnev',
               linkedIn: 'https://www.linkedin.com/in/naykip/',
