@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import * as Scroll from 'react-scroll';
@@ -52,15 +53,57 @@ const MainBlock: React.VFC = () => {
             : 'calc(100vh - 60px - 58px)',
       }}
     >
-      <span className={styles.mainLabel}>
+      <motion.span
+          className={styles.mainLabel}
+          initial="hidden" animate="visible" variants={{
+            hidden: {
+              scale: .8,
+              opacity: 0
+            },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                delay: .6
+              }
+            },
+          }}>
         We are{isMobile ? <br /> : ' '}production-focused{' '}
         <span className='orangeText'>development</span> team
-      </span>
-      <span className={styles.descriptionText}>
+      </motion.span>
+      <motion.span
+          className={styles.descriptionText}
+          initial="hidden" animate="visible" variants={{
+            hidden: {
+              scale: .8,
+              opacity: 0
+            },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                delay: .8
+              }
+            },
+          }}>
         Team have deep industry IT expertise in the development of startups,
         independent private projects, public business.
-      </span>
-      <div className={styles.directionsList}>
+      </motion.span>
+      <motion.div
+          className={styles.directionsList}
+          initial="hidden" animate="visible" variants={{
+            hidden: {
+              scale: .6,
+              opacity: 0
+            },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                delay: 1
+              }
+            },
+          }}>
         <div
           className={classNames(styles.technicalConsulting, styles.gridElement)}
         >
@@ -87,7 +130,7 @@ const MainBlock: React.VFC = () => {
           <Icon name={'machine'} className={styles.icon} />
           Machine Learning
         </div>
-      </div>
+      </motion.div>
       <Icon name='grid' className={styles.grid} />
       <Icon
         name='arrow-scroll'

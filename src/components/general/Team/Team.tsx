@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
@@ -77,10 +78,18 @@ const Team = () => {
   return (
     <div className={styles.wrapper} id='team'>
       <div className={styles.root} ref={team}>
-        <div className={styles.header} style={{ gridArea: 'h1' }}>
+        <motion.div
+            className={styles.header}
+            style={{ gridArea: 'h1' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}>
           Meet our <span className='orangeText'>leadership</span>
-        </div>
-        <div className={styles.founder} style={{ gridArea: 'f1' }}>
+        </motion.div>
+        <motion.div
+            className={styles.founder}
+            style={{ gridArea: 'f1' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}>
           <div className={styles.founderImageWrapper}>
             <Image
               src='./team/mike.png'
@@ -97,8 +106,12 @@ const Team = () => {
             twitter={null}
             github={'https://github.com/MikeMS-sys'}
           />
-        </div>
-        <div className={styles.founder} style={{ gridArea: 'f2' }}>
+        </motion.div>
+        <motion.div
+            className={styles.founder}
+            style={{ gridArea: 'f2' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}>
           <div className={styles.founderImageWrapper}>
             <Image
               src='./team/andrew.png'
@@ -115,11 +128,19 @@ const Team = () => {
             twitter={'https://twitter.com/Andskur1'}
             github={'https://github.com/andskur'}
           />
-        </div>
-        <div className={styles.header} style={{ gridArea: 'h2' }}>
+        </motion.div>
+        <motion.div
+            className={styles.header}
+            style={{ gridArea: 'h2' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}>
           Our <span className='purpleText'>team</span>
-        </div>
-        <div style={{ gridArea: 'c1' }} className={styles.teamColumn}>
+        </motion.div>
+        <motion.div
+            style={{ gridArea: 'c1' }}
+            className={styles.teamColumn}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}>
           <TeamMember
             name={'Anuar Zhumaev'}
             position={'Art Director'}
@@ -153,8 +174,12 @@ const Team = () => {
               twitter: null,
             }}
           />
-        </div>
-        <div style={{ gridArea: 'c2' }} className={styles.teamColumn}>
+        </motion.div>
+        <motion.div
+            style={{ gridArea: 'c2' }}
+            className={styles.teamColumn}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}>
           {/*<TeamMember
             name={'Constantine Czerniak'}
             position={'Data Scientist'}
@@ -188,7 +213,7 @@ const Team = () => {
               twitter: null,
             }}
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

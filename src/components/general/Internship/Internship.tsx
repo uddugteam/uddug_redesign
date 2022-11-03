@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import * as Scroll from 'react-scroll';
 
@@ -22,7 +23,11 @@ const Internship = () => {
   };
 
   return (
-    <div className={styles.wrapper} id='internship'>
+    <motion.div
+        className={styles.wrapper}
+        id='internship'
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}>
       <div ref={internship} className={styles.root}>
         <div className={styles.textBlock}>
           <div className={styles.header}>Internship with us</div>
@@ -40,7 +45,7 @@ const Internship = () => {
         </div>
         <Icon name={'internship'} className={styles.photo} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

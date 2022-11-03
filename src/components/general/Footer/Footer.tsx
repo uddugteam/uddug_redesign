@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import classNames from 'classnames';
 import { Element } from 'react-scroll';
@@ -18,7 +19,10 @@ const Footer = () => {
       <div className={styles.wrapper}>
         <div ref={contactUs} className={styles.root}>
           <div className={styles.content}>
-            <div className={styles.contactInfo}>
+            <motion.div
+                className={styles.contactInfo}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}>
               <div className={styles.header}>Contact us</div>
               <div className={styles.description}>
                 Write about your idea concept or ask a question via the feedback
@@ -52,8 +56,11 @@ const Footer = () => {
                   <Icon name={'github'} className={styles.icon} />
                 </a>
               </div>
-            </div>
-            <div className={styles.footerInfo}>
+            </motion.div>
+            <motion.div
+                className={styles.footerInfo}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}>
               <div className={styles.infoLinks}>
                 <a
                   className={styles.infoLink}
@@ -65,7 +72,7 @@ const Footer = () => {
                 </a>
               </div>
               <div>Uddug © 2013</div>
-            </div>
+            </motion.div>
           </div>
 
           <ContactForm />

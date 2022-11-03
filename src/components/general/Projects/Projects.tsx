@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React, { RefObject, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
@@ -45,11 +46,13 @@ const ProjectCard: React.VFC<ProjectProps> = props => {
   const isDesktop = useScreenSize() === 'desktop';
 
   return (
-    <div
+    <motion.div
       className={classNames(styles.card, {
         [styles.juni]: name === 'Juni::Db',
       })}
       ref={myRef}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
     >
       <div className={styles.cardHeader}>{name}</div>
       <div className={styles.description}>
@@ -81,7 +84,7 @@ const ProjectCard: React.VFC<ProjectProps> = props => {
           <Icon name={'web3-badge'} height={120} />
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
@@ -133,10 +136,13 @@ const Projects = () => {
   return (
     <div ref={projectsRef} className={styles.root} id='projects'>
       <Icon name={'lines-grid'} className={classNames('grid', 'topGrid')} />
-      <div className={styles.header}>
+      <motion.div
+          className={styles.header}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}>
         Our <span className='purpleText'>projects</span> and{' '}
         <span className='orangeText'>technologies</span>
-      </div>
+      </motion.div>
       <div className={styles.projectsList}>
         {visibleProjects.map((project, index) => (
           <ProjectCardWrapper

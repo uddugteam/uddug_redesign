@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -11,14 +12,17 @@ const Mission = () => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.header}>
+      <motion.div
+          className={styles.header}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}>
         <>
           We are devoted to creating{isMobile ? <br /> : ' '}
           <span className='purpleText'>help humanity</span>
           <br />
           <span className='orangeText'>get to the future</span> faster
         </>
-      </div>
+      </motion.div>
       <Icon name={'lines-grid'} className={classNames('grid', 'bottomGrid')} />
     </div>
   );

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -99,16 +100,25 @@ const Careers = () => {
   return (
     <div className={styles.root} ref={careers} id='careers'>
       <Icon name='lines-grid' className={classNames('grid', 'topGrid')} />
-      <div className={styles.header}>
+      <motion.div
+          className={styles.header}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}>
         We are <span className='purpleText'>hiring</span> professionals for our{' '}
         <span className='orangeText'>team</span>
-      </div>
-      <div className={styles.description}>
+      </motion.div>
+      <motion.div
+          className={styles.description}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}>
         &quot;Uddug&quot; has enjoyed steady, solid growth in its years of
         business, and talented, productive people made it possible. Please check
         the open positions
-      </div>
-      <div className={styles.vacationsList}>
+      </motion.div>
+      <motion.div
+          className={styles.vacationsList}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}>
         {vacations.map(vacation => (
           <VacationCard key={vacation.name} {...vacation} />
         ))}
@@ -118,8 +128,11 @@ const Careers = () => {
             className='backgroundLines'
           />
         </div>
-      </div>
-      <div className={styles.contactsText}>
+      </motion.div>
+      <motion.div
+          className={styles.contactsText}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}>
         Send your CV to{' '}
         <a
           href='mailto:hr@uddug.com'
@@ -136,7 +149,7 @@ const Careers = () => {
         >
           LinkedIn
         </a>
-      </div>
+      </motion.div>
     </div>
   );
 };

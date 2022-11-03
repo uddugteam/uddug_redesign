@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React, { useMemo, useState } from 'react';
 
 import Icon from 'components/general/Icon';
@@ -94,10 +95,16 @@ const Partners = () => {
 
   return (
     <div className={styles.root} ref={partnersRef} id='partners'>
-      <div className={styles.header}>
+      <motion.div
+          className={styles.header}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}>
         Trusted development <span className='orangeText'>partners</span>
-      </div>
-      <div className={styles.partners}>
+      </motion.div>
+      <motion.div
+          className={styles.partners}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}>
         {visiblePartners.map((partner, index) => (
           <div key={partner.name} className={styles.iconWrapper}>
             <a
@@ -121,7 +128,7 @@ const Partners = () => {
             </a>
           </div>
         ))}
-      </div>
+      </motion.div>
       <div
         className={styles.togglePartnersVisibilityButton}
         onClick={handleTogglePartnersVisibilityButtonClick}
