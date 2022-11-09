@@ -1,5 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
+// eslint-disable-next-line @next/next/no-script-in-document
 import Script from "next/script";
 
 // noinspection JSUnusedGlobalSymbols
@@ -12,6 +13,7 @@ export default function Document() {
               src={`https://www.googletagmanager.com/gtag/js?id=XXXXXXXXXX`}
           />
 
+          {/* eslint-disable-next-line @next/next/inline-script-id */}
           <Script strategy="lazyOnload">
               {`
                   window.dataLayer = window.dataLayer || [];
