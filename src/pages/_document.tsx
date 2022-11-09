@@ -1,11 +1,26 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
+import Script from "next/script";
 
 // noinspection JSUnusedGlobalSymbols
 export default function Document() {
   return (
     <Html lang='en'>
       <Head>
+          <Script
+              strategy="lazyOnload"
+              src={`https://www.googletagmanager.com/gtag/js?id=XXXXXXXXXX`}
+          />
+
+          <Script strategy="lazyOnload">
+              {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+        
+                  gtag('config', 'UA-177155812-1');
+                `}
+          </Script>
           {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
           <title>Blockchain, IT, Web3 Development Company | Blockchain Software Developers| Udduq team</title>
           <meta name='theme-color' content='white' />
