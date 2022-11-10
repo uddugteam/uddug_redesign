@@ -29,10 +29,10 @@ const Footer = () => {
                 form or in another convenient way
               </div>
               <a
-                href='mailto:info@uddug.com'
+                href='mailto:biz@uddug.com'
                 className={classNames(styles.link, 'purpleText')}
               >
-                info@uddug.com
+                biz@uddug.com
               </a>
               <a
                 href='mailto:hr@uddug.com'
