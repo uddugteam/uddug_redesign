@@ -35,16 +35,14 @@ export const projects: Project[] = [
       'Ethereum',
       'Solidity',
       'GPRS’,
-      'PostgreSql’,
+      'PostgreSql',
       'Swagger',
-      'React’,
-      'EKS’,
+      'React',
+      'EKS',
       ],
-      otherTechnologies: ['Node.js‘, ‘Microservices‘, ‘Redis‘, ‘AWS‘, ‘Kubernetes‘, ‘S3‘, Docker, ‘Next.js‘, ‘Web3.js‘, ‘Stripe‘],
+      otherTechnologies: ['Node.js', 'Microservices', 'Redis', 'AWS', 'Kubernetes', 'S3', 'Docker', 'Next.js', 'Web3.js', 'Stripe'],
       name: 'Frank Stella: Geometries',
     },
-    
-  },
 
   {
     link: null,
