@@ -34,7 +34,7 @@ export const projects: Project[] = [
       'Go',
       'Ethereum',
       'Solidity',
-      'GPRS’,
+      'GPRS',
       'PostgreSql',
       'Swagger',
       'React',
