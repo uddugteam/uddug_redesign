@@ -10,7 +10,7 @@ export const projects: Project[] = [
   {
     link: null,
     description:
-      'Secured decentralized hosting service for opensource software development projects.',
+      'Open and decentralized code hosting service permitting the management of digital product development in audited and secured way through outsource cooperation.',
     technologies: [
       'Rust',
       'Filecoin',
@@ -26,6 +26,26 @@ export const projects: Project[] = [
     ],
     name: 'GitSec',
   },
+  {
+    link: 'https://arsnl.art/', 
+    description:
+'Each NFT is the culmination of a decades-long exploration of computation, painting, and physical space by one of the most legendary living artists. Owners may 3D print their NFTs as physical objects for personal use, display them in virtual and augmented realities, or remix them into something new.',
+    technologies: [
+      ‘Go’,
+      ‘Ethereum,
+      ’Solidity’,
+      ‘GPRS’,
+      ‘PostgreSql’,
+      ’Swagger’,
+      ’React’,
+      ‘EKS’,
+      ],
+      otherTechnologies: [‘Node.js‘, ‘Microservices‘, ‘Redis‘, ‘AWS‘, ‘Kubernetes‘, ‘S3‘, Docker, ‘Next.js‘, ‘Web3.js‘, ‘Stripe‘],
+      name: 'Frank Stella: Geometries',
+    },
+    
+  },
+
   {
     link: null,
     description:
