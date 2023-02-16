@@ -30,7 +30,7 @@ const ProjectLink: React.VFC<ProjectLinkProps> = props => {
 
   return (
     <div className={classNames(styles.projectLink, 'purpleText')}>
-      Open in GitHub
+      Visit Home page
     </div>
   );
 };
@@ -69,7 +69,7 @@ const ProjectCard: React.VFC<ProjectProps> = props => {
         </div>
         {otherTechnologies && (
           <div className={styles.otherTechnologies}>
-            <span className={styles.otherTechnologiesLabel}>
+            <span className={styles.otherTe chnologiesLabel}>
               Other technologies:{' '}
             </span>
             {otherTechnologies.reduce(
