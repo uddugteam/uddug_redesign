@@ -18,10 +18,6 @@ const partners: Partner[] = [
     url: 'https://lime-expo.ru/',
   },
   {
-    name: 'partner13',
-    url: 'https://arsnl.art',
-  },
-  {
     name: 'partner12',
     url: 'http://holygate.com',
   },
