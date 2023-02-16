@@ -69,7 +69,7 @@ const ProjectCard: React.VFC<ProjectProps> = props => {
         </div>
         {otherTechnologies && (
           <div className={styles.otherTechnologies}>
-            <span className={styles.otherTe chnologiesLabel}>
+            <span className={styles.otherTechnologiesLabel}>
               Other technologies:{' '}
             </span>
             {otherTechnologies.reduce(
