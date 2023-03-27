@@ -46,7 +46,7 @@ export const projects: Project[] = [
   {
     link: 'https://arsnl.art/for-a-limited-time', 
     description:
-  'Versteeg’s algorithms generate painterly collages that transform images of current events into works that are erotic, prophetic, sometimes terrifying, often humorous and always revelatory. A year long social experiment, a new work is created every 10 to 15 minutes using trending stories scraped from the internet as source material. Each work will only exist "for a limited time" before being replaced by the next.',
+  'Versteeg’s algorithms generate painterly collages that transform images of current events into works that are erotic, prophetic, sometimes terrifying, often humorous and always revelatory. A year long social experiment, a new work is created every 10 to 15 minutes using trending stories scraped from the internet as source material. Each work will only exist "for a limited time" before being replaced by the next. If a collector can’t bear to see the moment go, they can claim the work, cementing the art and their personal connection with time onto the blockchain. About 35,000 artworks will be generated, of which only 750 can be "saved" or "curated" by collectors at their choosing over the course of the year.',
     technologies: [
       'Go',
       'Ethereum',
