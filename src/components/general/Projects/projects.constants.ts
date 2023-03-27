@@ -27,7 +27,7 @@ export const projects: Project[] = [
     name: 'GitSec',
   },
   {
-    link: 'https://arsnl.art/', 
+    link: 'https://arsnl.art/geometries', 
     description:
 'Each NFT is the culmination of a decades-long exploration of computation, painting, and physical space by one of the most legendary living artists. Owners may 3D print their NFTs as physical objects for personal use, display them in virtual and augmented realities, or remix them into something new.',
     technologies: [
@@ -43,7 +43,22 @@ export const projects: Project[] = [
       otherTechnologies: ['Node.js', 'Microservices', 'Redis', 'AWS', 'Kubernetes', 'S3', 'Docker', 'Next.js', 'Web3.js', 'Stripe'],
       name: 'Frank Stella: Geometries',
     },
-
+  {
+    link: 'https://arsnl.art/for-a-limited-time', 
+    description:
+  'Versteeg’s algorithms generate painterly collages that transform images of current events into works that are erotic, prophetic, sometimes terrifying, often humorous and always revelatory. A year long social experiment, a new work is created every 10 to 15 minutes using trending stories scraped from the internet as source material. Each work will only exist "for a limited time" before being replaced by the next.',
+    technologies: [
+      'Go',
+      'Ethereum',
+      'Solidity',
+      'GPRS',
+      'PostgreSql',
+      'Swagger',
+      'EKS',
+      ],
+      otherTechnologies: ['Microservices', 'Redis', 'AWS', 'Kubernetes', 'S3', 'Docker', 'Web3.js', 'Stripe'],
+      name: 'Siebren Versteeg: For a limited time',
+    },
   {
     link: null,
     description:
