@@ -10,7 +10,7 @@ export const projects: Project[] = [
   {
     link: null,
     description:
-      'Open and decentralized code hosting service permitting the management of digital product development in audited and secured way through outsource cooperation.',
+      'Decentralized platform for hosting and collaborating on code, which uses open-source blockchain protocols.',
     technologies: [
       'Rust',
       'Filecoin',
@@ -24,7 +24,7 @@ export const projects: Project[] = [
       'Blake2B',
       'Argon2',
     ],
-    name: 'GitSec',
+    name: 'GitSEC',
   },
   {
     link: 'http://arsnl.art/nascent', 
@@ -75,7 +75,7 @@ export const projects: Project[] = [
   {
     link: 'https://arsnl.art/for-a-limited-time', 
     description:
-  'Versteeg’s algorithms generate painterly collages that transform images of current events into works that are erotic, prophetic, sometimes terrifying, often humorous and always revelatory. A year long social experiment, a new work is created every 10 to 15 minutes using trending stories scraped from the internet as source material. Each work will only exist "for a limited time" before being replaced by the next. If a collector can’t bear to see the moment go, they can claim the work, cementing the art and their personal connection with time onto the blockchain. About 35,000 artworks will be generated, of which only 750 can be "saved" or "curated" by collectors at their choosing over the course of the year.',
+  'Algorithms generate collages that every 15 min. transform images of current events into works. A new work is created every 10 - 15 minutes. A collector can claim the work, cementing the art and their personal connection with time onto the blockchain. Only 750 of 35k artworks  be "curated" by collectors at their choosing over the course of the year.',
     technologies: [
       'Go',
       'Ethereum',
