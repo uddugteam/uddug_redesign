@@ -43,19 +43,6 @@ export const projects: Project[] = [
       name: 'Ash Thorp: Nascent',
     },
   {
-    link: null,
-    description:
-      'The contract deployed on the zkEVM network allows users to make donations and receive NFTs as a reward. The system uses a tiered approach whereby users receive NFTs after reaching certain donation milestones. We use in-hause oracle solution "Quasar" which provides live price information for various currencies on any EVM-based blockchain.',
-    technologies: [
-      'OpenZeppelin',
-      'Solidity',
-      'Hardhat',
-      'Go',
-      'Quasar oracle',
-    ],
-    name: 'Donations',
-  },
-  {
     link: 'https://arsnl.art/geometries', 
     description:
 'Each NFT is the culmination of a decades-long exploration of computation, painting, and physical space by one of the most legendary living artists. Owners may 3D print their NFTs as physical objects for personal use, display them in virtual and augmented realities, or remix them into something new.',
