@@ -86,7 +86,7 @@ const MainBlock: React.VFC = () => {
               }
             },
           }}>
-        Team have deep industry IT expertise in the development of startups,
+        Team has deep industry IT expertise in the development of startups,
         independent private projects, public business.
       </motion.span>
       <motion.div
