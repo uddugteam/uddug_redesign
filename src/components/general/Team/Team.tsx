@@ -152,17 +152,6 @@ const Team = () => {
               github: null,
             }}
           />
-          <TeamMember
-            name={'Nikita Velko'}
-            position={'Frontend Developer'}
-            img='./team/nikita.png'
-            socialLinks={{
-              facebook: 'https://www.facebook.com/n1ckgreat',
-              linkedIn: 'https://www.linkedin.com/in/nikichv/',
-              github: 'https://github.com/nikichv',
-              twitter: null,
-            }}
-          />
           {/*<TeamMember
             name={'Daniel Mironov'}
             position={'QA Engineer'}
