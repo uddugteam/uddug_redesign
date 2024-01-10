@@ -180,16 +180,6 @@ const Team = () => {
               twitter: null,
             }}
           />*/}
-          <TeamMember
-            name={'Ivan Podtsebnev'}
-            position={'DevOps Engineer'}
-            img='./team/ivan.png'
-            socialLinks={{
-              facebook: 'https://www.facebook.com/ivan.podtsebnev',
-              linkedIn: 'https://www.linkedin.com/in/naykip/',
-              github: 'https://github.com/naykip',
-              twitter: null,
-            }}
           />
           <TeamMember
             name={'Pavel Dodonov'}
