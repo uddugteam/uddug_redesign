@@ -141,7 +141,6 @@ const Team = () => {
             className={styles.teamColumn}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}>
-          />
           {/*<TeamMember
             name={'Daniel Mironov'}
             position={'QA Engineer'}
