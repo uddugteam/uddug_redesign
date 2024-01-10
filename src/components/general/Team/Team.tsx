@@ -141,16 +141,6 @@ const Team = () => {
             className={styles.teamColumn}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}>
-          <TeamMember
-            name={'Anuar Zhumaev'}
-            position={'Art Director'}
-            img='./team/anuar.png'
-            socialLinks={{
-              linkedIn: 'https://www.linkedin.com/in/yxorama/',
-              twitter: null,
-              facebook: null,
-              github: null,
-            }}
           />
           {/*<TeamMember
             name={'Daniel Mironov'}
