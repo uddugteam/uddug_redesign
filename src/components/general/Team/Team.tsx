@@ -180,7 +180,6 @@ const Team = () => {
               twitter: null,
             }}
           />*/}
-          />
           <TeamMember
             name={'Pavel Dodonov'}
             position={'Backend Developer'}
