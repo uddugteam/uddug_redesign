@@ -214,17 +214,6 @@ const Team = () => {
             }}
           />
           <TeamMember
-            name={'Antero Selin'}
-            position={'Full Stack Developer'}
-            img='./team/antero.png'
-            socialLinks={{
-              facebook: null,
-              linkedIn: 'www.linkedin.com/in/antero-s',
-              github: 'https://github.com/superdev0701',
-              twitter: null,
-            }}
-          />
-          <TeamMember
             name={'Pavel Dodonov'}
             position={'Backend Developer'}
             img='./team/pavel.png'
