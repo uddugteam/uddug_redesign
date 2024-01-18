@@ -99,7 +99,7 @@ const Team = () => {
             />
           </div>
           <div className={styles.name}>Mike Manko</div>
-          <div className={styles.position}>Head of Product</div>
+          <div className={styles.position}>CEO</div>
           <SocialLinks
             facebook={'https://www.facebook.com/stones.rolling.31'}
             linkedIn={'https://www.linkedin.com/in/mikhail-manko-97a491a2/'}
@@ -154,11 +154,11 @@ const Team = () => {
           />*/}
           <TeamMember
             name={'Andrey Solovov'}
-            position={'Smart Contract Developer'}
+            position={'Smart Contract Lead'}
             img='./team/solovov.png'
             socialLinks={{
               facebook: null,
-              linkedIn: 'linkedin.com/in/andrey-solovov-bb665884/',
+              linkedIn: 'https://www.linkedin.com/in/andrey-solovov-bb665884/',
               github: 'https://github.com/asolovov',
               twitter: null,
             }}
@@ -182,7 +182,7 @@ const Team = () => {
           />*/}
           <TeamMember
             name={'Pavel Dodonov'}
-            position={'Backend Developer'}
+            position={'Backend Lead'}
             img='./team/pavel.png'
             socialLinks={{
               facebook: null,
