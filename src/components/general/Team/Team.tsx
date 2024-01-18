@@ -158,8 +158,8 @@ const Team = () => {
             img='./team/solovov.png'
             socialLinks={{
               facebook: null,
-              linkedIn: 'https://www.linkedin.com/in/daniel-mironov7/',
-              github: 'https://github.com/1ance3t',
+              linkedIn: 'linkedin.com/in/andrey-solovov-bb665884/',
+              github: 'https://github.com/asolovov',
               twitter: null,
             }}
           />
