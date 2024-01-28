@@ -121,7 +121,7 @@ const Team = () => {
             />
           </div>
           <div className={styles.name}>Andrey Skurlatov</div>
-          <div className={styles.position}>Technical Lead</div>
+          <div className={styles.position}>CTO</div>
           <SocialLinks
             facebook={'https://www.facebook.com/andrey.skurlatov'}
             linkedIn={'https://www.linkedin.com/in/andrew-skurlatov/'}
