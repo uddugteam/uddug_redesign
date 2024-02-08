@@ -8,6 +8,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    link: 'https://infinex.io', 
+    description:
+  'In collaboration with Gateway.fm, we have developed an optimized and efficient API tailored for Synthetix PerpsV3 DEX to improve the trading experience by providing high-speed data access and seamless integration with PerpsV3 contracts.',
+    technologies: [
+      'Go',
+      'Optimism',
+      'Solidity'
+      'GRPS',
+      'ScyllaDB',
+      'PostgreSql',
+      'Swagger',
+      'Ethereum',
+      'Swagger',
+      'EKS',
+      ],
+      otherTechnologies: ['Microservices', 'Redis', 'Nomad', 'Web3.js'],
+      name: 'Infinex HFT API',
+    },
+  {
     link: null,
     description:
       'Decentralized platform for hosting and collaborating on code, which uses open-source blockchain protocols.',
