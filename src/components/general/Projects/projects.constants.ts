@@ -21,7 +21,6 @@ export const projects: Project[] = [
       'Swagger',
       'Ethereum',
       'Swagger',
-      'EKS',
       ],
       otherTechnologies: ['Microservices', 'Redis', 'Nomad', 'Web3.js'],
       name: 'Infinex HFT API',
