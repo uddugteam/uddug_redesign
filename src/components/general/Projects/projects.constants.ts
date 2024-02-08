@@ -14,7 +14,7 @@ export const projects: Project[] = [
     technologies: [
       'Go',
       'Optimism',
-      'Solidity'
+      'Solidity',
       'GRPS',
       'ScyllaDB',
       'PostgreSql',
