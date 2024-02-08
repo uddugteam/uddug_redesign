@@ -10,7 +10,7 @@ export const projects: Project[] = [
   {
     link: 'https://infinex.io', 
     description:
-  'In collaboration with [Gateway.fm](https://gateway.fm), we have developed an optimized and efficient API tailored for Synthetix PerpsV3 DEX to improve the trading experience by providing high-speed data access and seamless integration with PerpsV3 contracts.',
+  'In collaboration with Gateway.fm, we have developed an optimized and efficient API tailored for Synthetix PerpsV3 DEX to improve the trading experience by providing high-speed data access and seamless integration with PerpsV3 contracts.',
     technologies: [
       'Go',
       'Optimism',
