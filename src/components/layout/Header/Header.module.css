@@ -69,12 +69,27 @@
     padding: 0;
     text-align: center;
     background-image: none;
+    overflow: hidden;
   }
 }
 
 .navButton:active {
   background-color: rgba(255, 255, 255, 0.05);
   background-image: none;
+
+  @media (--desktop) {
+    background-color: transparent;
+  }
+}
+
+.navButton:hover {
+  @media (--desktop) {
+    & .navButtonLink {
+      position: relative;
+      animation: flip;
+      animation-duration: 0.5s;
+    }
+  }
 }
 
 .contactUs {
@@ -142,5 +157,20 @@
 
   @media (--desktop) {
     display: none;
+  }
+}
+
+@keyframes flip {
+  0% {
+    top: 0;
+  }
+  30% {
+    top: -30px;
+  }
+  31% {
+    top: 30px;
+  }
+  100% {
+    top: 0;
   }
 }

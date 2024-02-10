@@ -23,15 +23,15 @@
   background: var(--button-gradient-secondary);
 }
 
-.centeredText .mask {
-  justify-content: center;
-}
-
-@media screen and (min-width: --desktop) {
-  .button:hover .text {
+.button:hover .text {
+  @media (--desktop) {
     animation: flip;
     animation-duration: 0.5s;
   }
+}
+
+.centeredText .mask {
+  justify-content: center;
 }
 
 @keyframes flip {

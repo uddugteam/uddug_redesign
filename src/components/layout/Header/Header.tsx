@@ -67,7 +67,9 @@ const Header: React.FC = () => {
                 navLinks.length &&
                 navLinks.map((navLink, index) => (
                   <div className={styles.navButton} key={navLink.title + index}>
-                    <Link href={navLink.link}>{navLink.title}</Link>
+                    <Link href={navLink.link}>
+                      <a className={styles.navButtonLink}>{navLink.title}</a>
+                    </Link>
                   </div>
                 ))}
               <Link href={'/#contactUs'}>

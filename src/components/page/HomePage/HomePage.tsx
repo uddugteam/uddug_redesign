@@ -10,7 +10,7 @@ import Team from 'components/general/Team';
 import Careers from 'components/general/Careers';
 import Internship from 'components/general/Internship';
 import Footer from 'components/general/Footer';
-import RightBadge from 'components/layout/RightBadge';
+// import RightBadge from 'components/layout/RightBadge';
 
 import { AppNextPage } from '../../../../global';
 import styles from './HomePage.module.css';
@@ -34,7 +34,7 @@ const HomePage: AppNextPage = () => {
       <Careers />
       <Internship />
       <Footer />
-      <RightBadge />
+      {/* <RightBadge /> */}
     </div>
   );
 };
