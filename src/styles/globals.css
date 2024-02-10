@@ -1,6 +1,6 @@
-@import "./variables.css";
-@import "./media.css";
-@import "./mailchimp.css";
+@import './variables.css';
+@import './media.css';
+@import './mailchimp.css';
 
 html,
 body {
@@ -33,7 +33,7 @@ body {
 
 #main-layout {
   display: grid;
-  grid-template-rows: max-content 1fr;
+  grid-template-rows: 1fr;
   max-height: 100vh;
   max-width: 100vw;
   overflow: hidden;

@@ -1,19 +1,40 @@
-import React, { useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import classNames from 'classnames';
-import * as Scroll from 'react-scroll';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
-const { scroller } = Scroll;
-
-import Icon from 'components/general/Icon';
-import { ScrollRefs, useScrollState } from 'contexts/scrollStateContext';
 import { useScreenSize } from 'hooks/useScreenSize';
+import { useScrollState } from 'contexts/scrollStateContext';
+import Icon from 'components/general/Icon';
+import Button from 'components/ui/Button';
+import BackgroundCircle from 'components/ui/BackgroundCircle';
 
 import styles from './Header.module.css';
 
 const scrollSpeed = 1;
 
-const Header: React.VFC = () => {
+const navLinks = [
+  {
+    title: 'Projects',
+    link: '/#projects',
+  },
+  {
+    title: 'Team',
+    link: '/#team',
+  },
+  {
+    title: 'Careers',
+    link: '/#careers',
+  },
+  {
+    title: 'Internship',
+    link: '/#internship',
+  },
+];
+
+const Header: React.FC = () => {
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+
   const router = useRouter();
 
   const isPrivacyPolicyPage = useMemo(
@@ -21,74 +42,77 @@ const Header: React.VFC = () => {
     [router.pathname]
   );
 
-  const { scroll, refs } = useScrollState();
+  const { scroll } = useScrollState();
   const [isScrolled] = scroll;
 
   const screenSize = useScreenSize();
-  const isWide = screenSize === 'desktop' || screenSize === 'tablet-landscape';
+  const isWide = screenSize === 'desktop';
 
-  const smoothScrollElement = async (elementId: keyof ScrollRefs) => {
-    const homePage = document.getElementById('home-page');
-    const scrollToPx = refs[elementId].current?.getBoundingClientRect().top;
-    if (!homePage || !scrollToPx) return;
-    const duration = Math.abs(homePage.scrollTop - scrollToPx) / scrollSpeed;
-    if (isPrivacyPolicyPage) {
-      await router.push('/');
-    }
-    scroller.scrollTo(elementId, {
-      duration: duration,
-      containerId: 'home-page',
-      smooth: true,
-    });
-  };
+  const headerClassnames = classNames(
+    styles.wrapper,
+    isScrolled && [styles.scrolled],
+    isMenuOpened && styles.opened
+  );
+
+  const backgroundCircleClassnames = classNames(styles.backgroundCircle);
 
   return (
-    <div
-      className={classNames(styles.wrapper, {
-        [styles.light]: isScrolled && isPrivacyPolicyPage,
-      })}
-    >
+    <div className={headerClassnames}>
       <nav className={styles.root}>
-        <Icon
-          name={isScrolled ? 'dark-logotype' : 'light-logotype'}
-          className={styles.logo}
-        />
+        <Icon name={'light-logotype'} className={styles.logo} />
         <div className={styles.buttonsWrapper}>
-          {isWide && (
+          {isWide ? (
             <>
-              <div
-                onClick={() => smoothScrollElement('projects')}
-                className={styles.navButton}
-              >
-                Projects
-              </div>
-              <div
-                onClick={() => smoothScrollElement('team')}
-                className={styles.navButton}
-              >
-                Team
-              </div>
-              <div
-                onClick={() => smoothScrollElement('careers')}
-                className={styles.navButton}
-              >
-                Careers
-              </div>
-              <div
-                onClick={() => smoothScrollElement('internship')}
-                className={styles.navButton}
-              >
-                Internship
-              </div>
+              {navLinks &&
+                navLinks.length &&
+                navLinks.map((navLink, index) => (
+                  <div className={styles.navButton} key={navLink.title + index}>
+                    <Link href={navLink.link}>{navLink.title}</Link>
+                  </div>
+                ))}
+              <Link href={'/#contactUs'}>
+                <Button isAlt={true}>Contact us</Button>
+              </Link>
             </>
+          ) : (
+            <Button
+              onClick={() => {
+                setIsMenuOpened(!isMenuOpened);
+              }}
+              className={styles.menuToggler}
+            >
+              {isMenuOpened ? '' : 'Menu'}
+            </Button>
           )}
-          <div
-            onClick={() => smoothScrollElement('contactUs')}
-            className={styles.contactUs}
-          >
-            Contact us
-          </div>
         </div>
+        {isWide ? null : (
+          <div className={styles.mobileMenu}>
+            <div className={styles.buttonsWrapper}>
+              {navLinks &&
+                navLinks.length &&
+                navLinks.map((navLink, index) => (
+                  <Link href={navLink.link} key={navLink.title + index}>
+                    <div
+                      className={styles.navButton}
+                      onClick={() => setIsMenuOpened(!isMenuOpened)}
+                    >
+                      {navLink.title}
+                    </div>
+                  </Link>
+                ))}
+            </div>
+            <Link href={'/#contactUs'}>
+              <Button
+                className={styles.contactUs}
+                isAlt={true}
+                isCenteredText={true}
+              >
+                Contact us
+              </Button>
+            </Link>
+            <BackgroundCircle className={backgroundCircleClassnames} />
+          </div>
+        )}
       </nav>
     </div>
   );
