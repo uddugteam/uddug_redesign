@@ -1,6 +1,7 @@
 .title {
   font-weight: 700;
   margin: 0;
+  letter-spacing: 0.32px;
 }
 
 .big {
@@ -13,7 +14,7 @@
   line-height: 140%;
 }
 
-@media screen and (min-width: 768px) {
+@media (--tablet-vertical) {
   .big {
     font-size: 60px;
   }

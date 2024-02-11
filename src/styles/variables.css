@@ -5,6 +5,11 @@
   --button-gradient-secondary: linear-gradient(30deg, #6d60ff, #6062ff);
   --background: #010305;
   --dark-blue: #0c1335;
+  --light-grey: #798289;
+  --indent-horziontal-mobile: 30px;
+  --indent-horizontal-tablet-s: 30px;
+  --indent-horizontal-tablet-m: 60px;
+  --indent-horizontal-desktop: 120px;
   /* old */
   --light: #f8fafc;
   --dark: #0f172a;

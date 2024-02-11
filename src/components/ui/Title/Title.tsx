@@ -23,8 +23,8 @@ const Title: FC<ITitleProps> = ({
 }) => {
   const titleClassNames = classNames(
     className,
-    styles.Title,
-    styles[`Title__${size}`]
+    styles.title,
+    styles[`${size}`]
   );
 
   return <Tag className={titleClassNames}>{children}</Tag>;
