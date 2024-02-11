@@ -14,9 +14,9 @@ import styles from './MainBlock.module.css';
 
 const MainBlock: React.VFC = () => {
   const spline = useRef<any>(null);
-  const [isSplineLoaded, setIsSplineLoaded] = useState(false);
   const screenSize = useScreenSize();
-  const isWide = screenSize === 'desktop';
+  const [isSplineLoaded, setIsSplineLoaded] = useState(false);
+  const [isWide, setIsWide] = useState<boolean>(screenSize === 'desktop');
 
   const onLoad = (splineApp: any) => {
     spline.current = splineApp;
@@ -24,18 +24,42 @@ const MainBlock: React.VFC = () => {
   };
 
   useEffect(() => {
-    if (!(isWide && isSplineLoaded)) {
+    if (!isSplineLoaded) {
       return;
     }
 
     if (spline && spline.current) {
-      console.log(32131);
+      const pxToMove = 2500;
       const groupToMove = spline.current.findObjectById(
         'cc1a3bc8-a4a6-430d-91e6-9bcc7409697b'
       );
-      groupToMove.position.x += 2500;
+
+      const setWideScreenPosition = () => {
+        groupToMove.position.x += pxToMove;
+      };
+
+      const setDefaultPosition = () => {
+        groupToMove.position.x -= pxToMove;
+      };
+
+      isWide ? setWideScreenPosition() : setDefaultPosition();
     }
   }, [isSplineLoaded, isWide]);
+
+  useEffect(() => {
+    const resizeHandler = () => {
+      setIsWide(screenSize === 'desktop');
+    };
+
+    window.addEventListener('resize', resizeHandler);
+    window.addEventListener('orientationchange', resizeHandler);
+
+    resizeHandler();
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+      window.removeEventListener('orientationchange', resizeHandler);
+    };
+  }, [screenSize]);
 
   return (
     <div className={styles.root}>
