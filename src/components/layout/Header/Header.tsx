@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import { useScreenSize } from 'hooks/useScreenSize';
 import { useScrollState } from 'contexts/scrollStateContext';
+import Wrapper from 'components/layout/Wrapper';
 import Icon from 'components/general/Icon';
 import Button from 'components/ui/Button';
 import BackgroundCircle from 'components/ui/BackgroundCircle';
@@ -49,7 +50,7 @@ const Header: React.FC = () => {
   const isWide = screenSize === 'desktop';
 
   const headerClassnames = classNames(
-    styles.wrapper,
+    styles.header,
     isScrolled && [styles.scrolled],
     isMenuOpened && styles.opened
   );
@@ -58,64 +59,69 @@ const Header: React.FC = () => {
 
   return (
     <div className={headerClassnames}>
-      <nav className={styles.root}>
-        <Icon name={'light-logotype'} className={styles.logo} />
-        <div className={styles.buttonsWrapper}>
-          {isWide ? (
-            <>
-              {navLinks &&
-                navLinks.length &&
-                navLinks.map((navLink, index) => (
-                  <div className={styles.navButton} key={navLink.title + index}>
-                    <Link href={navLink.link}>
-                      <a className={styles.navButtonLink}>{navLink.title}</a>
-                    </Link>
-                  </div>
-                ))}
-              <Link href={'/#contactUs'}>
-                <Button isAlt={true}>Contact us</Button>
-              </Link>
-            </>
-          ) : (
-            <Button
-              onClick={() => {
-                setIsMenuOpened(!isMenuOpened);
-              }}
-              className={styles.menuToggler}
-            >
-              {isMenuOpened ? '' : 'Menu'}
-            </Button>
-          )}
-        </div>
-        {isWide ? null : (
-          <div className={styles.mobileMenu}>
-            <div className={styles.buttonsWrapper}>
-              {navLinks &&
-                navLinks.length &&
-                navLinks.map((navLink, index) => (
-                  <Link href={navLink.link} key={navLink.title + index}>
+      <Wrapper>
+        <nav className={styles.root}>
+          <Icon name={'light-logotype'} className={styles.logo} />
+          <div className={styles.buttonsWrapper}>
+            {isWide ? (
+              <>
+                {navLinks &&
+                  navLinks.length &&
+                  navLinks.map((navLink, index) => (
                     <div
                       className={styles.navButton}
-                      onClick={() => setIsMenuOpened(!isMenuOpened)}
+                      key={navLink.title + index}
                     >
-                      {navLink.title}
+                      <Link href={navLink.link}>
+                        <a className={styles.navButtonLink}>{navLink.title}</a>
+                      </Link>
                     </div>
-                  </Link>
-                ))}
-            </div>
-            <Link href={'/#contactUs'}>
+                  ))}
+                <Link href={'/#contactUs'}>
+                  <Button isAlt={true}>Contact us</Button>
+                </Link>
+              </>
+            ) : (
               <Button
-                className={styles.contactUs}
-                isAlt={true}
-                isCenteredText={true}
+                onClick={() => {
+                  setIsMenuOpened(!isMenuOpened);
+                }}
+                className={styles.menuToggler}
               >
-                Contact us
+                {isMenuOpened ? '' : 'Menu'}
               </Button>
-            </Link>
-            <BackgroundCircle className={backgroundCircleClassnames} />
+            )}
           </div>
-        )}
-      </nav>
+          {isWide ? null : (
+            <div className={styles.mobileMenu}>
+              <div className={styles.buttonsWrapper}>
+                {navLinks &&
+                  navLinks.length &&
+                  navLinks.map((navLink, index) => (
+                    <Link href={navLink.link} key={navLink.title + index}>
+                      <div
+                        className={styles.navButton}
+                        onClick={() => setIsMenuOpened(!isMenuOpened)}
+                      >
+                        {navLink.title}
+                      </div>
+                    </Link>
+                  ))}
+              </div>
+              <Link href={'/#contactUs'}>
+                <Button
+                  className={styles.contactUs}
+                  isAlt={true}
+                  isCenteredText={true}
+                >
+                  Contact us
+                </Button>
+              </Link>
+              <BackgroundCircle className={backgroundCircleClassnames} />
+            </div>
+          )}
+        </nav>
+      </Wrapper>
     </div>
   );
 };

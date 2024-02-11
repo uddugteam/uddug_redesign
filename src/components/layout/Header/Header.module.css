@@ -1,4 +1,4 @@
-.wrapper {
+.header {
   z-index: 1000;
   position: fixed;
   display: flex;
@@ -20,21 +20,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 30px;
-
-  line-height: calc(11 / 8);
 
   @media (--tablet-vertical) {
-    padding: 0 32px;
     height: 72px;
-  }
-
-  @media (--tablet-landscape) {
-    padding: 0 60px;
-  }
-
-  @media (--desktop) {
-    padding: 0 120px;
   }
 }
 
@@ -64,6 +52,11 @@
   background-image: url('/icons/tick.svg');
   background-repeat: no-repeat;
   background-position: center right 30px;
+
+  @media (--tablet-landscape) {
+    padding: 21px 60px 19px;
+    background-position: center right 60px;
+  }
 
   @media (--desktop) {
     padding: 0;
@@ -95,6 +88,10 @@
 .contactUs {
   margin: 0 30px;
   padding: 12px 24px;
+
+  @media (--tablet-landscape) {
+    margin: 0 60px;
+  }
 
   @media (--desktop) {
     margin: 0;
