@@ -10,10 +10,20 @@ import Team from 'components/general/Team';
 import Careers from 'components/general/Careers';
 import Internship from 'components/general/Internship';
 import Footer from 'components/general/Footer';
+import Bullets from 'components/general/Bullets';
 // import RightBadge from 'components/layout/RightBadge';
 
 import { AppNextPage } from '../../../../global';
 import styles from './HomePage.module.css';
+
+const bullets = [
+  { title: 'Web3', ico: 'web3-badge' },
+  { title: 'ML / AI', ico: 'ml-ai-badge' },
+  { title: 'NFT', ico: 'nft-badge' },
+  { title: 'DeFi', ico: 'defi-badge' },
+  { title: 'Clouds', ico: 'clouds-badge' },
+  { title: 'Consulting', ico: 'consulting-badge' },
+];
 
 const HomePage: AppNextPage = () => {
   const [isScrolled, setIsScrolled] = useScrollState().scroll;
@@ -27,6 +37,7 @@ const HomePage: AppNextPage = () => {
   return (
     <div id={'home-page'} className={styles.root} onScroll={scrollHandler}>
       <MainBlock />
+      <Bullets bullets={bullets} />
       <Partners />
       <Projects />
       <Mission />
