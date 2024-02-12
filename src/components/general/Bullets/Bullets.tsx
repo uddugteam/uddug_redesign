@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
 import Wrapper from 'components/layout/Wrapper';
-import Icon from 'components/general/Icon';
 import BackgroundCircle from 'components/ui/BackgroundCircle';
 
 import styles from './Bullets.module.css';
@@ -20,9 +19,12 @@ const Bullets: FC<IBulletProps> = ({ bullets }) => {
               bullets.length &&
               bullets.map((bullet, index) => (
                 <li className={styles.item} key={bullet.title + index}>
-                  <div className={styles.ico}>
-                    <Icon name={bullet.ico} />
-                  </div>
+                  <div
+                    className={styles.ico}
+                    style={{
+                      backgroundImage: `url('icons/${bullet.ico}.svg')`,
+                    }}
+                  ></div>
                   <span className={styles.title}>{bullet.title}</span>
                 </li>
               ))}
