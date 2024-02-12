@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import styles from './title.module.css';
+import styles from './Title.module.css';
 
 interface ITitleProps {
   children: React.ReactNode;
