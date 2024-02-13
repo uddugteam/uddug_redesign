@@ -12,11 +12,24 @@ import BackgroundCircle from 'components/ui/BackgroundCircle';
 
 import styles from './MainBlock.module.css';
 
+const setWideScreenPosition = (groupToMove: any, pxToMove: number) => {
+  console.log('wide ++');
+  groupToMove.position.x += pxToMove;
+};
+
+const setDefaultPosition = (groupToMove: any, pxToMove: number) => {
+  console.log('default --');
+  groupToMove.position.x -= pxToMove;
+};
+
 const MainBlock: React.VFC = () => {
   const spline = useRef<any>(null);
   const screenSize = useScreenSize();
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isSplineLoaded, setIsSplineLoaded] = useState(false);
   const [isWide, setIsWide] = useState<boolean>(screenSize === 'desktop');
+
+  const pxToMove = 2500;
 
   const onLoad = (splineApp: any) => {
     spline.current = splineApp;
@@ -28,22 +41,31 @@ const MainBlock: React.VFC = () => {
       return;
     }
 
-    if (spline && spline.current) {
-      const pxToMove = 2500;
-      const groupToMove = spline.current.findObjectById(
-        'cc1a3bc8-a4a6-430d-91e6-9bcc7409697b'
-      );
+    setIsFirstLoad(prevIsFirstLoad => {
+      let groupToMove;
 
-      const setWideScreenPosition = () => {
-        groupToMove.position.x += pxToMove;
-      };
+      if (prevIsFirstLoad && !isWide) {
+        return false;
+      }
 
-      const setDefaultPosition = () => {
-        groupToMove.position.x -= pxToMove;
-      };
+      if (spline && spline.current) {
+        groupToMove = spline.current.findObjectById(
+          'cc1a3bc8-a4a6-430d-91e6-9bcc7409697b'
+        );
+      }
 
-      isWide ? setWideScreenPosition() : setDefaultPosition();
-    }
+      if (isWide) {
+        setWideScreenPosition(groupToMove, pxToMove);
+      } else {
+        setDefaultPosition(groupToMove, pxToMove);
+      }
+
+      if (prevIsFirstLoad) {
+        return false;
+      }
+
+      return prevIsFirstLoad;
+    });
   }, [isSplineLoaded, isWide]);
 
   useEffect(() => {
