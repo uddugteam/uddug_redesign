@@ -114,8 +114,8 @@ const MainBlock: React.VFC = () => {
             We are{'\n'}production-focused{'\n'}development team
           </Title>
           <Subtitle className={styles.subtitle}>
-            Have strong experience in the IT development of startups,
-            independent private projects, public business
+            Supercharge your product with our team of experts who are passionate
+            about blockchain
           </Subtitle>
           <Button className={styles.button}>
             We&apos;re ready to jumpstart your next project
