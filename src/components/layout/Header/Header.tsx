@@ -1,18 +1,17 @@
 import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+
+import LogoSVG from '/public/icons/light-logotype.svg';
 
 import { useScreenSize } from 'hooks/useScreenSize';
 import { useScrollState } from 'contexts/scrollStateContext';
 import Wrapper from 'components/layout/Wrapper';
-import Icon from 'components/general/Icon';
 import Button from 'components/ui/Button';
 import BackgroundCircle from 'components/ui/BackgroundCircle';
 
 import styles from './Header.module.css';
-
-const scrollSpeed = 1;
 
 const navLinks = [
   {
@@ -61,7 +60,7 @@ const Header: React.FC = () => {
     <div className={headerClassnames}>
       <Wrapper>
         <nav className={styles.root}>
-          <Icon name={'light-logotype'} className={styles.logo} />
+          <LogoSVG className={styles.logo} />
           <div className={styles.buttonsWrapper}>
             {isWide ? (
               <>
