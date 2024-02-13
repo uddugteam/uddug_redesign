@@ -4,8 +4,7 @@ import Spline from '@splinetool/react-spline';
 
 import Wrapper from 'components/layout/Wrapper';
 import { useScreenSize } from 'hooks/useScreenSize';
-import Title from 'components/ui/Title';
-import { TitleSizes } from 'components/ui/Title/Title';
+import Title, { TitleSizes } from 'components/ui/Title';
 import Subtitle from 'components/ui/Subtitle';
 import Button from 'components/ui/Button';
 import BackgroundCircle from 'components/ui/BackgroundCircle';
@@ -84,7 +83,7 @@ const MainBlock: React.VFC = () => {
   }, [screenSize]);
 
   return (
-    <div className={styles.root}>
+    <section className={styles.root}>
       <div className={styles.spline}>
         <Spline
           scene='https://prod.spline.design/oDwsBbB3TIrZJuHZ/scene.splinecode'
@@ -123,7 +122,7 @@ const MainBlock: React.VFC = () => {
         </motion.div>
         <BackgroundCircle className={styles.backgroundCircle} />
       </Wrapper>
-    </div>
+    </section>
   );
 };
 

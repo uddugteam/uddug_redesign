@@ -1,141 +1,144 @@
 import { motion } from 'framer-motion';
-import React, { useMemo, useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { Swiper as SwiperClass } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Grid, Autoplay, Pagination } from 'swiper/modules';
 
-import Icon from 'components/general/Icon';
+import HolygateSVG from '/public/icons/colored-partner12.svg';
+import LimeSVG from '/public/icons/colored-partner1.svg';
+
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
+import Wrapper from 'components/layout/Wrapper';
+import Title, { TitleSizes } from 'components/ui/Title';
 import { useScreenSize } from 'hooks/useScreenSize';
 import { useScrollState } from 'contexts/scrollStateContext';
 
 import styles from './Partners.module.css';
 
-interface Partner {
+interface IPartnerProps {
   name: string;
+  logo: React.ReactNode;
   url: string | null;
 }
 
-const partners: Partner[] = [
+const partners: IPartnerProps[] = [
   {
-    name: 'partner1',
-    url: 'https://lime-expo.ru/',
-  },
-  {
-    name: 'partner12',
+    name: 'holygate',
+    logo: <HolygateSVG className={styles.logo} />,
     url: 'http://holygate.com',
   },
   {
-    name: 'partner4',
-    url: null,
+    name: 'holygate',
+    logo: <LimeSVG className={styles.logo} />,
+    url: 'http://holygate.com',
   },
   {
-    name: 'partner5',
-    url: null,
+    name: 'holygate',
+    logo: <HolygateSVG className={styles.logo} />,
+    url: 'http://holygate.com',
   },
   {
-    name: 'partner7',
-    url: null,
+    name: 'holygate',
+    logo: <LimeSVG className={styles.logo} />,
+    url: 'http://holygate.com',
   },
   {
-    name: 'partner8',
-    url: 'https://snark.art/',
+    name: 'holygate',
+    logo: <HolygateSVG className={styles.logo} />,
+    url: 'http://holygate.com',
   },
   {
-    name: 'partner9',
-    url: null,
+    name: 'holygate',
+    logo: <LimeSVG className={styles.logo} />,
+    url: 'http://holygate.com',
   },
   {
-    name: 'partner10',
-    url: 'https://revitt.consulting/',
+    name: 'holygate',
+    logo: <HolygateSVG className={styles.logo} />,
+    url: 'http://holygate.com',
   },
   {
-    name: 'partner11',
-    url: 'https://www.final01.agency/',
-  },
-  {
-    name: 'partner2',
-    url: 'https://macbio.ru/',
-  },
-  {
-    name: 'partner3',
-    url: 'https://spamorez.ru/',
-  },
-  {
-    name: 'partner6',
-    url: null,
+    name: 'holygate',
+    logo: <LimeSVG className={styles.logo} />,
+    url: 'http://holygate.com',
   },
 ];
 
+const breakpoints = {
+  1024: {
+    slidesPerView: 5,
+    spaceBetween: 20,
+    grid: {
+      rows: 1,
+    },
+  },
+};
+
 const Partners = () => {
-  const {
-    refs: { partners: partnersRef },
-  } = useScrollState();
-
-  const [isAllPartnersOpen, setIsAllPartnersOpen] = useState(false);
-  const [hoverState, setHoverState] = useState(() =>
-    new Array(partners.length).fill(false)
-  );
-
+  const swiperRef = useRef<SwiperClass | null>(null);
   const screenSize = useScreenSize();
-  const isDesktop = screenSize === 'desktop';
-  const isWide = isDesktop || screenSize === 'tablet-landscape';
-
-  const visiblePartners = useMemo(
-    () => (isAllPartnersOpen ? partners : partners.slice(0, isWide ? 8 : 7)),
-    [isAllPartnersOpen, isWide]
-  );
-  const handleMouseOverPartnerLogo = (index: number) => {
-    if (!isDesktop) return;
-    setHoverState(hoverState.map((status, i) => i === index));
-  };
-  const handleMouseLeavePartnerLogo = () => {
-    if (!isDesktop) return;
-    setHoverState(new Array(partners.length).fill(false));
-  };
-  const handleTogglePartnersVisibilityButtonClick = () => {
-    setIsAllPartnersOpen(!isAllPartnersOpen);
-  };
+  const isWide = screenSize === 'desktop';
+  const swiperDelay = 3000;
 
   return (
-    <div className={styles.root} ref={partnersRef} id='partners'>
-      <motion.div
-          className={styles.header}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}>
-        Trusted development <span className='orangeText'>partners</span>
-      </motion.div>
-      <motion.div
-          className={styles.partners}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}>
-        {visiblePartners.map((partner, index) => (
-          <div key={partner.name} className={styles.iconWrapper}>
-            <a
-              target='_blank'
-              rel='noreferrer'
-              href={partner.url ?? '#'}
-              onClick={e => {
-                if (!partner.url) e.preventDefault();
+    <section className={styles.root} id='partners'>
+      <Wrapper>
+        <div className={styles.inner}>
+          <div className={styles.partnersCard}>
+            <motion.div
+              className={styles.header}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+            >
+              <Title size={TitleSizes.MEDIUM} as={'h2'}>
+                Trusted development{' '}
+                <span className='accentSecondaryText'>partners</span>
+              </Title>
+            </motion.div>
+            <Swiper
+              wrapperClass={styles.swiper}
+              modules={[Grid, Pagination, Autoplay]}
+              grid={{
+                rows: 2,
+                fill: 'row',
+              }}
+              onBeforeInit={swiper => {
+                swiperRef.current = swiper;
+              }}
+              pagination={{
+                clickable: true,
+                bulletActiveClass: styles.active,
+                renderBullet: function (index, className) {
+                  return `<span class="${className} ${styles.bullet}" style="transition: all ${swiperDelay}ms linear"></span>`;
+                },
+              }}
+              breakpoints={breakpoints}
+              slidesPerView={2}
+              spaceBetween={20}
+              autoplay={{ delay: swiperDelay, disableOnInteraction: true }}
+              onSwiper={swiper => {
+                if (swiperRef.current) {
+                  swiperRef.current.pagination.el.classList.add(
+                    styles.pagination
+                  );
+                }
               }}
             >
-              <Icon
-                name={
-                  hoverState[index] ? `colored-${partner.name}` : partner.name
-                }
-                style={{
-                  cursor: 'pointer',
-                }}
-                onMouseOver={() => handleMouseOverPartnerLogo(index)}
-                onMouseLeave={handleMouseLeavePartnerLogo}
-              />
-            </a>
+              {partners &&
+                partners.length &&
+                partners.map((partner, index) => (
+                  <SwiperSlide className={styles.slide} key={partner.name}>
+                    <div className={styles.logoContainer}>{partner.logo}</div>
+                  </SwiperSlide>
+                ))}
+            </Swiper>
           </div>
-        ))}
-      </motion.div>
-      <div
-        className={styles.togglePartnersVisibilityButton}
-        onClick={handleTogglePartnersVisibilityButtonClick}
-      >
-        {isAllPartnersOpen ? 'Roll Up' : 'Open all partners'}
-      </div>
-    </div>
+        </div>
+      </Wrapper>
+    </section>
   );
 };
 

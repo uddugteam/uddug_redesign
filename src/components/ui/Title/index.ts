@@ -1,3 +1,4 @@
-import { Title } from './Title';
+import { Title, TitleSizes } from './Title';
 
+export { TitleSizes };
 export default Title;

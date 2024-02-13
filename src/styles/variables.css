@@ -1,12 +1,15 @@
 :root {
   --white: #fff;
-  --orange: #ff721c;
-  --button-gradient-primary: linear-gradient(45deg, #ee6512, #ff721b);
-  --button-gradient-secondary: linear-gradient(30deg, #6d60ff, #6062ff);
+  --accent-primary: #ff721c;
+  --accent-secondary-gradient: linear-gradient(30deg, #6d60ff, #6062ff);
+  --accent-secondary-color: #6062ff;
+  --gradient-primary: linear-gradient(45deg, #ee6512, #ff721b);
+  --gradient-secondary: linear-gradient(30deg, #6d60ff, #6062ff);
   --background: #010305;
   --dark-blue: #0c1335;
   --light-grey: #798289;
-  --dark-grey: #2b2e40;
+  --dark--grey: #101820;
+  --tranparent-grey: rgba(43, 46, 64, 0.1);
   --indent-horziontal-mobile: 30px;
   --indent-horizontal-tablet-s: 30px;
   --indent-horizontal-tablet-m: 60px;

@@ -34,7 +34,7 @@
   align-items: flex-start;
   gap: 32px;
   padding: 19px 22px;
-  background-color: rgba(43, 46, 64, 0.1);
+  background-color: var(--tranparent-grey);
   border-radius: 16px;
 
   @media (--tablet-vertical) {

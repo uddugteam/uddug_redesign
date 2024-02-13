@@ -6,7 +6,7 @@
   line-height: 137%;
   padding: 7px 16px;
   border: none;
-  background: var(--button-gradient-primary);
+  background: var(--gradient-primary);
   border-radius: 20px;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .alt {
-  background: var(--button-gradient-secondary);
+  background: var(--gradient-secondary);
 }
 
 .button:hover .text {
