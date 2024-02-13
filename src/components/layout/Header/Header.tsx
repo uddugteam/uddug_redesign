@@ -37,10 +37,10 @@ const Header: React.FC = () => {
 
   const router = useRouter();
 
-  const isPrivacyPolicyPage = useMemo(
-    () => router.pathname.indexOf('privacy-policy'),
-    [router.pathname]
-  );
+  // const isPrivacyPolicyPage = useMemo(
+  //   () => router.pathname.indexOf('privacy-policy'),
+  //   [router.pathname]
+  // );
 
   const { scroll } = useScrollState();
   const [isScrolled] = scroll;
