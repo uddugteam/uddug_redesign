@@ -105,13 +105,13 @@ const Partners = () => {
                 rows: 2,
                 fill: 'row',
               }}
-              onBeforeInit={swiper => {
+              onBeforeInit={(swiper: SwiperClass) => {
                 swiperRef.current = swiper;
               }}
               pagination={{
                 clickable: true,
                 bulletActiveClass: styles.active,
-                renderBullet: function (index, className) {
+                renderBullet: function (index: number, className: string) {
                   return `<span class="${className} ${styles.bullet}" style="transition: all ${swiperDelay}ms linear"></span>`;
                 },
               }}
@@ -119,7 +119,7 @@ const Partners = () => {
               slidesPerView={2}
               spaceBetween={20}
               autoplay={{ delay: swiperDelay, disableOnInteraction: true }}
-              onSwiper={swiper => {
+              onSwiper={() => {
                 if (swiperRef.current) {
                   swiperRef.current.pagination.el.classList.add(
                     styles.pagination
