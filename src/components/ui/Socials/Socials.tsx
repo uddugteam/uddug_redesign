@@ -1,10 +1,11 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
+// eslint-disable-next-line
 import classNames from 'classnames';
-
+// eslint-disable-next-line
+import LinkedinSVG from 'public/icons/linkedIn.svg';
 import DiscrodSVG from 'public/icons/discord.svg';
 import FacebookSVG from 'public/icons/facebook.svg';
 import GithubSVG from 'public/icons/github.svg';
-import LinkedinSVG from 'public/icons/linkedin.svg';
 import MediumSVG from 'public/icons/medium.svg';
 import TwitterSVG from 'public/icons/twitter.svg';
 
