@@ -1,0 +1,24 @@
+.socials {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  opacity: 0.3;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+}

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { FC, useState, useMemo } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
@@ -32,7 +32,7 @@ const navLinks = [
   },
 ];
 
-const Header: React.FC = () => {
+const Header: FC = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
   const router = useRouter();
@@ -57,7 +57,7 @@ const Header: React.FC = () => {
   const backgroundCircleClassnames = classNames(styles.backgroundCircle);
 
   return (
-    <div className={headerClassnames}>
+    <header className={headerClassnames}>
       <Wrapper>
         <nav className={styles.root}>
           <LogoSVG className={styles.logo} />
@@ -121,7 +121,7 @@ const Header: React.FC = () => {
           )}
         </nav>
       </Wrapper>
-    </div>
+    </header>
   );
 };
 

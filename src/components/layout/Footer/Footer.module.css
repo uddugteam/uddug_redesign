@@ -1,0 +1,141 @@
+.footer {
+  background-color: var(--background);
+}
+
+.inner {
+  padding: 71px 0 44px;
+
+  @media (--tablet-vertical) {
+    padding: 80px 0 46px;
+  }
+}
+
+.logo {
+  display: flex;
+  width: 177px;
+  height: 34px;
+  margin: 0 auto 48px;
+
+  @media (--tablet-vertical) {
+    margin: 0;
+  }
+}
+
+.footerTop {
+  padding-bottom: 44px;
+  border-bottom: 1px solid #101314;
+
+  @media (--tablet-vertical) {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+}
+
+.footerMedia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (--tablet-vertical) {
+    align-items: flex-end;
+  }
+}
+
+.socials {
+  margin-bottom: 30px;
+
+  @media (--tablet-vertical) {
+    margin-bottom: 25px;
+  }
+}
+
+.emailList {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+
+  @media (--tablet-vertical) {
+    align-items: flex-end;
+    gap: 14px;
+  }
+}
+
+.email {
+  color: var(--light-grey);
+  font-size: 16px;
+  line-height: 137%;
+  transition: all 0.2s;
+
+  &:active {
+    color: var(--white);
+  }
+
+  @media (--desktop) {
+    &:hover,
+    &:focus {
+      color: var(--white);
+    }
+  }
+}
+
+.footerBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+
+  @media (--tablet-vertical) {
+    flex-direction: row;
+    padding-top: 44px;
+    gap: 40px;
+    justify-content: space-between;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+
+  @media (--tablet-vertical) {
+    flex-direction: row;
+    gap: 50px;
+  }
+}
+
+.navItem {
+  color: var(--light-grey);
+  font-size: 14px;
+  line-height: 157%;
+  transition: all 0.2s;
+
+  &:active {
+    color: var(--white);
+  }
+
+  @media (--desktop) {
+    &:hover,
+    &:focus {
+      color: var(--white);
+    }
+  }
+}
+
+.copyright {
+  color: var(--light-grey);
+  font-size: 14px;
+  line-height: 157%;
+
+  @media (--tablet-vertical) {
+    order: -1;
+  }
+}
