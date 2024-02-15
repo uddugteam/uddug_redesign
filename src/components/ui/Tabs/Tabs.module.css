@@ -1,0 +1,23 @@
+.controls {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  background-color: var(--blue-grey);
+  border-radius: 50px;
+  gap: 10px;
+  padding: 10px;
+  margin: 0 auto 34px;
+
+  @media (--tablet-vertical) {
+    margin-bottom: 43px;
+  }
+}
+
+.button {
+  transition: all 0.2s;
+  background: transparent;
+}
+
+.buttonActive {
+  background: var(--gradient-primary);
+}
