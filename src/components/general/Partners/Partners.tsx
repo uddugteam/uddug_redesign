@@ -3,7 +3,6 @@ import React, { useRef } from 'react';
 import { Swiper as SwiperClass } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid, Autoplay, Pagination } from 'swiper/modules';
-import Link from 'next/link';
 
 import HolygateSVG from '/public/icons/holygate.svg';
 import RevittSVG from '/public/icons/revitt.svg';
@@ -76,7 +75,7 @@ const partners: IPartnerProps[] = [
   {
     name: 'final01',
     logo: <FinalOneSVG className={styles.logo} />,
-    url: 'https://www.final01.comt',
+    url: 'https://www.final01.com',
   },
 ];
 
@@ -145,11 +144,18 @@ const Partners = () => {
                 partners.map((partner, index) => (
                   <SwiperSlide className={styles.slide} key={partner.name}>
                     {partner.url ? (
-                      <Link href={partner.url}>
+                      <a
+                        href={partner.url ? partner.url : '#'}
+                        rel='noreferrer'
+                        target='_blank'
+                        onClick={e => {
+                          if (!partner.url) e.preventDefault();
+                        }}
+                      >
                         <div className={styles.logoContainer}>
                           {partner.logo}
                         </div>
-                      </Link>
+                      </a>
                     ) : (
                       <div className={styles.logoContainer}>{partner.logo}</div>
                     )}

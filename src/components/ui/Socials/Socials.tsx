@@ -50,7 +50,12 @@ const Socials: FC<ISocialsProps> = ({ socialItems, className }) => {
         socialItems.length &&
         socialItems.map((item, index) => (
           <li key={item.link + index}>
-            <a className={styles.link} href={item.link} target='blank'>
+            <a
+              className={styles.link}
+              href={item.link}
+              rel='noreferrer'
+              target='_blank'
+            >
               {icons[item.icon]}
             </a>
           </li>
