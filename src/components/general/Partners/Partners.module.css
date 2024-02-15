@@ -31,29 +31,36 @@
 }
 
 .logoContainer {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--tranparent-grey);
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 22px 20px;
   height: 82px;
 
+  &:active .logo {
+    color: var(--white);
+  }
+
   @media (--tablet-vertical) {
     height: 107px;
+  }
+
+  @media (--desktop) {
+    &:hover .logo,
+    &:focus .logo {
+      color: var(--white);
+    }
   }
 }
 
 .logo {
   width: 100%;
   height: 100%;
-  filter: contrast(0%);
-  transition: all 0.3s ease-in-out;
-}
-
-.logo:hover {
-  filter: none; /* Убираем фильтры при наведении */
+  color: #293552;
+  transition: all 0.2s;
 }
 
 .swiper {

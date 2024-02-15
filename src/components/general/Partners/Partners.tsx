@@ -1,11 +1,19 @@
 import { motion } from 'framer-motion';
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Swiper as SwiperClass } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid, Autoplay, Pagination } from 'swiper/modules';
+import Link from 'next/link';
 
-import HolygateSVG from '/public/icons/colored-partner12.svg';
-import LimeSVG from '/public/icons/colored-partner1.svg';
+import HolygateSVG from '/public/icons/holygate.svg';
+import RevittSVG from '/public/icons/revitt.svg';
+import AgenteSVG from '/public/icons/agente.svg';
+import ArsnlSVG from '/public/icons/arsnl.svg';
+import GatewaySVG from '/public/icons/gateway.svg';
+import FfconsultingSVG from '/public/icons/ffconsulting.svg';
+import TrinitySVG from '/public/icons/trinity.svg';
+import SnarkArtSVG from '/public/icons/snarkart.svg';
+import FinalOneSVG from '/public/icons/final01.svg';
 
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -28,42 +36,47 @@ const partners: IPartnerProps[] = [
   {
     name: 'holygate',
     logo: <HolygateSVG className={styles.logo} />,
-    url: 'http://holygate.com',
+    url: null,
   },
   {
-    name: 'holygate',
-    logo: <LimeSVG className={styles.logo} />,
-    url: 'http://holygate.com',
+    name: 'revitt',
+    logo: <RevittSVG className={styles.logo} />,
+    url: 'https://revitt.consulting/',
   },
   {
-    name: 'holygate',
-    logo: <HolygateSVG className={styles.logo} />,
-    url: 'http://holygate.com',
+    name: 'agente',
+    logo: <AgenteSVG className={styles.logo} />,
+    url: null,
   },
   {
-    name: 'holygate',
-    logo: <LimeSVG className={styles.logo} />,
-    url: 'http://holygate.com',
+    name: 'arsnl',
+    logo: <ArsnlSVG className={styles.logo} />,
+    url: 'https://arsnl.art/',
   },
   {
-    name: 'holygate',
-    logo: <HolygateSVG className={styles.logo} />,
-    url: 'http://holygate.com',
+    name: 'gateway',
+    logo: <GatewaySVG className={styles.logo} />,
+    url: 'https://gateway.fm/',
   },
   {
-    name: 'holygate',
-    logo: <LimeSVG className={styles.logo} />,
-    url: 'http://holygate.com',
+    name: 'ffconsulting',
+    logo: <FfconsultingSVG className={styles.logo} />,
+    url: 'https://www.ffconsulting.org',
   },
   {
-    name: 'holygate',
-    logo: <HolygateSVG className={styles.logo} />,
-    url: 'http://holygate.com',
+    name: 'trinity',
+    logo: <TrinitySVG className={styles.logo} />,
+    url: 'https://trinitymonsters.com',
   },
   {
-    name: 'holygate',
-    logo: <LimeSVG className={styles.logo} />,
-    url: 'http://holygate.com',
+    name: 'snarkart',
+    logo: <SnarkArtSVG className={styles.logo} />,
+    url: 'https://snark.art',
+  },
+  {
+    name: 'final01',
+    logo: <FinalOneSVG className={styles.logo} />,
+    url: 'https://www.final01.comt',
   },
 ];
 
@@ -131,7 +144,15 @@ const Partners = () => {
                 partners.length &&
                 partners.map((partner, index) => (
                   <SwiperSlide className={styles.slide} key={partner.name}>
-                    <div className={styles.logoContainer}>{partner.logo}</div>
+                    {partner.url ? (
+                      <Link href={partner.url}>
+                        <div className={styles.logoContainer}>
+                          {partner.logo}
+                        </div>
+                      </Link>
+                    ) : (
+                      <div className={styles.logoContainer}>{partner.logo}</div>
+                    )}
                   </SwiperSlide>
                 ))}
             </Swiper>

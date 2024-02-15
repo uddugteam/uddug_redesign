@@ -130,6 +130,10 @@
 }
 
 .opened .mobileMenu {
+  top: -13px;
+}
+
+.scrolled .opened .mobileMenu {
   top: 0;
 }
 
