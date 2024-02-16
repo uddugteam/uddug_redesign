@@ -40,11 +40,11 @@ const HomePage: AppNextPage = () => {
       <MainBlock />
       <Bullets bullets={bullets} />
       <Partners />
+      <Projects />
       <Team />
-      {/* <Projects />
-      <Mission />
-      <Careers />
-      <Internship /> */}
+      {/* <Mission /> */}
+      {/* <Careers /> */}
+      {/* <Internship /> */}
       <Footer />
       {/* <RightBadge /> */}
     </div>

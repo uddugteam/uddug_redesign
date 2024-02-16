@@ -1,16 +1,20 @@
+import { PartnersIconsList } from 'components/ui/PartnerLogo';
+
 export interface Project {
   name: string;
   description: string;
   technologies: string[];
   otherTechnologies?: string[];
+  partner?: string | null;
   link?: string | null;
 }
 
 export const projects: Project[] = [
   {
-    link: 'https://infinex.io', 
+    partner: PartnersIconsList.GATEWAY,
+    link: 'https://infinex.io',
     description:
-  'In collaboration with Gateway.fm, we have developed an optimized and efficient API tailored for Synthetix PerpsV3 DEX to improve the trading experience by providing high-speed data access and seamless integration with PerpsV3 contracts.',
+      'In collaboration with Gateway.fm, we have developed an optimized and efficient API tailored for Synthetix PerpsV3 DEX to improve the trading experience by providing high-speed data access and seamless integration with PerpsV3 contracts.',
     technologies: [
       'Go',
       'Optimism',
@@ -21,10 +25,10 @@ export const projects: Project[] = [
       'Swagger',
       'Ethereum',
       'Swagger',
-      ],
-      otherTechnologies: ['Microservices', 'Redis', 'Nomad', 'Web3.js'],
-      name: 'Infinex HFT API',
-    },
+    ],
+    otherTechnologies: ['Microservices', 'Redis', 'Nomad', 'Web3.js'],
+    name: 'Infinex HFT API',
+  },
   {
     link: null,
     description:
@@ -45,9 +49,9 @@ export const projects: Project[] = [
     name: 'GitSEC',
   },
   {
-    link: 'http://arsnl.art/nascent', 
+    link: 'http://arsnl.art/nascent',
     description:
-'An NFT Drama in Four Acts… Nascent consists of fifteen unique diptychs and an open-edition NFT theatrical performance starring “Happiness Pills.” Through thought-provoking visuals and layered symbolism, artworks serves as a mirror that reveals the complex interplay between digital consumption and true happiness.',
+      'An NFT Drama in Four Acts… Nascent consists of fifteen unique diptychs and an open-edition NFT theatrical performance starring “Happiness Pills.” Through thought-provoking visuals and layered symbolism, artworks serves as a mirror that reveals the complex interplay between digital consumption and true happiness.',
     technologies: [
       'Go',
       'Ethereum',
@@ -56,14 +60,23 @@ export const projects: Project[] = [
       'PostgreSql',
       'Swagger',
       'EKS',
-      ],
-      otherTechnologies: ['Microservices', 'Ether.js', 'Stripe', 'Hardhat', 'Redis', 'AWS', 'S3', 'Docker'],
-      name: 'Ash Thorp: Nascent',
-    },
+    ],
+    otherTechnologies: [
+      'Microservices',
+      'Ether.js',
+      'Stripe',
+      'Hardhat',
+      'Redis',
+      'AWS',
+      'S3',
+      'Docker',
+    ],
+    name: 'Ash Thorp: Nascent',
+  },
   {
-    link: 'https://arsnl.art/geometries', 
+    link: 'https://arsnl.art/geometries',
     description:
-'Each NFT is the culmination of a decades-long exploration of computation, painting, and physical space by one of the most legendary living artists. Owners may 3D print their NFTs as physical objects for personal use, display them in virtual and augmented realities, or remix them into something new.',
+      'Each NFT is the culmination of a decades-long exploration of computation, painting, and physical space by one of the most legendary living artists. Owners may 3D print their NFTs as physical objects for personal use, display them in virtual and augmented realities, or remix them into something new.',
     technologies: [
       'Go',
       'Ethereum',
@@ -73,14 +86,25 @@ export const projects: Project[] = [
       'Swagger',
       'React',
       'EKS',
-      ],
-      otherTechnologies: ['Node.js', 'Microservices', 'Redis', 'AWS', 'Kubernetes', 'S3', 'Docker', 'Next.js', 'Web3.js', 'Stripe'],
-      name: 'Frank Stella: Geometries',
-    },
+    ],
+    otherTechnologies: [
+      'Node.js',
+      'Microservices',
+      'Redis',
+      'AWS',
+      'Kubernetes',
+      'S3',
+      'Docker',
+      'Next.js',
+      'Web3.js',
+      'Stripe',
+    ],
+    name: 'Frank Stella: Geometries',
+  },
   {
-    link: 'https://arsnl.art/for-a-limited-time', 
+    link: 'https://arsnl.art/for-a-limited-time',
     description:
-  'Algorithms generate collages that every 15 min. transform images of current events into works. A new work is created every 10 - 15 minutes. A collector can claim the work, cementing the art and their personal connection with time onto the blockchain. Only 750 of 35k artworks  be "curated" by collectors at their choosing over the course of the year.',
+      'Algorithms generate collages that every 15 min. transform images of current events into works. A new work is created every 10 - 15 minutes. A collector can claim the work, cementing the art and their personal connection with time onto the blockchain. Only 750 of 35k artworks  be "curated" by collectors at their choosing over the course of the year.',
     technologies: [
       'Go',
       'Ethereum',
@@ -89,10 +113,19 @@ export const projects: Project[] = [
       'PostgreSql',
       'Swagger',
       'EKS',
-      ],
-      otherTechnologies: ['Microservices', 'Redis', 'AWS', 'Kubernetes', 'S3', 'Docker', 'Web3.js', 'Stripe'],
-      name: 'Siebren Versteeg: For a limited time',
-    },
+    ],
+    otherTechnologies: [
+      'Microservices',
+      'Redis',
+      'AWS',
+      'Kubernetes',
+      'S3',
+      'Docker',
+      'Web3.js',
+      'Stripe',
+    ],
+    name: 'Siebren Versteeg: For a limited time',
+  },
   {
     link: null,
     description:
