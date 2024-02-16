@@ -1,29 +1,9 @@
-.wrapper {
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  overflow: auto;
-}
-
 .root {
-  width: 100%;
-  max-width: 1440px;
-
-  display: flex;
-  flex-direction: column;
-
-  padding: 16px;
+  color: var(--white);
+  overflow: auto;
+  padding: 61px 0 61px;
 
   @media (--tablet-vertical) {
-    padding: 0 30px;
-  }
-
-  @media (--tablet-landscape) {
-    padding: 0 80px;
-  }
-
-  @media (--desktop) {
-    padding: 0 120px;
+    padding: 66px 0 66px;
   }
 }

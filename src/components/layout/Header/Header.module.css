@@ -119,7 +119,7 @@
   top: -100vh;
   left: 0;
   right: 0;
-  padding: 150px 0 35px;
+  padding: 150px 0 110px;
   background-color: var(--background);
   transition: 0.3s ease-in-out;
   height: 100vh;
@@ -133,7 +133,7 @@
   top: -13px;
 }
 
-.scrolled .opened .mobileMenu {
+.scrolled.opened .mobileMenu {
   top: 0;
 }
 
