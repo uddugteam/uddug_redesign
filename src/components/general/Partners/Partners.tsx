@@ -33,6 +33,16 @@ interface IPartnerProps {
 
 const partners: IPartnerProps[] = [
   {
+    name: 'gateway',
+    logo: <GatewaySVG className={styles.logo} />,
+    url: 'https://gateway.fm/',
+  },
+  {
+    name: 'arsnl',
+    logo: <ArsnlSVG className={styles.logo} />,
+    url: 'https://arsnl.art/',
+  },
+  {
     name: 'holygate',
     logo: <HolygateSVG className={styles.logo} />,
     url: null,
@@ -43,24 +53,19 @@ const partners: IPartnerProps[] = [
     url: 'https://revitt.consulting/',
   },
   {
+    name: 'ffconsulting',
+    logo: <FfconsultingSVG className={styles.logo} />,
+    url: 'https://www.ffconsulting.org',
+  },
+  {
     name: 'agente',
     logo: <AgenteSVG className={styles.logo} />,
     url: null,
   },
   {
-    name: 'arsnl',
-    logo: <ArsnlSVG className={styles.logo} />,
-    url: 'https://arsnl.art/',
-  },
-  {
-    name: 'gateway',
-    logo: <GatewaySVG className={styles.logo} />,
-    url: 'https://gateway.fm/',
-  },
-  {
-    name: 'ffconsulting',
-    logo: <FfconsultingSVG className={styles.logo} />,
-    url: 'https://www.ffconsulting.org',
+    name: 'final01',
+    logo: <FinalOneSVG className={styles.logo} />,
+    url: 'https://www.final01.com',
   },
   {
     name: 'trinity',
@@ -71,11 +76,6 @@ const partners: IPartnerProps[] = [
     name: 'snarkart',
     logo: <SnarkArtSVG className={styles.logo} />,
     url: 'https://snark.art',
-  },
-  {
-    name: 'final01',
-    logo: <FinalOneSVG className={styles.logo} />,
-    url: 'https://www.final01.com',
   },
 ];
 
@@ -130,7 +130,7 @@ const Partners = () => {
               breakpoints={breakpoints}
               slidesPerView={2}
               spaceBetween={20}
-              autoplay={{ delay: swiperDelay, disableOnInteraction: true }}
+              autoplay={{ delay: swiperDelay }}
               onSwiper={() => {
                 if (swiperRef.current) {
                   swiperRef.current.pagination.el.classList.add(

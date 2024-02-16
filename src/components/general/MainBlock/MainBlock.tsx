@@ -35,79 +35,83 @@ const MainBlock: React.VFC = () => {
     setIsSplineLoaded(true);
   };
 
-  useEffect(() => {
-    if (!isSplineLoaded) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (!isSplineLoaded) {
+  //     return;
+  //   }
 
-    setIsFirstLoad(prevIsFirstLoad => {
-      let groupToMove;
+  //   setIsFirstLoad(prevIsFirstLoad => {
+  //     let groupToMove;
 
-      if (prevIsFirstLoad && !isWide) {
-        return false;
-      }
+  //     if (prevIsFirstLoad && !isWide) {
+  //       return false;
+  //     }
 
-      if (spline && spline.current) {
-        groupToMove = spline.current.findObjectById(
-          'cc1a3bc8-a4a6-430d-91e6-9bcc7409697b'
-        );
-      }
+  //     if (spline && spline.current) {
+  //       groupToMove = spline.current.findObjectById(
+  //         'c8056fca-2939-4735-bac7-4c625ca87a79'
+  //       );
+  //       // groupToMove = spline.current.findObjectById(
+  //       //   'cc1a3bc8-a4a6-430d-91e6-9bcc7409697b'
+  //       // );
+  //     }
 
-      if (isWide) {
-        setWideScreenPosition(groupToMove, pxToMove);
-      } else {
-        setDefaultPosition(groupToMove, pxToMove);
-      }
+  //     if (isWide) {
+  //       setWideScreenPosition(groupToMove, pxToMove);
+  //     } else {
+  //       setDefaultPosition(groupToMove, pxToMove);
+  //     }
 
-      if (prevIsFirstLoad) {
-        return false;
-      }
+  //     if (prevIsFirstLoad) {
+  //       return false;
+  //     }
 
-      return prevIsFirstLoad;
-    });
-  }, [isSplineLoaded, isWide]);
+  //     return prevIsFirstLoad;
+  //   });
+  // }, [isSplineLoaded, isWide]);
 
-  useEffect(() => {
-    const resizeHandler = () => {
-      setIsWide(screenSize === 'desktop');
-    };
+  // useEffect(() => {
+  //   const resizeHandler = () => {
+  //     setIsWide(screenSize === 'desktop');
+  //   };
 
-    window.addEventListener('resize', resizeHandler);
-    window.addEventListener('orientationchange', resizeHandler);
+  //   window.addEventListener('resize', resizeHandler);
+  //   window.addEventListener('orientationchange', resizeHandler);
 
-    resizeHandler();
-    return () => {
-      window.removeEventListener('resize', resizeHandler);
-      window.removeEventListener('orientationchange', resizeHandler);
-    };
-  }, [screenSize]);
+  //   resizeHandler();
+  //   return () => {
+  //     window.removeEventListener('resize', resizeHandler);
+  //     window.removeEventListener('orientationchange', resizeHandler);
+  //   };
+  // }, [screenSize]);
 
   return (
     <section className={styles.root}>
       <div className={styles.spline}>
-        <Spline
-          scene='https://prod.spline.design/oDwsBbB3TIrZJuHZ/scene.splinecode'
+        {/* <Spline
+          // scene='https://prod.spline.design/oDwsBbB3TIrZJuHZ/scene.splinecode'
+          scene='https://prod.spline.design/jK7ZlqMGcgxk15No/scene.splinecode'
           onLoad={onLoad}
-        />
+        /> */}
       </div>
       <Wrapper>
-        <motion.div
+        <div
           className={styles.inner}
-          initial='hidden'
-          animate='visible'
-          variants={{
-            hidden: {
-              scale: 0.8,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.6,
-              },
-            },
-          }}
+          // initial='hidden'
+          // animate='visible'
+          // variants={{
+          //   hidden: {
+          //     scale: 0.8,
+          //     opacity: 0,
+          //   },
+          //   visible: {
+          //     scale: 1,
+          //     opacity: 1,
+          //     transition: {
+          //       delay: 0.6,
+          //     },
+          //   },
+          // }}
         >
           <Title className={styles.title} size={TitleSizes.BIG}>
             We are{'\n'}production-focused{'\n'}development team
@@ -119,7 +123,7 @@ const MainBlock: React.VFC = () => {
           <Button className={styles.button}>
             We&apos;re ready to jumpstart your next project
           </Button>
-        </motion.div>
+        </div>
         <BackgroundCircle className={styles.backgroundCircle} />
       </Wrapper>
     </section>

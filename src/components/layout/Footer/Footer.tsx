@@ -9,28 +9,21 @@ import LogoSVG from '/public/icons/light-logotype.svg';
 import styles from './Footer.module.css';
 
 const socialItems = [
-  { icon: SocialIcons.FACEBOOK, link: '#' },
-  { icon: SocialIcons.LINKEDIN, link: '#' },
-  { icon: SocialIcons.TWITTER, link: '#' },
-  { icon: SocialIcons.GITHUB, link: '#' },
-  { icon: SocialIcons.MEDIUM, link: '#' },
-  { icon: SocialIcons.DISCORD, link: '#' },
+  { icon: SocialIcons.FACEBOOK, link: 'https://www.facebook.com/uddug.dev' },
+  {
+    icon: SocialIcons.LINKEDIN,
+    link: 'https://www.linkedin.com/company/uddug/',
+  },
+  { icon: SocialIcons.TWITTER, link: 'https://twitter.com/Uddug_dev' },
+  { icon: SocialIcons.GITHUB, link: 'https://github.com/uddugteam' },
 ];
 
-const emails = ['info@uddug.com', 'hr@uddug.com'];
+const emails = ['info@uddug.com'];
 
 const navLinks = [
   {
     name: 'Privacy policy',
     link: '/privacy-policy',
-  },
-  {
-    name: 'Terms & Conditions',
-    link: '/terms',
-  },
-  {
-    name: 'Cookie Policy',
-    link: '/cookie',
   },
 ];
 
@@ -66,7 +59,7 @@ const Footer: FC = () => {
                   </li>
                 ))}
             </ul>
-            <span className={styles.copyright}>Uddug © 2013</span>
+            <span className={styles.copyright}>Uddug © 2024</span>
           </div>
         </div>
       </Wrapper>

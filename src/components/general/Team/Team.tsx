@@ -47,8 +47,8 @@ const founders = [
         icon: SocialIcons.LINKEDIN,
         link: 'https://www.linkedin.com/in/andrew-skurlatov/',
       },
-      { icon: SocialIcons.GITHUB, link: 'https://twitter.com/Andskur1' },
-      { icon: SocialIcons.TWITTER, link: 'https://github.com/andskur' },
+      { icon: SocialIcons.GITHUB, link: 'https://github.com/andskur' },
+      { icon: SocialIcons.TWITTER, link: 'https://twitter.com/Andskur1' },
     ],
   },
 ];
@@ -124,7 +124,7 @@ const Team: FC = () => {
           centerInsufficientSlides={true}
           slidesPerView={1}
           spaceBetween={20}
-          autoplay={{ delay: swiperDelay, disableOnInteraction: true }}
+          autoplay={{ delay: swiperDelay }}
           onSwiper={() => {
             if (swiperRef.current) {
               swiperRef.current.pagination.el.classList.add(styles.pagination);
@@ -165,7 +165,7 @@ const Team: FC = () => {
           centerInsufficientSlides={true}
           slidesPerView={1}
           spaceBetween={20}
-          autoplay={{ delay: swiperDelay, disableOnInteraction: true }}
+          autoplay={{ delay: swiperDelay }}
           onSwiper={() => {
             if (swiperRef.current) {
               swiperRef.current.pagination.el.classList.add(styles.pagination);

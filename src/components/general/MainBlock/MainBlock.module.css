@@ -44,7 +44,14 @@
   right: 0;
 }
 
+.spline canvas {
+  /* width: 50% !important;
+  height: 50% !important;
+  transform: scale(300%); */
+}
+
 .inner {
+  pointer-events: none;
   z-index: 1;
   position: relative;
   display: flex;
@@ -82,6 +89,7 @@
 }
 
 .button {
+  pointer-events: auto;
   text-align: start;
   border-radius: 100px;
   padding: 15px 17px 15px 26px;
