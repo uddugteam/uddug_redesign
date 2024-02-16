@@ -15,6 +15,7 @@
   --indent-horizontal-tablet-s: 30px;
   --indent-horizontal-tablet-m: 60px;
   --indent-horizontal-desktop: 120px;
+  --card-border: #14171a;
   --card-hover-gradient: linear-gradient(
     20deg,
     rgba(13, 17, 22, 1) 0%,

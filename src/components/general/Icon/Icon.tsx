@@ -1,32 +1,40 @@
-import React, { cloneElement, SVGProps, useEffect, useState } from 'react';
-import { useAsync } from 'react-use';
+import React, { useEffect, useState } from 'react';
 
-export interface IconProps extends SVGProps<SVGSVGElement> {
+export interface IconProps extends React.SVGProps<SVGSVGElement> {
   name: 'logotype' | string;
 }
 
-const Icon: React.VFC<IconProps> = props => {
-  const { name, ...restProps } = props;
-
-  const [iconModule, setIconModule] = useState(() => <svg {...restProps} />);
-
-  useAsync(async () => {
-    const module = await import(`@svgr/webpack!public/icons/${name}.svg`).catch(
-      () => console.error(`Icon with name: ${name} not found!`)
-    );
-
-    if (module) {
-      setIconModule(module.ReactComponent({}));
-    }
-  }, [name]);
+const Icon: React.VFC<IconProps> = ({ name, ...restProps }) => {
+  const [iconComponent, setIconComponent] = useState<React.FC<
+    React.SVGProps<SVGSVGElement>
+  > | null>(null);
 
   useEffect(() => {
-    return () => {
-      setIconModule(<></>);
+    const importIcon = async () => {
+      try {
+        const { default: IconComponent } = await import(
+          `@svgr/webpack!public/icons/${name}.svg`
+        );
+        setIconComponent(() => IconComponent);
+      } catch (error) {
+        console.error(`Icon with name: ${name} not found!`, error);
+      }
     };
-  }, []);
 
-  return cloneElement(iconModule, { ...restProps });
+    importIcon();
+
+    return () => {
+      setIconComponent(null);
+    };
+  }, [name]);
+
+  if (!iconComponent) {
+    return null;
+  }
+
+  const IconComponent = iconComponent;
+
+  return <IconComponent {...restProps} />;
 };
 
 export default Icon;

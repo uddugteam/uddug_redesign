@@ -1,18 +1,8 @@
 import { motion } from 'framer-motion';
-import React, { useRef } from 'react';
+import React, { FC, useRef } from 'react';
 import { Swiper as SwiperClass } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid, Autoplay, Pagination } from 'swiper/modules';
-
-import HolygateSVG from '/public/icons/holygate.svg';
-import RevittSVG from '/public/icons/revitt.svg';
-import AgenteSVG from '/public/icons/agente.svg';
-import ArsnlSVG from '/public/icons/arsnl.svg';
-import GatewaySVG from '/public/icons/gateway.svg';
-import FfconsultingSVG from '/public/icons/ffconsulting.svg';
-import TrinitySVG from '/public/icons/trinity.svg';
-import SnarkArtSVG from '/public/icons/snarkart.svg';
-import FinalOneSVG from '/public/icons/final01.svg';
 
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -22,6 +12,7 @@ import Wrapper from 'components/layout/Wrapper';
 import Title, { TitleSizes } from 'components/ui/Title';
 import { useScreenSize } from 'hooks/useScreenSize';
 import { useScrollState } from 'contexts/scrollStateContext';
+import PartnerLogo, { PartnersIconsList } from 'components/ui/PartnerLogo';
 
 import styles from './Partners.module.css';
 
@@ -34,47 +25,92 @@ interface IPartnerProps {
 const partners: IPartnerProps[] = [
   {
     name: 'gateway',
-    logo: <GatewaySVG className={styles.logo} />,
+    logo: (
+      <PartnerLogo
+        className={styles.logo}
+        partnerName={PartnersIconsList.GATEWAY}
+      />
+    ),
     url: 'https://gateway.fm/',
   },
   {
     name: 'arsnl',
-    logo: <ArsnlSVG className={styles.logo} />,
+    logo: (
+      <PartnerLogo
+        className={styles.logo}
+        partnerName={PartnersIconsList.ARSNL}
+      />
+    ),
     url: 'https://arsnl.art/',
   },
   {
     name: 'holygate',
-    logo: <HolygateSVG className={styles.logo} />,
+    logo: (
+      <PartnerLogo
+        className={styles.logo}
+        partnerName={PartnersIconsList.HOLYGATE}
+      />
+    ),
     url: null,
   },
   {
     name: 'revitt',
-    logo: <RevittSVG className={styles.logo} />,
+    logo: (
+      <PartnerLogo
+        className={styles.logo}
+        partnerName={PartnersIconsList.REVITT}
+      />
+    ),
     url: 'https://revitt.consulting/',
   },
   {
     name: 'ffconsulting',
-    logo: <FfconsultingSVG className={styles.logo} />,
+    logo: (
+      <PartnerLogo
+        className={styles.logo}
+        partnerName={PartnersIconsList.FFCONSULTING}
+      />
+    ),
     url: 'https://www.ffconsulting.org',
   },
   {
     name: 'agente',
-    logo: <AgenteSVG className={styles.logo} />,
+    logo: (
+      <PartnerLogo
+        className={styles.logo}
+        partnerName={PartnersIconsList.AGENTE}
+      />
+    ),
     url: null,
   },
   {
     name: 'final01',
-    logo: <FinalOneSVG className={styles.logo} />,
+    logo: (
+      <PartnerLogo
+        className={styles.logo}
+        partnerName={PartnersIconsList.FINALONE}
+      />
+    ),
     url: 'https://www.final01.com',
   },
   {
     name: 'trinity',
-    logo: <TrinitySVG className={styles.logo} />,
+    logo: (
+      <PartnerLogo
+        className={styles.logo}
+        partnerName={PartnersIconsList.TRINITY}
+      />
+    ),
     url: 'https://trinitymonsters.com',
   },
   {
     name: 'snarkart',
-    logo: <SnarkArtSVG className={styles.logo} />,
+    logo: (
+      <PartnerLogo
+        className={styles.logo}
+        partnerName={PartnersIconsList.SNARKART}
+      />
+    ),
     url: 'https://snark.art',
   },
 ];
@@ -89,7 +125,7 @@ const breakpoints = {
   },
 };
 
-const Partners = () => {
+const Partners: FC = () => {
   const swiperRef = useRef<SwiperClass | null>(null);
   const screenSize = useScreenSize();
   const isWide = screenSize === 'desktop';
