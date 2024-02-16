@@ -15,6 +15,11 @@
   --indent-horizontal-tablet-s: 30px;
   --indent-horizontal-tablet-m: 60px;
   --indent-horizontal-desktop: 120px;
+  --card-hover-gradient: linear-gradient(
+    20deg,
+    rgba(13, 17, 22, 1) 0%,
+    rgba(13, 17, 22, 0) 100%
+  );
   /* old */
   --light: #f8fafc;
   --dark: #0f172a;

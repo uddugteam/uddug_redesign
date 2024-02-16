@@ -36,9 +36,18 @@
   justify-content: center;
   align-items: center;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+  border: 1px solid #14171a;
   padding: 22px 20px;
   height: 82px;
+
+  &:active {
+    background: linear-gradient(
+      to right,
+      rgba(43, 54, 64, 1),
+      rgba(43, 54, 64, 0)
+    );
+  }
 
   &:active .logo {
     color: var(--white);
@@ -49,6 +58,15 @@
   }
 
   @media (--desktop) {
+    &:hover,
+    &:focus {
+      background: linear-gradient(
+        20deg,
+        rgba(13, 17, 22, 1) 0%,
+        rgba(13, 17, 22, 0) 100%
+      );
+    }
+
     &:hover .logo,
     &:focus .logo {
       color: var(--white);

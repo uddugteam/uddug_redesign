@@ -45,9 +45,15 @@
 }
 
 .spline canvas {
-  /* width: 50% !important;
+  width: 50% !important;
   height: 50% !important;
-  transform: scale(300%); */
+  transform: scale(300%);
+
+  @media (--desktop) {
+    width: 100% !important;
+    height: 100% !important;
+    transform: none;
+  }
 }
 
 .inner {
