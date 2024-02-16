@@ -117,7 +117,7 @@ const Header: FC = () => {
                   Contact us
                 </Button>
               </Link>
-              <BackgroundCircle className={backgroundCircleClassnames} />
+              {/* <BackgroundCircle className={backgroundCircleClassnames} /> */}
             </div>
           )}
         </nav>
