@@ -1,13 +1,53 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import Spline from '@splinetool/react-spline';
+import { Application } from '@splinetool/runtime';
 import classNames from 'classnames';
 
-import Icon from 'components/general/Icon';
-import styles from 'components/general/Footer/Footer.module.css';
+import Button from 'components/ui/Button';
+
+import styles from './ContactForm.module.css';
 
 interface ContactFormProps {
   className?: string;
   onFormSend?: () => void;
 }
+
+interface IPopupProps {
+  isOpened: boolean;
+  closePopup: () => void;
+}
+
+const Popup: React.VFC<IPopupProps> = ({ isOpened, closePopup }) => {
+  return (
+    <motion.div
+      className={classNames(styles.popup, {
+        [styles.popupOpened]: isOpened,
+      })}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+    >
+      <div className={styles.popupInner}>
+        <div className={styles.spline}>
+          <Spline
+            className={styles.canvas}
+            scene='https://prod.spline.design/XXAKFQ59i2KNrdbC/scene.splinecode'
+            onLoad={(splineApp: Application) => {
+              splineApp.setZoom(0.85);
+            }}
+          />
+        </div>
+        <h2 className={styles.popupTitle}>Thanks for submitting!</h2>
+        <p className={styles.popupText}>
+          We will contact you
+          <br />
+          within 10 minutes
+        </p>
+        <Button onClick={closePopup}>Сlose window</Button>
+      </div>
+    </motion.div>
+  );
+};
 
 const ContactForm: React.VFC<ContactFormProps> = ({
   onFormSend,
@@ -15,24 +55,67 @@ const ContactForm: React.VFC<ContactFormProps> = ({
 }) => {
   const submitRef = useRef<HTMLInputElement>(null);
 
-  const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [text, setText] = useState('');
   const [emailError, setEmailError] = useState<null | 'invalid' | 'required'>(
     null
   );
-  const [nameError, setNameError] = useState<null | 'required'>(null);
+  const [nameError, setNameError] = useState<null | 'invalid' | 'required'>(
+    null
+  );
   const [isFormSent, setIsFormSent] = useState(false);
+  const [isShowPopup, setIsShowPopup] = useState(false);
+
+  const validateName = (value: string) => {
+    if (value.length === 0) {
+      setNameError('required');
+      return false;
+    }
+
+    if (value.length < 2) {
+      setNameError('invalid');
+      return false;
+    }
+
+    return true;
+  };
+
+  const validateEmail = (value: string) => {
+    if (value.length === 0) {
+      setEmailError('required');
+      return false;
+    }
+
+    if (value.length < 6) {
+      setEmailError('invalid');
+      return false;
+    }
+
+    if (!value.includes('.') && !value.includes('@')) {
+      setEmailError('invalid');
+      return false;
+    }
+
+    return true;
+  };
 
   const submitHandler = async () => {
     setEmailError(null);
     setNameError(null);
     if (isFormSent) return;
-    if (email.length === 0) return setEmailError('required');
-    if (name.length === 0) return setNameError('required');
+
+    const isNameValid = validateName(name);
+    const isEmailValid = validateEmail(email);
+
+    if (!isNameValid || !isEmailValid) {
+      return;
+    }
+
     submitRef.current?.click();
     handleSendForm();
     setIsFormSent(true);
+    setIsShowPopup(true);
     setTimeout(() => {
       setIsFormSent(false);
     }, 3000);
@@ -55,7 +138,11 @@ const ContactForm: React.VFC<ContactFormProps> = ({
   }, []);
 
   return (
-    <div id='mc_embed_signup' style={{ width: '100%' }} className={className}>
+    <section
+      id='mc_embed_signup'
+      style={{ width: '100%' }}
+      className={className}
+    >
       <form
         action='https://uddug.us8.list-manage.com/subscribe/post?u=2f2114fd9a5f814f2cfae040d&amp;id=f835096de2&amp;f_id=00c35de0f0'
         method='post'
@@ -68,9 +155,30 @@ const ContactForm: React.VFC<ContactFormProps> = ({
       >
         <div id='mc_embed_signup_scroll' className={styles.form}>
           <h2 className={styles.hide}>Subscribe</h2>
-          <div className={styles.formHeader}>Write to us</div>
           <div className={classNames('indicates-required', styles.hide)}>
             <span className='asterisk'>*</span> indicates required
+          </div>
+          <div
+            className={classNames('mc-field-group', styles.fieldWrapper, {
+              [styles.errorField]: nameError,
+              [styles.invalidField]: nameError === 'invalid',
+              [styles.requiredField]: nameError === 'required',
+            })}
+          >
+            <label htmlFor='mce-FNAME' className={styles.hide}>
+              First Name{' '}
+            </label>
+            <input
+              type='text'
+              value={name}
+              onChange={e => setName(e.currentTarget.value)}
+              name='FNAME'
+              className={classNames(styles.field)}
+              id='mce-FNAME'
+              required
+              placeholder='Name'
+            />
+            <span id='mce-FNAME-HELPERTEXT' className='helper_text'></span>
           </div>
           <div
             className={classNames('mc-field-group', styles.fieldWrapper, {
@@ -87,32 +195,12 @@ const ContactForm: React.VFC<ContactFormProps> = ({
               value={email}
               onChange={e => setEmail(e.currentTarget.value)}
               name='EMAIL'
-              className={classNames('required email', styles.field)}
+              className={classNames(styles.field)}
               id='mce-EMAIL'
               required
               placeholder='E-mail'
             />
             <span id='mce-EMAIL-HELPERTEXT' className='helper_text'></span>
-          </div>
-          <div
-            className={classNames('mc-field-group', styles.fieldWrapper, {
-              [styles.errorField]: nameError,
-              [styles.requiredField]: nameError === 'required',
-            })}
-          >
-            <label htmlFor='mce-FNAME' className={styles.hide}>
-              First Name{' '}
-            </label>
-            <input
-              type='text'
-              value={name}
-              onChange={e => setName(e.currentTarget.value)}
-              name='FNAME'
-              className={classNames(styles.field)}
-              id='mce-FNAME'
-              placeholder='Name'
-            />
-            <span id='mce-FNAME-HELPERTEXT' className='helper_text'></span>
           </div>
           <div className={classNames('mc-field-group', styles.fieldWrapper)}>
             <label htmlFor='mce-MMERGE6' className={styles.hide}>
@@ -163,25 +251,15 @@ const ContactForm: React.VFC<ContactFormProps> = ({
                 className={classNames('button', styles.hide)}
                 ref={submitRef}
               />
-              <button
-                className={classNames(styles.button, {
-                  [styles.sent]: isFormSent,
-                  [styles.submitButton]: !isFormSent,
-                })}
+              <Button
+                className={styles.submitButton}
                 onClick={async e => {
                   e.preventDefault();
                   await submitHandler();
                 }}
               >
-                {isFormSent ? (
-                  <>
-                    <Icon name='check' width={24} height={24} />
-                    Sent
-                  </>
-                ) : (
-                  'Send message'
-                )}
-              </button>
+                {isFormSent ? <>Sent</> : 'Send message'}
+              </Button>
               <p className={classNames('brandingLogo', styles.hide)}>
                 <a
                   href='http://eepurl.com/h-6PAT'
@@ -194,7 +272,13 @@ const ContactForm: React.VFC<ContactFormProps> = ({
           </div>
         </div>
       </form>
-    </div>
+      <Popup
+        isOpened={isShowPopup}
+        closePopup={() => {
+          setIsShowPopup(false);
+        }}
+      />
+    </section>
   );
 };
 

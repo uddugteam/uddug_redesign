@@ -1,0 +1,72 @@
+.root {
+  background-color: var(--background);
+}
+
+.inner {
+  padding: 61px 0 61px;
+  position: relative;
+
+  @media (--tablet-vertical) {
+    padding: 66px 0 66px;
+  }
+}
+
+.card {
+  display: grid;
+  gap: 36px;
+
+  background-color: var(--tranparent-grey);
+  border-radius: 16px;
+  padding: 54px 20px;
+
+  @media (--tablet-vertical) {
+    border-radius: 20px;
+    padding: 74px 60px 66px;
+    gap: 56px;
+  }
+
+  @media (--tablet-landscape) {
+    padding: 74px 60px 66px;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 30px;
+  }
+
+  @media (--desktop) {
+    padding: 74px 146px 66px 120px;
+  }
+}
+
+.header {
+  text-align: center;
+
+  @media (--tablet-landscape) {
+    text-align: start;
+    max-width: 300px;
+  }
+}
+
+.title {
+  margin-bottom: 16px;
+
+  @media (--tablet-vertical) {
+    margin-bottom: 24px;
+  }
+}
+
+.backgroundCircleFirst {
+  top: -400px;
+  left: auto;
+  right: -337px;
+  transform: translate3d(0, 0, 0) rotate(-30deg);
+}
+
+.backgroundCircleSecond {
+  top: auto;
+  bottom: -350px;
+  left: -188px;
+
+  @media (--desktop) {
+    left: -350px;
+  }
+}

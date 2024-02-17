@@ -6,12 +6,12 @@ import MainBlock from 'components/general/MainBlock';
 import Bullets from 'components/general/Bullets';
 import Partners from 'components/general/Partners';
 import Projects from 'components/general/Projects';
-import Mission from 'components/general/Mission';
 import Team from 'components/general/Team';
 import Careers from 'components/general/Careers';
-import Internship from 'components/general/Internship';
-// import Footer from 'components/general/Footer';
+import ContactUs from 'components/general/ContactUs';
 import Footer from 'components/layout/Footer';
+// import Mission from 'components/general/Mission';
+// import Internship from 'components/general/Internship';
 // import RightBadge from 'components/layout/RightBadge';
 
 import { AppNextPage } from '../../../../global';
@@ -41,6 +41,7 @@ const HomePage: AppNextPage = () => {
       <Bullets bullets={bullets} />
       <Partners />
       <Projects />
+      <ContactUs />
       <Team />
       <Careers />
       <Footer />
