@@ -77,7 +77,7 @@ const Header: FC = () => {
                       </Link>
                     </div>
                   ))}
-                <Link href={'/#contactUs'}>
+                <Link href={'/#contact-us'}>
                   <Button isAlt={true}>Contact us</Button>
                 </Link>
               </>

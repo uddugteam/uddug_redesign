@@ -1,12 +1,16 @@
-import { FC, ButtonHTMLAttributes } from 'react';
+import { FC, ButtonHTMLAttributes, MouseEvent } from 'react';
 import classNames from 'classnames';
 
 import styles from './Button.module.css';
 
+type ClickHandler = () => void;
+
+type EvtClickHandler = (event: MouseEvent<HTMLButtonElement>) => Promise<void>;
+
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   href?: string;
-  onClick?: () => void;
+  onClick?: ClickHandler | EvtClickHandler;
   children?: React.ReactNode;
   target?: string;
   isAlt?: boolean;

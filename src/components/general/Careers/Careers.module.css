@@ -8,10 +8,10 @@
   flex-direction: column;
   align-items: center;
 
-  padding: 61px 0 61px;
+  padding: 61px 0 71px;
 
   @media (--tablet-vertical) {
-    padding: 66px 0 66px;
+    padding: 66px 0 80px;
   }
 }
 

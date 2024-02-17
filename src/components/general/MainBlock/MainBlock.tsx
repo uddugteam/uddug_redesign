@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Spline from '@splinetool/react-spline';
+import { Application } from '@splinetool/runtime';
 
 import Wrapper from 'components/layout/Wrapper';
 import { useScreenSize } from 'hooks/useScreenSize';
@@ -29,7 +30,7 @@ const MainBlock: React.VFC = () => {
 
   const pxToMove = 2500;
 
-  const onLoad = (splineApp: any) => {
+  const onLoad = (splineApp: Application) => {
     spline.current = splineApp;
     setIsSplineLoaded(true);
   };

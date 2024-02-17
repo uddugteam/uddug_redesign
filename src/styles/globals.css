@@ -50,6 +50,10 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.mce_inline_error {
+  border-color: var(--error) !important;
+}
+
 .grid {
   position: absolute;
   width: 800px;
