@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Wrapper from 'components/layout/Wrapper';
 import Title, { TitleSizes } from 'components/ui/Title';
 import Subtitle from 'components/ui/Subtitle';
+import BackgroundCircle from 'components/ui/BackgroundCircle';
 import { useScrollState } from 'contexts/scrollStateContext';
 import { useScreenSize } from 'hooks/useScreenSize';
 import Icon from 'components/general/Icon';
@@ -150,6 +151,7 @@ const Careers = () => {
               LinkedIn
             </a>
           </motion.div>
+          <BackgroundCircle className={styles.backgroundCircle} />
         </div>
       </Wrapper>
     </div>

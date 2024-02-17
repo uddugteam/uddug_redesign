@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
-import React, { RefObject, useEffect, useMemo, useRef, useState } from 'react';
+import React, { RefObject, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import ProjectBadgeWEB3 from '/public/icons/project-badge-web3.svg';
 import ArrowSVG from '/public/icons/arrow.svg';
 
 import { useScrollState } from 'contexts/scrollStateContext';
-import Icon from 'components/general/Icon';
 import Title, { TitleSizes } from 'components/ui/Title';
+import BackgroundCircle from 'components/ui/BackgroundCircle';
 import Wrapper from 'components/layout/Wrapper';
 import { useScreenSize } from 'hooks/useScreenSize';
 import {
@@ -181,6 +181,7 @@ const Projects = () => {
           >
             {isAllProjectsOpen ? 'Roll Up' : 'See All Projects'}
           </Button>
+          <BackgroundCircle className={styles.BackgroundCircle} />
         </div>
       </Wrapper>
     </section>
