@@ -42,10 +42,10 @@ const HomePage: AppNextPage = () => {
       <Partners />
       <Projects />
       <Team />
-      {/* <Mission /> */}
-      {/* <Careers /> */}
-      {/* <Internship /> */}
+      <Careers />
       <Footer />
+      {/* <Internship /> */}
+      {/* <Mission /> */}
       {/* <RightBadge /> */}
     </div>
   );

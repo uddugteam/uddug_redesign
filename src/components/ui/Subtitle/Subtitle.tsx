@@ -5,7 +5,7 @@ import styles from './Subtitle.module.css';
 
 interface ISubtitleProps {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }
 
 const Subtitle: FC<ISubtitleProps> = ({ children, className }) => {

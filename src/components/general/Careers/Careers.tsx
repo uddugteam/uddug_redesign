@@ -2,6 +2,9 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import classNames from 'classnames';
 
+import Wrapper from 'components/layout/Wrapper';
+import Title, { TitleSizes } from 'components/ui/Title';
+import Subtitle from 'components/ui/Subtitle';
 import { useScrollState } from 'contexts/scrollStateContext';
 import { useScreenSize } from 'hooks/useScreenSize';
 import Icon from 'components/general/Icon';
@@ -99,57 +102,56 @@ const Careers = () => {
 
   return (
     <div className={styles.root} ref={careers} id='careers'>
-      <Icon name='lines-grid' className={classNames('grid', 'topGrid')} />
-      <motion.div
-          className={styles.header}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}>
-        We are <span className='purpleText'>hiring</span> professionals for our{' '}
-        <span className='orangeText'>team</span>
-      </motion.div>
-      <motion.div
-          className={styles.description}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}>
-        &quot;Uddug&quot; has enjoyed steady, solid growth in its years of
-        business, and talented, productive people made it possible. Please check
-        the open positions
-      </motion.div>
-      <motion.div
-          className={styles.vacationsList}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}>
-        {vacations.map(vacation => (
-          <VacationCard key={vacation.name} {...vacation} />
-        ))}
-        <div className='backgroundLinesWrapper'>
-          <Icon
-            name={isWide ? 'background-lines' : 'mobile-background-lines'}
-            className='backgroundLines'
-          />
+      <Wrapper>
+        <div className={styles.inner}>
+          <motion.div
+            className={styles.header}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+          >
+            <Title className={styles.title} size={TitleSizes.MEDIUM}>
+              <span className='accentSecondaryText'>We are hiring</span>{' '}
+              professionals for our team
+            </Title>
+            <Subtitle className={styles.description}>
+              &quot;Uddug&quot; has enjoyed steady, solid growth in its years of
+              business, and talented, productive people made it possible. Please
+              check the open positions
+            </Subtitle>
+          </motion.div>
+          <motion.div
+            className={styles.vacationsList}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+          >
+            {vacations.map(vacation => (
+              <VacationCard key={vacation.name} {...vacation} />
+            ))}
+          </motion.div>
+          <motion.div
+            className={styles.contactsText}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+          >
+            Send your CV to{' '}
+            <a
+              href='mailto:hr@uddug.com'
+              className={classNames(styles.links, 'accentPrimaryText')}
+            >
+              hr@uddug.com
+            </a>{' '}
+            or{' '}
+            <a
+              href={'https://www.linkedin.com/company/uddug'}
+              target='_blank'
+              rel='noreferrer'
+              className={classNames(styles.links, 'accentSecondaryText')}
+            >
+              LinkedIn
+            </a>
+          </motion.div>
         </div>
-      </motion.div>
-      <motion.div
-          className={styles.contactsText}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}>
-        Send your CV to{' '}
-        <a
-          href='mailto:hr@uddug.com'
-          className={classNames(styles.links, 'orangeText')}
-        >
-          hr@uddug.com
-        </a>{' '}
-        or{' '}
-        <a
-          href={'https://www.linkedin.com/company/uddug'}
-          target='_blank'
-          rel='noreferrer'
-          className={classNames(styles.links, 'purpleText')}
-        >
-          LinkedIn
-        </a>
-      </motion.div>
+      </Wrapper>
     </div>
   );
 };
