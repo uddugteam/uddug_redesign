@@ -6,10 +6,11 @@
   width: 100%;
   transition: 0.3s;
   color: var(--light);
-  top: 13px;
+  padding-top: 13px;
+  top: 0;
 
   &.scrolled {
-    top: 0;
+    padding-top: 0;
     backdrop-filter: blur(20px);
     background-color: rgba(1, 3, 5, 0.3);
   }
@@ -121,7 +122,7 @@
   right: 0;
   padding: 150px 0 110px;
   background-color: var(--background);
-  transition: 0.3s ease-in-out;
+  transition: all 0.5s;
   height: 100vh;
 
   @media (--desktop) {
@@ -130,10 +131,6 @@
 }
 
 .opened .mobileMenu {
-  top: -13px;
-}
-
-.scrolled.opened .mobileMenu {
   top: 0;
 }
 

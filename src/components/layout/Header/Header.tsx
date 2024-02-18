@@ -37,22 +37,21 @@ const Header: FC = () => {
 
   const router = useRouter();
 
-  const isPrivacyPolicyPage = useMemo(
-    () => router.pathname.indexOf('privacy-policy'),
-    [router.pathname]
-  );
+  // const isPrivacyPolicyPage = useMemo(
+  //   () => router.pathname.indexOf('privacy-policy'),
+  //   [router.pathname]
+  // );
 
   const { scroll } = useScrollState();
   const [isScrolled] = scroll;
 
   const screenSize = useScreenSize();
   const isWide = screenSize === 'desktop';
-  console.log(isPrivacyPolicyPage);
   const headerClassnames = classNames(
     styles.header,
     isScrolled && [styles.scrolled],
     isMenuOpened && styles.opened,
-    isPrivacyPolicyPage === 1 && [styles.scrolled]
+    router.pathname.includes('privacy-policy') && [styles.scrolled]
   );
 
   const backgroundCircleClassnames = classNames(styles.backgroundCircle);

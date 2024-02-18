@@ -31,14 +31,6 @@
   position: relative;
 }
 
-.swiper {
-  margin-bottom: 42px;
-
-  @media (--tablet-vertical) {
-    margin-bottom: 63px;
-  }
-}
-
 .slide {
   display: flex;
   justify-content: center;
@@ -58,6 +50,11 @@
   border-radius: 10px;
   background: var(--dark--grey);
   opacity: 1;
+  margin-top: 42px !important;
+
+  &:only-child {
+    margin-top: 0 !important;
+  }
 
   &::after {
     content: '';
@@ -73,6 +70,10 @@
       transition: inherit;
       width: 100%;
     }
+  }
+
+  @media (--tablet-vertical) {
+    margin-top: 63px !important;
   }
 }
 
