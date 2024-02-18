@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import Spline from '@splinetool/react-spline';
-import { Application } from '@splinetool/runtime';
+import Image from 'next/image';
 import classNames from 'classnames';
 
 import Button from 'components/ui/Button';
@@ -28,13 +27,12 @@ const Popup: React.VFC<IPopupProps> = ({ isOpened, closePopup }) => {
       whileInView={{ opacity: 1 }}
     >
       <div className={styles.popupInner}>
-        <div className={styles.spline}>
-          <Spline
-            className={styles.canvas}
-            scene='https://prod.spline.design/XXAKFQ59i2KNrdbC/scene.splinecode'
-            onLoad={(splineApp: Application) => {
-              splineApp.setZoom(0.85);
-            }}
+        <div className={styles.image}>
+          <Image
+            src={'/images/popupimg.png'}
+            width='238'
+            height='218'
+            alt='form succes send'
           />
         </div>
         <h2 className={styles.popupTitle}>Thanks for submitting!</h2>
@@ -65,7 +63,7 @@ const ContactForm: React.VFC<ContactFormProps> = ({
     null
   );
   const [isFormSent, setIsFormSent] = useState(false);
-  const [isShowPopup, setIsShowPopup] = useState(false);
+  const [isShowPopup, setIsShowPopup] = useState(true);
 
   const validateName = (value: string) => {
     if (value.length === 0) {
