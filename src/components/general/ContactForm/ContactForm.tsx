@@ -63,7 +63,7 @@ const ContactForm: React.VFC<ContactFormProps> = ({
     null
   );
   const [isFormSent, setIsFormSent] = useState(false);
-  const [isShowPopup, setIsShowPopup] = useState(true);
+  const [isShowPopup, setIsShowPopup] = useState(false);
 
   const validateName = (value: string) => {
     if (value.length === 0) {
