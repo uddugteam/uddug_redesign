@@ -12,12 +12,10 @@ import BackgroundCircle from 'components/ui/BackgroundCircle';
 import styles from './MainBlock.module.css';
 
 const setWideScreenPosition = (groupToMove: any, pxToMove: number) => {
-  console.log('wide ++');
   groupToMove.position.x += pxToMove;
 };
 
 const setDefaultPosition = (groupToMove: any, pxToMove: number) => {
-  console.log('default --');
   groupToMove.position.x -= pxToMove;
 };
 

@@ -1,7 +1,6 @@
 import React, { UIEvent } from 'react';
 
 import { getLayout } from 'components/layout/MainLayout';
-import { useScrollState } from 'contexts/scrollStateContext/scrollStateContext';
 import MainBlock from 'components/general/MainBlock';
 import Bullets from 'components/general/Bullets';
 import Partners from 'components/general/Partners';
@@ -27,16 +26,8 @@ const bullets = [
 ];
 
 const HomePage: AppNextPage = () => {
-  const [isScrolled, setIsScrolled] = useScrollState().scroll;
-
-  const scrollHandler = (e: UIEvent<HTMLDivElement>) => {
-    const scrollTop = e.currentTarget.scrollTop;
-    const newIsScrolled = !(scrollTop === 0);
-    if (newIsScrolled !== isScrolled) setIsScrolled(newIsScrolled);
-  };
-
   return (
-    <div id={'home-page'} className={styles.root} onScroll={scrollHandler}>
+    <main id={'home-page'} className={styles.root}>
       <MainBlock />
       <Bullets bullets={bullets} />
       <Partners />
@@ -44,11 +35,11 @@ const HomePage: AppNextPage = () => {
       <ContactUs />
       <Team />
       <Careers />
-      <Footer />
+      {/* <Footer /> */}
       {/* <Internship /> */}
       {/* <Mission /> */}
       {/* <RightBadge /> */}
-    </div>
+    </main>
   );
 };
 

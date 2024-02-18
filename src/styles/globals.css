@@ -2,11 +2,25 @@
 @import './media.css';
 @import './mailchimp.css';
 
+html::-webkit-scrollbar {
+  width: 6px;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--dark-blue);
+  border-radius: 20px;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: Inter, sans-serif;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -16,27 +30,23 @@ a {
 
 * {
   box-sizing: border-box;
-  &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-  }
 }
 
 body {
   background-color: var(--background);
-  -webkit-user-select: none;
+  /* -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
-  user-select: none;
+  user-select: none; */
 }
 
 #main-layout {
   display: grid;
-  grid-template-rows: 1fr;
-  max-height: 100vh;
+  grid-template-rows: 1fr min-content;
   max-width: 100vw;
+  min-height: 100vh;
   overflow: hidden;
 }
 

@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
-import React, { RefObject, useMemo, useRef, useState } from 'react';
+import React, { FC, RefObject, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import ProjectBadgeWEB3 from '/public/icons/project-badge-web3.svg';
 import ArrowSVG from '/public/icons/arrow.svg';
 
-import { useScrollState } from 'contexts/scrollStateContext';
 import Title, { TitleSizes } from 'components/ui/Title';
 import BackgroundCircle from 'components/ui/BackgroundCircle';
 import Wrapper from 'components/layout/Wrapper';
@@ -126,10 +125,7 @@ const ProjectCardWrapper: React.VFC<ProjectProps> = props => {
   return <ProjectCard {...props} />;
 };
 
-const Projects = () => {
-  const {
-    refs: { projects: projectsRef },
-  } = useScrollState();
+const Projects: FC = () => {
   const projectToScroll = useRef<HTMLDivElement>();
   const [isAllProjectsOpen, setIsAllProjectsOpen] = useState(false);
 
@@ -154,7 +150,7 @@ const Projects = () => {
   };
 
   return (
-    <section ref={projectsRef} className={styles.root} id='projects'>
+    <section className={styles.root} id='projects'>
       <Wrapper>
         <div className={styles.inner}>
           <motion.div

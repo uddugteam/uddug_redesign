@@ -1,4 +1,4 @@
-import React, { FC, useState, useMemo } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import LogoSVG from '/public/icons/light-logotype.svg';
 
 import { useScreenSize } from 'hooks/useScreenSize';
-import { useScrollState } from 'contexts/scrollStateContext';
 import Wrapper from 'components/layout/Wrapper';
 import Button from 'components/ui/Button';
 import BackgroundCircle from 'components/ui/BackgroundCircle';
@@ -26,24 +25,29 @@ const navLinks = [
     title: 'Careers',
     link: '/#careers',
   },
-  {
-    title: 'Internship',
-    link: '/#internship',
-  },
 ];
 
 const Header: FC = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const router = useRouter();
 
-  // const isPrivacyPolicyPage = useMemo(
-  //   () => router.pathname.indexOf('privacy-policy'),
-  //   [router.pathname]
-  // );
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
-  const { scroll } = useScrollState();
-  const [isScrolled] = scroll;
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const screenSize = useScreenSize();
   const isWide = screenSize === 'desktop';

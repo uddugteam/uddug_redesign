@@ -1,13 +1,11 @@
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
 
 import Wrapper from 'components/layout/Wrapper';
 import Title, { TitleSizes } from 'components/ui/Title';
 import Subtitle from 'components/ui/Subtitle';
 import BackgroundCircle from 'components/ui/BackgroundCircle';
-import { useScrollState } from 'contexts/scrollStateContext';
-import { useScreenSize } from 'hooks/useScreenSize';
 import Icon from 'components/general/Icon';
 
 import styles from './Careers.module.css';
@@ -93,16 +91,9 @@ const VacationCard: React.VFC<Vacation> = props => {
   );
 };
 
-const Careers = () => {
-  const {
-    refs: { careers },
-  } = useScrollState();
-
-  const screenSize = useScreenSize();
-  const isWide = screenSize === 'desktop' || screenSize === 'tablet-landscape';
-
+const Careers: FC = () => {
   return (
-    <div className={styles.root} ref={careers} id='careers'>
+    <div className={styles.root} id='careers'>
       <Wrapper>
         <div className={styles.inner}>
           <motion.div

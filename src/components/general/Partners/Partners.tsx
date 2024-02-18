@@ -10,8 +10,6 @@ import 'swiper/css/grid';
 import 'swiper/css/pagination';
 import Wrapper from 'components/layout/Wrapper';
 import Title, { TitleSizes } from 'components/ui/Title';
-import { useScreenSize } from 'hooks/useScreenSize';
-import { useScrollState } from 'contexts/scrollStateContext';
 import PartnerLogo, { PartnersIconsList } from 'components/ui/PartnerLogo';
 
 import styles from './Partners.module.css';
@@ -127,8 +125,6 @@ const breakpoints = {
 
 const Partners: FC = () => {
   const swiperRef = useRef<SwiperClass | null>(null);
-  const screenSize = useScreenSize();
-  const isWide = screenSize === 'desktop';
   const swiperDelay = 3000;
 
   return (
