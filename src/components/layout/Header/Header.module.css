@@ -29,13 +29,6 @@
   }
 }
 
-.logo {
-  cursor: pointer;
-  z-index: 1;
-  width: 145px;
-  height: 28px;
-}
-
 .buttonsWrapper {
   display: flex;
   flex-direction: column;

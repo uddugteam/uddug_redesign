@@ -1,0 +1,12 @@
+.logo {
+  cursor: pointer;
+  display: flex;
+  z-index: 1;
+  width: 145px;
+  height: 28px;
+
+  @media (--tablet-vertical) {
+    width: 177px;
+    height: 34px;
+  }
+}

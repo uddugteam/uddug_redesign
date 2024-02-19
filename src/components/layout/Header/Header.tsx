@@ -3,10 +3,9 @@ import Link from 'next/link';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
 
-import LogoSVG from '/public/icons/light-logotype.svg';
-
 import { useScreenSize } from 'hooks/useScreenSize';
 import Wrapper from 'components/layout/Wrapper';
+import Logo from 'components/ui/Logo';
 import Button from 'components/ui/Button';
 import BackgroundCircle from 'components/ui/BackgroundCircle';
 
@@ -64,9 +63,7 @@ const Header: FC = () => {
     <header className={headerClassnames}>
       <Wrapper>
         <nav className={styles.root}>
-          <Link href={'/'} passHref>
-            <LogoSVG className={styles.logo} />
-          </Link>
+          <Logo />
           <div className={styles.buttonsWrapper}>
             {isWide ? (
               <>

@@ -3,8 +3,7 @@ import Link from 'next/link';
 
 import Wrapper from 'components/layout/Wrapper';
 import Socials, { SocialIcons } from 'components/ui/Socials';
-
-import LogoSVG from '/public/icons/light-logotype.svg';
+import Logo from 'components/ui/Logo';
 
 import styles from './Footer.module.css';
 
@@ -33,7 +32,7 @@ const Footer: FC = () => {
       <Wrapper>
         <div className={styles.inner}>
           <div className={styles.footerTop}>
-            <LogoSVG className={styles.logo} />
+            <Logo className={styles.logo} />
             <div className={styles.footerMedia}>
               <Socials className={styles.socials} socialItems={socialItems} />
               <ul className={styles.emailList}>
