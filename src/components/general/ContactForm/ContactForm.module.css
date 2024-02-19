@@ -118,6 +118,9 @@
 }
 
 .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 238px;
   height: 218px;
   margin: 0 auto 12px;
@@ -125,6 +128,17 @@
   @media (--tablet-vertical) {
     width: 257px;
     height: 237px;
+  }
+}
+
+.icon {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 12px;
+
+  @media (--tablet-vertical) {
+    width: 124px;
+    height: 124px;
   }
 }
 

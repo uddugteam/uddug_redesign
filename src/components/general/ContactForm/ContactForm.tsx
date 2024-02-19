@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import classNames from 'classnames';
 
+import PopupSuccessSVG from 'public/icons/popup-success.svg';
 import Button from 'components/ui/Button';
 
 import styles from './ContactForm.module.css';
@@ -28,12 +28,7 @@ const Popup: React.VFC<IPopupProps> = ({ isOpened, closePopup }) => {
     >
       <div className={styles.popupInner}>
         <div className={styles.image}>
-          <Image
-            src={'/images/popupimg.png'}
-            width='238'
-            height='218'
-            alt='form succes send'
-          />
+          <PopupSuccessSVG className={styles.icon} />
         </div>
         <h2 className={styles.popupTitle}>Thanks for submitting!</h2>
         <p className={styles.popupText}>
@@ -114,6 +109,7 @@ const ContactForm: React.VFC<ContactFormProps> = ({
     handleSendForm();
     setIsFormSent(true);
     setIsShowPopup(true);
+    document.body.style.overflow = 'hidden';
     setTimeout(() => {
       setIsFormSent(false);
     }, 3000);
@@ -274,6 +270,7 @@ const ContactForm: React.VFC<ContactFormProps> = ({
         isOpened={isShowPopup}
         closePopup={() => {
           setIsShowPopup(false);
+          document.body.style.overflow = 'auto';
         }}
       />
     </section>
