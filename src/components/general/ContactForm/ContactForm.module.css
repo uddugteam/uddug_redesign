@@ -83,6 +83,11 @@
   display: none !important;
 }
 
+.submitButton {
+  position: relative;
+  z-index: 1;
+}
+
 .popup {
   z-index: 3;
   position: fixed;

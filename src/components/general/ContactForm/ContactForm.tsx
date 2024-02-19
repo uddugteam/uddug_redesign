@@ -253,7 +253,7 @@ const ContactForm: React.VFC<ContactFormProps> = ({
                 }}
                 isHaveIcon={true}
               >
-                {isFormSent ? <>Sent</> : 'Send message'}
+                Send message
               </Button>
               <p className={classNames('brandingLogo', styles.hide)}>
                 <a

@@ -212,14 +212,18 @@
 
 .arrow {
   position: absolute;
-  top: 50%;
+  top: 20px;
   right: 20px;
-  transform: translateY(-50%);
   width: 24px;
   height: 24px;
   color: var(--white);
   opacity: 0.2;
   transition: all 0.2s;
+
+  @media (--tablet-vertical) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 .projectsVisibilityButton {

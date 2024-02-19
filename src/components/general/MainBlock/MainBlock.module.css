@@ -2,7 +2,11 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background: var(--background);
+  background-color: var(--background);
+  background-image: url('/images/main-block-bg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   height: 100vh;
   position: relative;
 
@@ -31,6 +35,10 @@
     &::after {
       height: 192px;
     }
+  }
+
+  @media (--desktop) {
+    background-image: url('/images/main-block-bg--desktop-responsive.png');
   }
 }
 

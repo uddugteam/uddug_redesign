@@ -4,7 +4,6 @@
   left: 50%;
   top: 50%;
   background-color: var(--dark-blue);
-  /* filter: blur(374px); */
   filter: blur(86px);
   opacity: 0.3;
   border-radius: 50%;
