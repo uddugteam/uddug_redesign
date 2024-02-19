@@ -45,4 +45,4 @@ const ContactUs: FC = () => {
   );
 };
 
-export default ContactUs;
+export default React.memo(ContactUs);

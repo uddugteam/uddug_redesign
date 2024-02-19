@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Spline from '@splinetool/react-spline';
 import { Application } from '@splinetool/runtime';
+import Link from 'next/link';
 
 import Wrapper from 'components/layout/Wrapper';
 import { useScreenSize } from 'hooks/useScreenSize';
@@ -97,9 +98,11 @@ const MainBlock: React.VFC = () => {
             Supercharge your product with our team of experts who are passionate
             about blockchain
           </Subtitle>
-          <Button className={styles.button}>
-            We&apos;re ready to jumpstart your next project
-          </Button>
+          <Link href={'/#contactUs'} passHref>
+            <Button className={styles.button}>
+              We&apos;re ready to jumpstart your next project
+            </Button>
+          </Link>
         </div>
         <BackgroundCircle className={styles.backgroundCircle} />
       </Wrapper>

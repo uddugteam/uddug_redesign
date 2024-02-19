@@ -80,7 +80,7 @@ const Header: FC = () => {
                       </Link>
                     </div>
                   ))}
-                <Link href={'/#contact-us'}>
+                <Link href={'/#contact-us'} passHref>
                   <Button isAlt={true}>Contact us</Button>
                 </Link>
               </>
@@ -101,7 +101,11 @@ const Header: FC = () => {
                 {navLinks &&
                   navLinks.length &&
                   navLinks.map((navLink, index) => (
-                    <Link href={navLink.link} key={navLink.title + index}>
+                    <Link
+                      href={navLink.link}
+                      key={navLink.title + index}
+                      passHref
+                    >
                       <div
                         className={styles.navButton}
                         onClick={() => setIsMenuOpened(!isMenuOpened)}
@@ -111,7 +115,7 @@ const Header: FC = () => {
                     </Link>
                   ))}
               </div>
-              <Link href={'/#contactUs'}>
+              <Link href={'/#contactUs'} passHref>
                 <Button
                   className={styles.contactUs}
                   isAlt={true}
@@ -129,4 +133,4 @@ const Header: FC = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
