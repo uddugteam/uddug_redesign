@@ -16,6 +16,10 @@
 .button {
   transition: all 0.2s;
   background: transparent;
+
+  &:hover {
+    background-color: var(--dark--grey);
+  }
 }
 
 .buttonActive {

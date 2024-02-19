@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: flex-end;
   background-color: var(--background);
-  background-image: url('/images/main-block-bg.png');
+  background-image: url('/images/main-block-bg--mobile-compressed.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -38,7 +38,7 @@
   }
 
   @media (--desktop) {
-    background-image: url('/images/main-block-bg--desktop-responsive.png');
+    background-image: url('/images/main-block-bg--desktop-compressed.png');
   }
 }
 
