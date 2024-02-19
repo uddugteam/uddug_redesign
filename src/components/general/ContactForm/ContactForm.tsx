@@ -251,6 +251,7 @@ const ContactForm: React.VFC<ContactFormProps> = ({
                   e.preventDefault();
                   await submitHandler();
                 }}
+                isHaveIcon={true}
               >
                 {isFormSent ? <>Sent</> : 'Send message'}
               </Button>

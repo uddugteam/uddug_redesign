@@ -84,10 +84,10 @@ const MainBlock: React.VFC = () => {
   return (
     <section className={styles.root}>
       <div className={styles.spline}>
-        <Spline
+        {/* <Spline
           scene='https://prod.spline.design/oDwsBbB3TIrZJuHZ/scene.splinecode'
           onLoad={onLoad}
-        />
+        /> */}
       </div>
       <Wrapper>
         <div className={styles.inner}>
@@ -98,8 +98,8 @@ const MainBlock: React.VFC = () => {
             Supercharge your product with our team of experts who are passionate
             about blockchain
           </Subtitle>
-          <Link href={'/#contactUs'} passHref>
-            <Button className={styles.button}>
+          <Link href={'/#contact-us'} passHref>
+            <Button className={styles.button} as={'a'} isHaveIcon={true}>
               We&apos;re ready to jumpstart your next project
             </Button>
           </Link>

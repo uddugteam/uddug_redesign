@@ -10,6 +10,53 @@
   border-radius: 20px;
 }
 
+.alt {
+  background: var(--gradient-secondary);
+}
+
+.iconed {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  justify-content: space-between;
+  padding: 12px 17px 12px 26px;
+  border-radius: 100px;
+}
+
+.iconContainer {
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  width: 36px;
+  height: 36px;
+  background-color: var(--white);
+  border-radius: 50%;
+  color: var(--accent-primary);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 0;
+    height: 0;
+    background-color: var(--accent-primary);
+    border-radius: 50%;
+
+    transition: width 0.2s, height 0.2s;
+  }
+}
+
+.icon {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  animation: icon-flip-reverse 0.4s;
+}
+
 .mask {
   display: flex;
   overflow: hidden;
@@ -17,16 +64,38 @@
 
 .text {
   position: relative;
+  animation: flip-reverse 0.4s;
 }
 
-.alt {
-  background: var(--gradient-secondary);
+/* .button:active {
+  .iconContainer:before {
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+  }
+
+  .icon {
+    animation: icon-flip 0.4s forwards;
+  }
+} */
+
+.button:hover .iconContainer {
+  @media (--desktop) {
+    &:before {
+      width: calc(100% - 4px);
+      height: calc(100% - 4px);
+    }
+  }
+}
+
+.button:hover .icon {
+  @media (--desktop) {
+    animation: icon-flip 0.4s forwards;
+  }
 }
 
 .button:hover .text {
   @media (--desktop) {
-    animation: flip;
-    animation-duration: 0.5s;
+    animation: flip 0.4s;
   }
 }
 
@@ -46,5 +115,54 @@
   }
   100% {
     top: 0;
+  }
+}
+
+@keyframes flip-reverse {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 30px;
+  }
+  51% {
+    top: -30px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes icon-flip {
+  0% {
+    left: 50%;
+  }
+  50% {
+    left: 150%;
+  }
+  51% {
+    color: var(--white);
+    left: -150%;
+  }
+  100% {
+    color: var(--white);
+    left: 50%;
+  }
+}
+
+@keyframes icon-flip-reverse {
+  0% {
+    left: 50%;
+  }
+  50% {
+    left: -150%;
+  }
+  51% {
+    color: var(--accent-primary);
+    left: 150%;
+  }
+  100% {
+    color: var(--accent-primary);
+    left: 50%;
   }
 }

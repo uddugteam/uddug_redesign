@@ -64,21 +64,27 @@ const Header: FC = () => {
     <header className={headerClassnames}>
       <Wrapper>
         <nav className={styles.root}>
-          <LogoSVG className={styles.logo} />
+          <Link href={'/'} passHref>
+            <LogoSVG className={styles.logo} />
+          </Link>
           <div className={styles.buttonsWrapper}>
             {isWide ? (
               <>
                 {navLinks &&
                   navLinks.length &&
                   navLinks.map((navLink, index) => (
-                    <div
-                      className={styles.navButton}
+                    <Link
+                      href={navLink.link}
+                      passHref
                       key={navLink.title + index}
                     >
-                      <Link href={navLink.link}>
-                        <a className={styles.navButtonLink}>{navLink.title}</a>
-                      </Link>
-                    </div>
+                      <Button
+                        className={classNames(styles.navButtonLink)}
+                        as={'a'}
+                      >
+                        {navLink.title}
+                      </Button>
+                    </Link>
                   ))}
                 <Link href={'/#contact-us'} passHref>
                   <Button isAlt={true}>Contact us</Button>
@@ -120,6 +126,7 @@ const Header: FC = () => {
                   className={styles.contactUs}
                   isAlt={true}
                   isCenteredText={true}
+                  as={'a'}
                 >
                   Contact us
                 </Button>

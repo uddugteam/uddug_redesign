@@ -1,11 +1,15 @@
 import { FC, ButtonHTMLAttributes, MouseEvent } from 'react';
 import classNames from 'classnames';
 
+import ArrowSVG from 'public/icons/arrow.svg';
+
 import styles from './Button.module.css';
 
 type ClickHandler = () => void;
 
-type EvtClickHandler = (event: MouseEvent<HTMLButtonElement>) => Promise<void>;
+type EvtClickHandler = (
+  event: MouseEvent<HTMLAnchorElement> | MouseEvent<HTMLButtonElement>
+) => Promise<void>;
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
@@ -15,6 +19,8 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   target?: string;
   isAlt?: boolean;
   isCenteredText?: boolean;
+  as?: 'a' | 'button';
+  isHaveIcon?: boolean;
 }
 
 const Button: FC<IButtonProps> = ({
@@ -25,16 +31,21 @@ const Button: FC<IButtonProps> = ({
   target,
   isAlt,
   isCenteredText,
+  as,
+  isHaveIcon,
 }) => {
+  const ButtonTag = as ? as : 'button';
+
   const buttonClassNames = classNames(
     styles.button,
     className,
     isAlt && styles.alt,
-    isCenteredText && styles.centeredText
+    isCenteredText && styles.centeredText,
+    isHaveIcon && styles.iconed
   );
 
   return (
-    <button
+    <ButtonTag
       className={buttonClassNames}
       onClick={onClick}
       {...(href && { href })}
@@ -43,7 +54,12 @@ const Button: FC<IButtonProps> = ({
       <div className={styles.mask}>
         <span className={styles.text}>{children}</span>
       </div>
-    </button>
+      {isHaveIcon ? (
+        <div className={styles.iconContainer}>
+          <ArrowSVG className={styles.icon} />
+        </div>
+      ) : null}
+    </ButtonTag>
   );
 };
 

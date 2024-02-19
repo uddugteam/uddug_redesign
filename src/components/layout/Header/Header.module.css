@@ -30,6 +30,7 @@
 }
 
 .logo {
+  cursor: pointer;
   z-index: 1;
   width: 145px;
   height: 28px;
@@ -78,14 +79,9 @@
   }
 }
 
-.navButton:hover {
-  @media (--desktop) {
-    & .navButtonLink {
-      position: relative;
-      animation: flip;
-      animation-duration: 0.5s;
-    }
-  }
+.navButtonLink {
+  padding: 0;
+  background: none;
 }
 
 .contactUs {
@@ -157,20 +153,5 @@
 
   @media (--desktop) {
     display: none;
-  }
-}
-
-@keyframes flip {
-  0% {
-    top: 0;
-  }
-  30% {
-    top: -30px;
-  }
-  31% {
-    top: 30px;
-  }
-  100% {
-    top: 0;
   }
 }

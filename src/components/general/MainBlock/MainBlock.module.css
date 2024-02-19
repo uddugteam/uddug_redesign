@@ -97,7 +97,6 @@
   pointer-events: auto;
   text-align: start;
   border-radius: 100px;
-  padding: 15px 17px 15px 26px;
   max-width: 295px;
 
   @media (--tablet-vertical) {
