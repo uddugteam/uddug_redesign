@@ -20,7 +20,7 @@ const founders = [
     firstName: 'Mike',
     lastName: 'Manko',
     position: 'CEO',
-    photoPath: './team/mike-new.jpg',
+    photoPath: './team/mike.png',
     socials: [
       {
         icon: SocialIcons.FACEBOOK,
@@ -33,24 +33,24 @@ const founders = [
       { icon: SocialIcons.GITHUB, link: 'https://github.com/MikeMS-sys' },
     ],
   },
-  // {
-  //   firstName: 'Andrey',
-  //   lastName: 'Skurlatov',
-  //   position: 'CTO',
-  //   photoPath: './team/andrew-new.jpg',
-  //   socials: [
-  //     {
-  //       icon: SocialIcons.FACEBOOK,
-  //       link: 'https://www.facebook.com/andrey.skurlatov',
-  //     },
-  //     {
-  //       icon: SocialIcons.LINKEDIN,
-  //       link: 'https://www.linkedin.com/in/andrew-skurlatov/',
-  //     },
-  //     { icon: SocialIcons.GITHUB, link: 'https://github.com/andskur' },
-  //     { icon: SocialIcons.TWITTER, link: 'https://twitter.com/Andskur1' },
-  //   ],
-  // },
+  {
+    firstName: 'Andrey',
+    lastName: 'Skurlatov',
+    position: 'CTO',
+    photoPath: './team/andrew.png',
+    socials: [
+      {
+        icon: SocialIcons.FACEBOOK,
+        link: 'https://www.facebook.com/andrey.skurlatov',
+      },
+      {
+        icon: SocialIcons.LINKEDIN,
+        link: 'https://www.linkedin.com/in/andrew-skurlatov/',
+      },
+      { icon: SocialIcons.GITHUB, link: 'https://github.com/andskur' },
+      { icon: SocialIcons.TWITTER, link: 'https://twitter.com/Andskur1' },
+    ],
+  },
 ];
 
 const team = [
@@ -58,7 +58,7 @@ const team = [
     firstName: 'Andrey',
     lastName: 'Solovov',
     position: 'Smart Contract Lead',
-    photoPath: './team/solovov-new.jpg',
+    photoPath: './team/solovov.png',
     socials: [
       {
         icon: SocialIcons.LINKEDIN,
@@ -71,7 +71,7 @@ const team = [
     firstName: 'Pavel',
     lastName: 'Dodonov',
     position: 'Backend Lead',
-    photoPath: './team/pavel-new.jpg',
+    photoPath: './team/pavel.png',
     socials: [
       {
         icon: SocialIcons.LINKEDIN,
@@ -182,6 +182,14 @@ const Team: FC = () => {
                 <TeamMember info={teamMember} />
               </SwiperSlide>
             ))}
+          <SwiperSlide>
+            <div className={styles.teamMore}>
+              <div className={styles.teamMoreInner}>
+                <p className={styles.teamMoreTitle}>And 10+</p>
+                <p className={styles.teamMoreText}>more talented engineers</p>
+              </div>
+            </div>
+          </SwiperSlide>
         </Swiper>
       ),
     },

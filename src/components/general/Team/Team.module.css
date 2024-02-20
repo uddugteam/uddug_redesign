@@ -82,3 +82,52 @@
   right: -400px;
   transform: translate3d(0, 0, 0) rotate(-30deg);
 }
+
+.teamMore {
+  display: flex;
+  background-color: var(--tranparent-grey);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 280px;
+  transition: background 0.2s;
+
+  &:active {
+    background: var(--card-hover-gradient);
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      background: var(--card-hover-gradient);
+    }
+  }
+}
+
+.teamMoreInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 38px 22px 22px;
+  min-height: 352px;
+  width: fit-content;
+  min-width: 100%;
+}
+
+.teamMoreTitle {
+  color: var(--white);
+  font-size: 22px;
+  line-height: 160%;
+  text-align: center;
+  margin: 0;
+}
+
+.teamMoreText {
+  color: var(--white);
+  font-size: 14px;
+  line-height: 160%;
+  text-align: center;
+  opacity: 0.6;
+  margin: 0;
+}
