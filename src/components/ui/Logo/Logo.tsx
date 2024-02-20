@@ -8,14 +8,15 @@ import styles from './Logo.module.css';
 
 interface ILologProps {
   className?: string;
+  onClick: () => void;
 }
 
-const Logo: FC<ILologProps> = ({ className }) => {
+const Logo: FC<ILologProps> = ({ className, onClick }) => {
   const logoClassNames = classNames(className, styles.logo);
 
   return (
     <Link href={'/'} passHref>
-      <LogoSVG className={logoClassNames} />
+      <LogoSVG className={logoClassNames} onClick={onClick} />
     </Link>
   );
 };

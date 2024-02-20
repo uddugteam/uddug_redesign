@@ -7,6 +7,7 @@ import { useScreenSize } from 'hooks/useScreenSize';
 import Wrapper from 'components/layout/Wrapper';
 import Logo from 'components/ui/Logo';
 import Button from 'components/ui/Button';
+import BurgerButton from 'components/ui/burger-button';
 import BackgroundCircle from 'components/ui/BackgroundCircle';
 
 import styles from './Header.module.css';
@@ -48,6 +49,16 @@ const Header: FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpened) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = 'unset';
+      document.body.style.touchAction = 'unset';
+    }
+  }, [isMenuOpened]);
+
   const screenSize = useScreenSize();
   const isWide = screenSize === 'desktop';
   const headerClassnames = classNames(
@@ -63,7 +74,11 @@ const Header: FC = () => {
     <header className={headerClassnames}>
       <Wrapper>
         <nav className={styles.root}>
-          <Logo />
+          <Logo
+            onClick={() => {
+              setIsMenuOpened(false);
+            }}
+          />
           <div className={styles.buttonsWrapper}>
             {isWide ? (
               <>
@@ -88,14 +103,19 @@ const Header: FC = () => {
                 </Link>
               </>
             ) : (
-              <Button
-                onClick={() => {
-                  setIsMenuOpened(!isMenuOpened);
-                }}
-                className={styles.menuToggler}
-              >
-                {isMenuOpened ? '' : 'Menu'}
-              </Button>
+              <BurgerButton
+                className={styles.burgerButton}
+                outsideDirection={isMenuOpened ? -1 : 1}
+                onClick={() => setIsMenuOpened(!isMenuOpened)}
+              />
+              // <Button
+              //   onClick={() => {
+              //     setIsMenuOpened(!isMenuOpened);
+              //   }}
+              //   className={styles.menuToggler}
+              // >
+              //   {isMenuOpened ? '' : 'Menu'}
+              // </Button>
             )}
           </div>
           {isWide ? null : (
