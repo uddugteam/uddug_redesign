@@ -34,7 +34,7 @@ const founders = [
     ],
   },
   {
-    firstName: 'Andrey',
+    firstName: 'Andrew',
     lastName: 'Skurlatov',
     position: 'CTO',
     photoPath: './team/andrew.png',
@@ -55,7 +55,7 @@ const founders = [
 
 const team = [
   {
-    firstName: 'Andrey',
+    firstName: 'Andrei',
     lastName: 'Solovov',
     position: 'Smart Contract Lead',
     photoPath: './team/solovov.png',
