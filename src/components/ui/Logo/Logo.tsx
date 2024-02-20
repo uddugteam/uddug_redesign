@@ -8,7 +8,7 @@ import styles from './Logo.module.css';
 
 interface ILologProps {
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Logo: FC<ILologProps> = ({ className, onClick }) => {
