@@ -182,7 +182,7 @@ const Team: FC = () => {
                 <TeamMember info={teamMember} />
               </SwiperSlide>
             ))}
-          <SwiperSlide>
+          <SwiperSlide className={styles.slide}>
             <div className={styles.teamMore}>
               <div className={styles.teamMoreInner}>
                 <p className={styles.teamMoreTitle}>And 10+</p>
