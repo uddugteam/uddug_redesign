@@ -17,8 +17,15 @@
   transition: all 0.2s;
   background: transparent;
 
-  &:hover {
+  &:active {
     background-color: var(--dark--grey);
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      background-color: var(--dark--grey);
+    }
   }
 }
 

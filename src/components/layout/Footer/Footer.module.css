@@ -75,7 +75,7 @@
     color: var(--white);
   }
 
-  @media (--desktop) {
+  @media (hover: hover) {
     &:hover,
     &:focus {
       color: var(--white);
@@ -122,7 +122,7 @@
     color: var(--white);
   }
 
-  @media (--desktop) {
+  @media (hover: hover) {
     &:hover,
     &:focus {
       color: var(--white);

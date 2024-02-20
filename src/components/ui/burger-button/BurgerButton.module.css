@@ -5,8 +5,15 @@
   background: transparent;
   opacity: 1;
 
-  &:hover {
+  &:active {
     background: transparent;
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &:hover {
+      background: transparent;
+    }
   }
 }
 

@@ -79,11 +79,7 @@
     }
   }
 
-  @media (--tablet-vertical) {
-    padding: 32px 40px;
-  }
-
-  @media (--desktop) {
+  @media (hover: hover) {
     &:hover,
     &:focus {
       background: var(--card-hover-gradient);
@@ -92,7 +88,13 @@
         opacity: 1;
       }
     }
+  }
 
+  @media (--tablet-vertical) {
+    padding: 32px 40px;
+  }
+
+  @media (--desktop) {
     grid-template-columns: 437px 1fr;
     grid-template-areas:
       'h h'

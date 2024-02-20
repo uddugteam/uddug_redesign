@@ -87,6 +87,17 @@
     }
   }
 
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      background: var(--card-hover-gradient);
+
+      .arrow {
+        opacity: 1;
+      }
+    }
+  }
+
   @media (--tablet-vertical) {
     grid-row-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
@@ -109,15 +120,6 @@
     grid-template-columns: 5fr repeat(3, 4fr) 9fr;
     grid-template-areas: 'n s p t ts a';
     align-items: start;
-
-    &:hover,
-    &:focus {
-      background: var(--card-hover-gradient);
-
-      .arrow {
-        opacity: 1;
-      }
-    }
   }
 }
 

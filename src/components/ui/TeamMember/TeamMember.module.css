@@ -6,14 +6,24 @@
   max-width: 280px;
   transition: background 0.2s;
 
-  &:hover {
+  &:active {
     background: var(--card-hover-gradient);
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      background: var(--card-hover-gradient);
+    }
   }
 }
 
-.root:hover .image {
-  width: 100%;
-  height: 100%;
+.root:hover .image,
+.root:focus-within .image {
+  @media (hover: hover) {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .inner {

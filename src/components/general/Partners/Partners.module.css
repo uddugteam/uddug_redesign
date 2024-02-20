@@ -56,7 +56,7 @@
     height: 107px;
   }
 
-  @media (--desktop) {
+  @media (hover: hover) {
     &:hover,
     &:focus {
       background: linear-gradient(

@@ -8,6 +8,26 @@
   border: none;
   background: var(--gradient-primary);
   border-radius: 20px;
+
+  @media (hover: hover) {
+    &:hover .iconContainer,
+    &:focus .iconContainer {
+      &:before {
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+      }
+    }
+
+    &:hover .icon,
+    &:focus .icon {
+      animation: icon-flip 0.4s forwards;
+    }
+
+    &:hover .text,
+    &:focus .text {
+      animation: flip 0.4s;
+    }
+  }
 }
 
 .alt {
@@ -43,7 +63,6 @@
     height: 0;
     background-color: var(--accent-primary);
     border-radius: 50%;
-
     transition: width 0.2s, height 0.2s;
   }
 }
@@ -65,38 +84,6 @@
 .text {
   position: relative;
   animation: flip-reverse 0.4s;
-}
-
-/* .button:active {
-  .iconContainer:before {
-    width: calc(100% - 4px);
-    height: calc(100% - 4px);
-  }
-
-  .icon {
-    animation: icon-flip 0.4s forwards;
-  }
-} */
-
-.button:hover .iconContainer {
-  @media (--desktop) {
-    &:before {
-      width: calc(100% - 4px);
-      height: calc(100% - 4px);
-    }
-  }
-}
-
-.button:hover .icon {
-  @media (--desktop) {
-    animation: icon-flip 0.4s forwards;
-  }
-}
-
-.button:hover .text {
-  @media (--desktop) {
-    animation: flip 0.4s;
-  }
 }
 
 .centeredText .mask {
