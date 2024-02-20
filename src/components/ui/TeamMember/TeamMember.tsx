@@ -21,14 +21,13 @@ interface ITeamMemberProps {
 const TeamMember: FC<ITeamMemberProps> = ({ info }) => {
   return (
     <div className={styles.root}>
-      <Image
-        className={styles.image}
-        src={info.photoPath}
-        width='280'
-        height='352'
-        alt={`${info.firstName}  ${info.lastName}`}
-      />
       <div className={styles.inner}>
+        <div className={styles.imageContainer}>
+          <div
+            className={styles.image}
+            style={{ backgroundImage: `url(${info.photoPath})` }}
+          ></div>
+        </div>
         <div className={styles.textContainer}>
           <h3 className={styles.title}>
             {info.firstName}

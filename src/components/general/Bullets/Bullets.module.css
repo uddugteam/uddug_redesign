@@ -34,8 +34,20 @@
   align-items: flex-start;
   gap: 32px;
   padding: 19px 22px;
-  background-color: var(--tranparent-grey);
+  background: var(--tranparent-grey);
   border-radius: 16px;
+  transition: background 0.4s;
+
+  &:active {
+    background: var(--card-hover-gradient);
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      background: var(--card-hover-gradient);
+    }
+  }
 
   @media (--tablet-vertical) {
     flex-direction: row;

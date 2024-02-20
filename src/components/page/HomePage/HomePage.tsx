@@ -1,4 +1,4 @@
-import React, { UIEvent } from 'react';
+import React from 'react';
 
 import { getLayout } from 'components/layout/MainLayout';
 import MainBlock from 'components/general/MainBlock';

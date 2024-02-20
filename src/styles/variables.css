@@ -22,24 +22,4 @@
     rgba(13, 17, 22, 0) 100%
   );
   --error: #b52729;
-  /* old */
-  --light: #f8fafc;
-  --dark: #0f172a;
-  --vertical-linear-gradient: linear-gradient(
-    180deg,
-    #0f172a 0%,
-    #464abc 99.63%
-  );
-  --horizontal-linear-gradient: linear-gradient(
-    87.14deg,
-    #0f172a 0%,
-    #6062ff 100.16%
-  );
-  --orange-hover: #ff740f;
-  --purple: #6062ff;
-  --purple-hover: #4244d7;
-  --grey: #e1e7f4;
-  --grey-dark: #b3c2e5;
-  --red: #ff3333;
-  --green: #27b927;
 }
