@@ -120,7 +120,6 @@ const Team: FC = () => {
             },
           }}
           breakpoints={breakpoints}
-          // loop={true}
           centerInsufficientSlides={true}
           slidesPerView={1}
           spaceBetween={20}
@@ -161,7 +160,6 @@ const Team: FC = () => {
             },
           }}
           breakpoints={breakpoints}
-          // loop={true}
           centerInsufficientSlides={true}
           slidesPerView={1}
           spaceBetween={20}
