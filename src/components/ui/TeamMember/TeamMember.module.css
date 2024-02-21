@@ -32,7 +32,7 @@
   grid-template-rows: min-content 1fr;
   padding: 38px 22px 22px;
   gap: 10px 20px;
-  min-height: 352px;
+  min-height: 360px;
   width: fit-content;
   min-width: 100%;
 }
