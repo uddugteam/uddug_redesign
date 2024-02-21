@@ -21,8 +21,8 @@ const vacations: Vacation[] = [
   {
     name: 'Golang Engeneer',
     sphere: 'Web3',
-    position: 'Middle,Junior,Intern',
-    type: 'Part Time',
+    position: 'Middle, Junior, Intern',
+    type: 'Full Time',
     techStack: [
       'Go',
       'PostgreSQL',
@@ -38,7 +38,7 @@ const vacations: Vacation[] = [
   {
     name: 'Smart Contract Developer',
     sphere: 'Web3',
-    position: 'Juniorn,Intern',
+    position: 'Middle, Junior, Intern',
     type: 'Part Time',
     techStack: [
       'Solidity',
@@ -47,7 +47,7 @@ const vacations: Vacation[] = [
       'Polygon',
       'React',
       'Chai/mocha',
-      'hardhat',
+      'Hardhat',
     ],
     link: 'https://pyrite-yumberry-ec6.notion.site/Vacancy-Description-Junior-intern-Smart-Contract-Developer-0d1053cde91c48f6a3232c2887fe471e?pvs=4',
   },
