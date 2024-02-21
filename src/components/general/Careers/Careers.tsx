@@ -39,7 +39,7 @@ const vacations: Vacation[] = [
     name: 'Smart Contract Developer',
     sphere: 'Web3',
     position: 'Middle, Junior, Intern',
-    type: 'Part Time',
+    type: 'Full Time',
     techStack: [
       'Solidity',
       'JavaScript',
