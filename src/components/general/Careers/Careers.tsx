@@ -19,9 +19,9 @@ interface Vacation {
 
 const vacations: Vacation[] = [
   {
-    name: 'Golang developer',
-    sphere: 'Fin tech',
-    position: 'Middle',
+    name: 'Golang Engeneer',
+    sphere: 'Web3',
+    position: 'Middle,Junior,Intern',
     type: 'Part Time',
     techStack: [
       'Go',
@@ -33,12 +33,12 @@ const vacations: Vacation[] = [
       'Cobra',
       'Viper',
     ],
-    link: 'https://pyrite-yumberry-ec6.notion.site/Junior-Middle-Go-developer-34372d88fc9b412c9f2a4e80ce21de2e',
+    link: 'https://pyrite-yumberry-ec6.notion.site/Vacancy-Golang-Engineer-intern-junior-middle-9550687e1fd849dd83674da7bacfd388?pvs=4',
   },
   {
-    name: 'Solidity dev',
-    sphere: 'NFT marketplace',
-    position: 'Senior',
+    name: 'Smart Contract Developer',
+    sphere: 'Web3',
+    position: 'Juniorn,Intern',
     type: 'Part Time',
     techStack: [
       'Solidity',
@@ -46,10 +46,10 @@ const vacations: Vacation[] = [
       'NodeJS',
       'Polygon',
       'React',
-      'truffle',
+      'Chai/mocha',
       'hardhat',
     ],
-    link: 'https://pyrite-yumberry-ec6.notion.site/Solidity-developer-d9034a5767a44c5095da055ea3e960c3',
+    link: 'https://pyrite-yumberry-ec6.notion.site/Vacancy-Description-Junior-intern-Smart-Contract-Developer-0d1053cde91c48f6a3232c2887fe471e?pvs=4',
   },
 ];
 
