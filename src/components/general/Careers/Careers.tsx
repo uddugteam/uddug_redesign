@@ -106,7 +106,7 @@ const Careers: FC = () => {
               professionals for our team
             </Title>
             <Subtitle className={styles.description}>
-              &quot;Uddug&quot; has enjoyed steady, solid growth in its years of
+              &quot;Uddúg&quot; has enjoyed steady, solid growth in its years of
               business, and talented, productive people made it possible. Please
               check the open positions
             </Subtitle>

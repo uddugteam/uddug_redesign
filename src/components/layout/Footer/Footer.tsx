@@ -58,7 +58,7 @@ const Footer: FC = () => {
                   </li>
                 ))}
             </ul>
-            <span className={styles.copyright}>Uddug © 2024</span>
+            <span className={styles.copyright}>Uddúg © 2024</span>
           </div>
         </div>
       </Wrapper>

@@ -67,7 +67,7 @@ const Footer: FC = () => {
                   Privacy policy
                 </a>
               </div>
-              <div>Uddug © 2013</div>
+              <div>Uddúg © 2013</div>
             </motion.div>
           </div>
 
