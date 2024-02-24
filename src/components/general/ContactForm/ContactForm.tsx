@@ -93,6 +93,38 @@ const ContactForm: React.VFC<ContactFormProps> = ({
     return true;
   };
 
+  // const handleSendForm = () => {
+  //   setEmail('');
+  //   setName('');
+  //   setText('');
+  //   setEmailError(null);
+  //   setNameError(null);
+  //   if (onFormSend) onFormSend();
+  // };
+
+  const handleSendForm = async () => {
+    // evt.preventDefault();
+
+    const res = await fetch('/api/sendgrid', {
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        text: text,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    });
+    console.log(res);
+
+    const { error } = await res.json();
+    if (error) {
+      console.log(error);
+      return;
+    }
+  };
+
   const submitHandler = async () => {
     setEmailError(null);
     setNameError(null);
@@ -115,15 +147,6 @@ const ContactForm: React.VFC<ContactFormProps> = ({
     }, 3000);
   };
 
-  const handleSendForm = () => {
-    setEmail('');
-    setName('');
-    setText('');
-    setEmailError(null);
-    setNameError(null);
-    if (onFormSend) onFormSend();
-  };
-
   useEffect(() => {
     if (onFormSend) {
       window.addEventListener('blur', handleSendForm);
@@ -138,7 +161,7 @@ const ContactForm: React.VFC<ContactFormProps> = ({
       className={className}
     >
       <form
-        action='https://uddug.us8.list-manage.com/subscribe/post?u=2f2114fd9a5f814f2cfae040d&amp;id=f835096de2&amp;f_id=00c35de0f0'
+        // action='https://uddug.us8.list-manage.com/subscribe/post?u=2f2114fd9a5f814f2cfae040d&amp;id=f835096de2&amp;f_id=00c35de0f0'
         method='post'
         id='mc-embedded-subscribe-form'
         name='mc-embedded-subscribe-form'
