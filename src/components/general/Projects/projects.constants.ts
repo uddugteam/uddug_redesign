@@ -29,7 +29,6 @@ export const projects: Project[] = [
     otherTechnologies: ['Microservices', 'Redis', 'Nomad'],
     name: 'Infinex HFT API',
   },
-  {
     partner: PartnersIconsList.GATEWAY,
     link: 'https://wirexapp.com',
     description:
