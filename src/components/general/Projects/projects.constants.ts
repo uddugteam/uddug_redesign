@@ -14,7 +14,7 @@ export const projects: Project[] = [
     partner: PartnersIconsList.GATEWAY,
     link: 'https://infinex.io',
     description:
-      'In collaboration with Gateway.fm, we have developed an optimized and efficient API tailored for Synthetix PerpsV3 DEX to improve the trading experience by providing high-speed data access and seamless integration with PerpsV3 contracts.',
+      'In collaboration with Gateway.fm & Infinex, we developed the new Infinex HFT API, a bespoke solution meticulously engineered for the Synthetix PerpsV3 DEX. This advanced API enhances the trading platform by offering rapid data access and flawless integration with PerpsV3 contracts, significantly elevating the trading experience through its optimized performance.',
     technologies: [
       'Go',
       'Optimism',
