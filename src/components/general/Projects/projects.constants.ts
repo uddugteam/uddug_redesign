@@ -24,7 +24,6 @@ export const projects: Project[] = [
       'PostgreSql',
       'Swagger',
       'Ethereum',
-      'Swagger',
     ],
     otherTechnologies: ['Microservices', 'Redis', 'Nomad'],
     name: 'Infinex HFT API',
