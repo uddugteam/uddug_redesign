@@ -42,7 +42,7 @@ export const projects: Project[] = [
       'zkEVM Rollup',
       'Hardhat',
       'Swagger',
-      'Polygon SDK',
+      'Polygon СDK',
     ],
     otherTechnologies: ['Microservices', 'Nomad', 'ethers.js'],
     name: 'Wirex Pay',
