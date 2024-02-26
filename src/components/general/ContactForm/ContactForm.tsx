@@ -46,8 +46,6 @@ const ContactForm: React.VFC<ContactFormProps> = ({
   onFormSend,
   className,
 }) => {
-  const submitRef = useRef<HTMLInputElement>(null);
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [text, setText] = useState('');
@@ -93,19 +91,8 @@ const ContactForm: React.VFC<ContactFormProps> = ({
     return true;
   };
 
-  // const handleSendForm = () => {
-  //   setEmail('');
-  //   setName('');
-  //   setText('');
-  //   setEmailError(null);
-  //   setNameError(null);
-  //   if (onFormSend) onFormSend();
-  // };
-
   const handleSendForm = async () => {
-    // evt.preventDefault();
-
-    const res = await fetch('/api/sendgrid', {
+    const result = await fetch('/api/sendgrid', {
       body: JSON.stringify({
         name: name,
         email: email,
@@ -116,12 +103,16 @@ const ContactForm: React.VFC<ContactFormProps> = ({
       },
       method: 'POST',
     });
-    console.log(res);
 
-    const { error } = await res.json();
+    const { error } = await result.json();
+
     if (error) {
       console.log(error);
       return;
+    }
+    if (result.ok && result.status >= 200 && result.status < 300) {
+      setIsShowPopup(true);
+      document.body.style.overflow = 'hidden';
     }
   };
 
@@ -137,11 +128,8 @@ const ContactForm: React.VFC<ContactFormProps> = ({
       return;
     }
 
-    submitRef.current?.click();
     handleSendForm();
     setIsFormSent(true);
-    setIsShowPopup(true);
-    document.body.style.overflow = 'hidden';
     setTimeout(() => {
       setIsFormSent(false);
     }, 3000);
@@ -155,74 +143,44 @@ const ContactForm: React.VFC<ContactFormProps> = ({
   }, []);
 
   return (
-    <section
-      id='mc_embed_signup'
-      style={{ width: '100%' }}
-      className={className}
-    >
-      <form
-        // action='https://uddug.us8.list-manage.com/subscribe/post?u=2f2114fd9a5f814f2cfae040d&amp;id=f835096de2&amp;f_id=00c35de0f0'
-        method='post'
-        id='mc-embedded-subscribe-form'
-        name='mc-embedded-subscribe-form'
-        className='validate'
-        target='_blank'
-        noValidate
-        style={{ width: '100%' }}
-      >
-        <div id='mc_embed_signup_scroll' className={styles.form}>
-          <h2 className={styles.hide}>Subscribe</h2>
-          <div className={classNames('indicates-required', styles.hide)}>
-            <span className='asterisk'>*</span> indicates required
-          </div>
+    <section style={{ width: '100%' }} className={className}>
+      <form method='post' target='_blank' noValidate style={{ width: '100%' }}>
+        <div className={styles.form}>
           <div
-            className={classNames('mc-field-group', styles.fieldWrapper, {
+            className={classNames(styles.fieldWrapper, {
               [styles.errorField]: nameError,
               [styles.invalidField]: nameError === 'invalid',
               [styles.requiredField]: nameError === 'required',
             })}
           >
-            <label htmlFor='mce-FNAME' className={styles.hide}>
-              First Name{' '}
-            </label>
             <input
+              className={classNames(styles.field)}
               type='text'
+              name='name'
               value={name}
               onChange={e => setName(e.currentTarget.value)}
-              name='FNAME'
-              className={classNames(styles.field)}
-              id='mce-FNAME'
               required
               placeholder='Name'
             />
-            <span id='mce-FNAME-HELPERTEXT' className='helper_text'></span>
           </div>
           <div
-            className={classNames('mc-field-group', styles.fieldWrapper, {
+            className={classNames(styles.fieldWrapper, {
               [styles.errorField]: emailError,
               [styles.invalidField]: emailError === 'invalid',
               [styles.requiredField]: emailError === 'required',
             })}
           >
-            <label htmlFor='mce-EMAIL' className={styles.hide}>
-              Email Address <span className='asterisk'>*</span>
-            </label>
             <input
+              className={classNames(styles.field)}
               type='email'
+              name='email'
               value={email}
               onChange={e => setEmail(e.currentTarget.value)}
-              name='EMAIL'
-              className={classNames(styles.field)}
-              id='mce-EMAIL'
               required
               placeholder='E-mail'
             />
-            <span id='mce-EMAIL-HELPERTEXT' className='helper_text'></span>
           </div>
-          <div className={classNames('mc-field-group', styles.fieldWrapper)}>
-            <label htmlFor='mce-MMERGE6' className={styles.hide}>
-              Message{' '}
-            </label>
+          <div className={classNames(styles.fieldWrapper)}>
             <input
               type='text'
               value={text}
@@ -230,46 +188,16 @@ const ContactForm: React.VFC<ContactFormProps> = ({
                 if (e.currentTarget.value.length > 100) return;
                 setText(e.currentTarget.value);
               }}
-              name='MMERGE6'
               className={styles.field}
-              id='mce-MMERGE6'
               placeholder='Your message here'
             />
             <span className={styles.charactersLimit}>{text.length} / 100</span>
-            <span id='mce-MMERGE6-HELPERTEXT' className='helper_text'></span>
           </div>
-          <div id='mce-responses' className='clear foot'>
-            <div
-              className='response'
-              id='mce-error-response'
-              style={{ display: 'none' }}
-            ></div>
-            <div
-              className='response'
-              id='mce-success-response'
-              style={{ display: 'none' }}
-            ></div>
-          </div>
-          <div style={{ position: 'absolute', left: -5000 }} aria-hidden={true}>
-            <input
-              type='text'
-              name='b_2f2114fd9a5f814f2cfae040d_f835096de2'
-              tabIndex={-1}
-              defaultValue=''
-            />
-          </div>
-          <div className='optionalParent'>
-            <div className='clear foot'>
-              <input
-                type='submit'
-                value='Subscribe'
-                name='subscribe'
-                id='mc-embedded-subscribe'
-                className={classNames('button', styles.hide)}
-                ref={submitRef}
-              />
+          <div>
+            <div>
               <Button
                 className={styles.submitButton}
+                type='submit'
                 onClick={async e => {
                   e.preventDefault();
                   await submitHandler();
@@ -278,14 +206,6 @@ const ContactForm: React.VFC<ContactFormProps> = ({
               >
                 Send message
               </Button>
-              <p className={classNames('brandingLogo', styles.hide)}>
-                <a
-                  href='http://eepurl.com/h-6PAT'
-                  title='Mailchimp - email marketing made easy and fun'
-                >
-                  <img src='https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg' />
-                </a>
-              </p>
             </div>
           </div>
         </div>
