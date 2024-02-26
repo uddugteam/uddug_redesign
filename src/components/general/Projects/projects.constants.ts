@@ -39,10 +39,11 @@ export const projects: Project[] = [
       'React',
       'zkEVM Rollup',
       'Hardhat',
+      'GRPC',
       'Swagger',
       'Polygon СDK',
     ],
-    otherTechnologies: ['Microservices', 'Nomad', 'ethers.js', 'GRPC', 'Protobuff', 'Redis', 'Next.js'],
+    otherTechnologies: ['Microservices', 'Nomad', 'ethers.js', 'Protobuff', 'Redis', 'Next.js'],
     name: 'Wirex Pay',
   },
   {
