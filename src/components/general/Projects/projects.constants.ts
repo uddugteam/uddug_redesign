@@ -31,7 +31,7 @@ export const projects: Project[] = [
   },
   {
     partner: PartnersIconsList.GATEWAY,
-    link: 'https://wirexapp.com',
+    link: null,
     description:
       "In collaboration with Gateway.fm we recently launched WPay decentralised payment network by integrating Gateway.fm's PaaS Presto powered by Polygon CDK, to integrate L2 solutions. Private zkEVM rollups improves scalability and cost efficiency, reducing Etherium mainnet strain. The project is set to advance Wirex card services by integrating blockchain-based system with existing KYC and processing frameworks.",
     technologies: [
