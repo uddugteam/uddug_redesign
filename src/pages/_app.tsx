@@ -18,11 +18,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 // noinspection JSUnusedGlobalSymbols
-export function reportWebVitals(metric: unknown): void {
-  if (process.env.NODE_ENV === 'production') {
-    console.info(metric);
-  }
-}
+// export function reportWebVitals(metric: unknown): void {
+//   if (process.env.NODE_ENV === 'production') {
+//     console.info(metric);
+//   }
+// }
 
 // noinspection JSUnusedGlobalSymbols
 export default MyApp;

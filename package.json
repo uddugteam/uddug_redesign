@@ -12,7 +12,7 @@
   "dependencies": {
     "@sendgrid/mail": "^8.1.1",
     "@splinetool/react-spline": "^2.2.6",
-    "@splinetool/runtime": "^1.0.51",
+    "@splinetool/runtime": "^1.0.54",
     "classnames": "^2.3.1",
     "framer-motion": "6.2.4",
     "lottie-react": "^2.4.0",
