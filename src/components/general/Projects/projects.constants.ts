@@ -23,16 +23,15 @@ export const projects: Project[] = [
       'ScyllaDB',
       'PostgreSql',
       'Swagger',
-      'Ethereum',
     ],
-    otherTechnologies: ['Microservices', 'Redis', 'Nomad'],
+    otherTechnologies: ['Microservices', 'Redis', 'Nomad', 'Protobuff'],
     name: 'Infinex HFT API',
   },
   {
     partner: PartnersIconsList.GATEWAY,
     link: null,
     description:
-      "In collaboration with Gateway.fm we recently launched WPay decentralised payment network by integrating Gateway.fm's PaaS Presto powered by Polygon CDK, to integrate L2 solutions. Private zkEVM rollups improves scalability and cost efficiency, reducing Etherium mainnet strain. The project is set to advance Wirex card services by integrating blockchain-based system with existing KYC and processing frameworks.",
+      "We are delighted to announce the launch of Wirex Pay, a pioneering venture undertaken in partnership with Gateway.fm. This decentralized payment network, WPay, is the fruit of integrating Gateway.fm's PaaS Presto, which is underpinned by Polygon's CDK. This integration not only facilitates Layer 2 solutions but also introduces private zkEVM rollups, markedly enhancing scalability and cost-effectiveness while alleviating the load on the Ethereum mainnet. This initiative is a significant step forward in refining Wirex card services, seamlessly merging a blockchain-based system with the established KYC and processing frameworks, setting a new benchmark for the future of financial services.",
     technologies: [
       'Go',
       'Python',
@@ -43,7 +42,7 @@ export const projects: Project[] = [
       'Swagger',
       'Polygon СDK',
     ],
-    otherTechnologies: ['Microservices', 'Nomad', 'ethers.js'],
+    otherTechnologies: ['Microservices', 'Nomad', 'ethers.js', 'GRPC', 'Protobuff', 'Redis', 'Next.js'],
     name: 'Wirex Pay',
   },
   {
