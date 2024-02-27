@@ -116,8 +116,10 @@ const ContactForm: React.VFC<ContactFormProps> = ({
     //   document.body.style.overflow = 'hidden';
     // }
 
-    const botToken = process.env.NEXT_PUBLIC_TELEGRAM_API;
-    const chatID = process.env.NEXT_PUBLIC_CHAT_ID;
+    // const botToken = process.env.NEXT_PUBLIC_TELEGRAM_API;
+    // const chatID = process.env.NEXT_PUBLIC_CHAT_ID;
+    const botToken = '7126517329:AAENnGqRoQ7Pi-2dRNCGorQCpfgVb7uB5_A';
+    const chatID = '-4143978810';
     // const breakTag = '%0A';
     const breakTag = '\n';
 
