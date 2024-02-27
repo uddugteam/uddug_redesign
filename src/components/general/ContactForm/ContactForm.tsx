@@ -92,27 +92,90 @@ const ContactForm: React.VFC<ContactFormProps> = ({
   };
 
   const handleSendForm = async () => {
-    const result = await fetch('/api/sendgrid', {
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        text: text,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    });
+    // SENDGRID IMPLEMENTATION
+    // const result = await fetch('/api/sendgrid', {
+    //   body: JSON.stringify({
+    //     name: name,
+    //     email: email,
+    //     text: text,
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   method: 'POST',
+    // });
 
-    const { error } = await result.json();
+    // const { error } = await result.json();
 
-    if (error) {
-      console.log(error);
-      return;
+    // if (error) {
+    //   console.log(error);
+    //   return;
+    // }
+    // if (result.ok && result.status >= 200 && result.status < 300) {
+    //   setIsShowPopup(true);
+    //   document.body.style.overflow = 'hidden';
+    // }
+
+    const botToken = process.env.NEXT_PUBLIC_TELEGRAM_API;
+    const chatID = process.env.NEXT_PUBLIC_CHAT_ID;
+    // const breakTag = '%0A';
+    const breakTag = '\n';
+
+    let messageText = `Lead from the website - uddug.com ${breakTag} ${breakTag}`;
+    // const parseMode = 'HTML&TEXT';
+    const parseMode = 'HTML';
+
+    messageText += `<b>Name:</b> ${name}${breakTag}`;
+    messageText += `<b>Email:</b> ${email}${breakTag}`;
+
+    if (text) {
+      messageText += `<b>Comment:</b> ${text}`;
     }
-    if (result.ok && result.status >= 200 && result.status < 300) {
-      setIsShowPopup(true);
-      document.body.style.overflow = 'hidden';
+
+    // GET IMPLEMENTATION
+    // const result = await fetch(
+    //   `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatID}&text=${messageText}&parse_mode=${parseMode}`
+    // );
+
+    // if (!result.ok) {
+    //   console.log(result);
+    //   return;
+    // }
+
+    // if (result.ok && result.status >= 200 && result.status < 300) {
+    //   setIsShowPopup(true);
+    //   document.body.style.overflow = 'hidden';
+    // }
+
+    // POST IMPLEMENTATION
+    const data = {
+      chat_id: chatID,
+      text: messageText,
+      parse_mode: parseMode,
+    };
+
+    try {
+      const response = await fetch(
+        `https://api.telegram.org/bot${botToken}/sendMessage`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to send message to Telegram');
+      }
+
+      if (response.ok && response.status >= 200 && response.status < 300) {
+        setIsShowPopup(true);
+        document.body.style.overflow = 'hidden';
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
   };
 
