@@ -1,97 +1,160 @@
-import React, { useMemo } from 'react';
+import React, { FC, useState, useEffect } from 'react';
+import Link from 'next/link';
 import classNames from 'classnames';
-import * as Scroll from 'react-scroll';
 import { useRouter } from 'next/router';
 
-const { scroller } = Scroll;
-
-import Icon from 'components/general/Icon';
-import { ScrollRefs, useScrollState } from 'contexts/scrollStateContext';
 import { useScreenSize } from 'hooks/useScreenSize';
+import Wrapper from 'components/layout/Wrapper';
+import Logo from 'components/ui/Logo';
+import Button from 'components/ui/Button';
+import BurgerButton from 'components/ui/burger-button';
+import BackgroundCircle from 'components/ui/BackgroundCircle';
 
 import styles from './Header.module.css';
 
-const scrollSpeed = 1;
+const navLinks = [
+  {
+    title: 'Projects',
+    link: '/#projects',
+  },
+  {
+    title: 'Team',
+    link: '/#team',
+  },
+  {
+    title: 'Careers',
+    link: '/#careers',
+  },
+];
 
-const Header: React.VFC = () => {
+const Header: FC = () => {
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const router = useRouter();
 
-  const isPrivacyPolicyPage = useMemo(
-    () => router.pathname.indexOf('privacy-policy'),
-    [router.pathname]
-  );
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
-  const { scroll, refs } = useScrollState();
-  const [isScrolled] = scroll;
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMenuOpened) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = 'unset';
+      document.body.style.touchAction = 'unset';
+    }
+  }, [isMenuOpened]);
 
   const screenSize = useScreenSize();
-  const isWide = screenSize === 'desktop' || screenSize === 'tablet-landscape';
+  const isWide = screenSize === 'desktop';
+  const headerClassnames = classNames(
+    styles.header,
+    isScrolled && [styles.scrolled],
+    isMenuOpened && styles.opened,
+    router.pathname.includes('privacy-policy') && [styles.scrolled]
+  );
 
-  const smoothScrollElement = async (elementId: keyof ScrollRefs) => {
-    const homePage = document.getElementById('home-page');
-    const scrollToPx = refs[elementId].current?.getBoundingClientRect().top;
-    if (!homePage || !scrollToPx) return;
-    const duration = Math.abs(homePage.scrollTop - scrollToPx) / scrollSpeed;
-    if (isPrivacyPolicyPage) {
-      await router.push('/');
-    }
-    scroller.scrollTo(elementId, {
-      duration: duration,
-      containerId: 'home-page',
-      smooth: true,
-    });
-  };
+  const backgroundCircleClassnames = classNames(styles.backgroundCircle);
 
   return (
-    <div
-      className={classNames(styles.wrapper, {
-        [styles.light]: isScrolled && isPrivacyPolicyPage,
-      })}
-    >
-      <nav className={styles.root}>
-        <Icon
-          name={isScrolled ? 'dark-logotype' : 'light-logotype'}
-          className={styles.logo}
-        />
-        <div className={styles.buttonsWrapper}>
-          {isWide && (
-            <>
-              <div
-                onClick={() => smoothScrollElement('projects')}
-                className={styles.navButton}
-              >
-                Projects
-              </div>
-              <div
-                onClick={() => smoothScrollElement('team')}
-                className={styles.navButton}
-              >
-                Team
-              </div>
-              <div
-                onClick={() => smoothScrollElement('careers')}
-                className={styles.navButton}
-              >
-                Careers
-              </div>
-              <div
-                onClick={() => smoothScrollElement('internship')}
-                className={styles.navButton}
-              >
-                Internship
-              </div>
-            </>
-          )}
-          <div
-            onClick={() => smoothScrollElement('contactUs')}
-            className={styles.contactUs}
-          >
-            Contact us
+    <header className={headerClassnames}>
+      <Wrapper>
+        <nav className={styles.root}>
+          <Logo
+            onClick={() => {
+              setIsMenuOpened(false);
+            }}
+          />
+          <div className={styles.buttonsWrapper}>
+            {isWide ? (
+              <>
+                {navLinks &&
+                  navLinks.length &&
+                  navLinks.map((navLink, index) => (
+                    <Link
+                      href={navLink.link}
+                      passHref
+                      key={navLink.title + index}
+                    >
+                      <Button
+                        className={classNames(styles.navButtonLink)}
+                        as={'a'}
+                      >
+                        {navLink.title}
+                      </Button>
+                    </Link>
+                  ))}
+                <Link href={'/#contact-us'} passHref>
+                  <Button isAlt={true}>Contact us</Button>
+                </Link>
+              </>
+            ) : (
+              <BurgerButton
+                className={styles.burgerButton}
+                outsideDirection={isMenuOpened ? -1 : 1}
+                onClick={() => setIsMenuOpened(!isMenuOpened)}
+              />
+              // <Button
+              //   onClick={() => {
+              //     setIsMenuOpened(!isMenuOpened);
+              //   }}
+              //   className={styles.menuToggler}
+              // >
+              //   {isMenuOpened ? '' : 'Menu'}
+              // </Button>
+            )}
           </div>
-        </div>
-      </nav>
-    </div>
+          {isWide ? null : (
+            <div className={styles.mobileMenu}>
+              <div className={styles.buttonsWrapper}>
+                {navLinks &&
+                  navLinks.length &&
+                  navLinks.map((navLink, index) => (
+                    <Link
+                      href={navLink.link}
+                      key={navLink.title + index}
+                      passHref
+                    >
+                      <div
+                        className={styles.navButton}
+                        onClick={() => setIsMenuOpened(!isMenuOpened)}
+                      >
+                        {navLink.title}
+                      </div>
+                    </Link>
+                  ))}
+              </div>
+              <Link href={'/#contactUs'} passHref>
+                <Button
+                  className={styles.contactUs}
+                  isAlt={true}
+                  isCenteredText={true}
+                  as={'a'}
+                >
+                  Contact us
+                </Button>
+              </Link>
+              {/* <BackgroundCircle className={backgroundCircleClassnames} /> */}
+            </div>
+          )}
+        </nav>
+      </Wrapper>
+    </header>
   );
 };
 
-export default Header;
+export default React.memo(Header);

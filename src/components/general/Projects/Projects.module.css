@@ -1,38 +1,26 @@
 .root {
-  z-index: 1;
-  background-color: var(--light);
-  padding: 80px 18px 20px;
+  background-color: var(--background);
+}
+
+.inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  padding: 61px 0 61px;
 
   @media (--tablet-vertical) {
-    padding: 100px 30px 20px;
-  }
-
-  @media (--tablet-landscape) {
-    padding: 100px 60px 20px;
-  }
-
-  @media (--desktop) {
-    padding: 100px 120px 20px;
+    padding: 66px 0 66px;
   }
 }
 
 .header {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 133%;
-  color: var(--dark);
-  margin-bottom: 20px;
   z-index: 0;
-  @media (--tablet-vertical) {
-    font-size: 32px;
-  }
+  text-align: center;
+  margin-bottom: 36px;
 
-  @media (--tablet-landscape) {
-    font-size: 42px;
+  @media (--tablet-vertical) {
+    margin-bottom: 60px;
   }
 }
 
@@ -65,38 +53,45 @@
 .card {
   position: relative;
   z-index: 2;
-  background: white;
-  border: 1px solid var(--grey);
+  background: transparent;
+  border: 1px solid var(--card-border);
   border-radius: 16px;
   width: 100%;
   display: grid;
-  padding: 20px 20px 4px;
+  padding: 42px 20px;
   grid-gap: 16px;
   align-items: start;
-  transition: .3s;
   max-width: 1200px;
   overflow: hidden;
   grid-template-areas:
     'h'
     'd'
-    't'
     'l'
+    't'
     'o';
+  transition: background 0.2s;
 
-  &:hover {
-    border-color: var(--purple);
+  &:active {
+    background: var(--card-hover-gradient);
 
-    & .cardHeader {
-      color: var(--purple);
+    .arrow {
+      opacity: 1;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      background: var(--card-hover-gradient);
+
+      .arrow {
+        opacity: 1;
+      }
     }
   }
 
   @media (--tablet-vertical) {
-    padding: 32px 32px 16px;
-  }
-
-  @media (--tablet-landscape) {
-    padding: 32px 40px 16px;
+    padding: 32px 40px;
   }
 
   @media (--desktop) {
@@ -137,9 +132,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 133%;
-  color: var(--dark);
-
-  transition: color, .3s;
+  color: var(--white);
 
   @media (--tablet-vertical) {
     font-size: 20px;
@@ -154,8 +147,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 157%;
-  color: var(--dark);
-  opacity: .6;
+  color: var(--light-grey);
 
   @media (--desktop) {
     grid-area: d;
@@ -177,7 +169,6 @@
   flex-wrap: wrap;
   gap: 10px;
   max-height: max-content;
-
 }
 
 .technology {
@@ -185,33 +176,55 @@
   justify-content: center;
   align-items: center;
   padding: 4px 12px;
-  background: white;
-  border: 1px solid var(--grey);
+  background: #06090c;
   border-radius: 8px;
   font-weight: 500;
   font-size: 14px;
   line-height: 157%;
-  color: var(--dark);
+  color: var(--white);
 }
 
 .otherTechnologies {
   font-weight: 400;
   font-size: 14px;
   line-height: 157%;
-  color: var(--dark);
+  color: var(--white);
 }
 
 .otherTechnologiesLabel {
-  opacity: .6;
+  color: var(--light-grey);
 }
 
 .projectLink {
   font-weight: 500;
   font-size: 14px;
   line-height: 157%;
+  grid-area: l;
 
   @media (--desktop) {
     margin-top: 20px;
+  }
+}
+
+.partner {
+  width: 170px;
+  height: 50px;
+  color: var(--light-grey);
+}
+
+.arrow {
+  position: absolute;
+  top: 42px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  color: var(--white);
+  opacity: 0.2;
+  transition: all 0.2s;
+
+  @media (--tablet-vertical) {
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -221,22 +234,10 @@
   justify-content: center;
   align-items: center;
   padding: 9px 16px;
-  background: white;
-  border: 1px solid var(--grey);
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 138%;
-  color: var(--dark);
-  cursor: pointer;
-  transition: .3s;
+  border: 1px solid var(--card-border);
+  color: var(--white);
   z-index: 1;
-
-  @media (--desktop) {
-    &:hover {
-      border-color: var(--purple);
-    }
-  }
+  background: transparent;
 }
 
 .badge {
@@ -244,6 +245,8 @@
   width: 100%;
   margin-left: -80px;
   margin-top: -50px;
+  color: var(--white);
+
   @media (--desktop) {
     position: absolute;
     top: -10px;
@@ -255,5 +258,24 @@
 
     display: flex;
     justify-content: flex-end;
+  }
+}
+
+.badgeLogo {
+  width: 300px;
+  height: 120px;
+}
+
+.badgeLogo path {
+  fill: currentColor;
+}
+
+.BackgroundCircle {
+  top: 40px;
+  left: -190px;
+  transform: translate3d(0, 0, 0) rotate(-16deg);
+
+  @media (--tablet-vertical) {
+    top: 250px;
   }
 }

@@ -1,143 +1,124 @@
-import { motion } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
-import classNames from 'classnames';
-import * as Scroll from 'react-scroll';
+import React, { useEffect, useState, useRef } from 'react';
+import Spline from '@splinetool/react-spline';
+import { Application } from '@splinetool/runtime';
+import Link from 'next/link';
 
-const { scroller } = Scroll;
-
+import Wrapper from 'components/layout/Wrapper';
 import { useScreenSize } from 'hooks/useScreenSize';
-import { useScrollState } from 'contexts/scrollStateContext';
-import Icon from 'components/general/Icon';
+import Title, { TitleSizes } from 'components/ui/Title';
+import Subtitle from 'components/ui/Subtitle';
+import Button from 'components/ui/Button';
+import BackgroundCircle from 'components/ui/BackgroundCircle';
 
 import styles from './MainBlock.module.css';
 
+const setWideScreenPosition = (groupToMove: any, pxToMove: number) => {
+  groupToMove.position.x += pxToMove;
+};
+
+const setDefaultPosition = (groupToMove: any, pxToMove: number) => {
+  groupToMove.position.x -= pxToMove;
+};
+
 const MainBlock: React.VFC = () => {
-  const screenSize = useScreenSize();
-  const isMobile = screenSize === 'mobile';
+  // const spline = useRef<Application | null>(null);
+  const splineContainer = useRef<HTMLDivElement | null>(null);
+  // const screenSize = useScreenSize();
+  // const [isFirstLoad, setIsFirstLoad] = useState(true);
+  // const [isSplineLoaded, setIsSplineLoaded] = useState(false);
+  // const [isWide, setIsWide] = useState<boolean>(screenSize === 'desktop');
 
-  const rootRef = useRef<HTMLDivElement>(null);
+  // const pxToMove = 0;
 
-  const scrollToPartners = () => {
-    scroller.scrollTo('partners', {
-      duration: 1500,
-      containerId: 'home-page',
-      smooth: true,
-    });
+  const onLoad = (splineApp: Application) => {
+    // spline.current = splineApp;
+    // setIsSplineLoaded(true);
+    if (splineContainer.current) {
+      splineContainer.current.style.opacity = '0';
+      setTimeout(() => {
+        if (splineContainer.current) {
+          splineContainer.current.style.opacity = '1';
+        }
+      }, 100);
+    }
   };
 
-  useEffect(() => {
-    const resizeHandler = () => {
-      if (rootRef.current)
-        rootRef.current.style.height =
-          document.documentElement.clientHeight - 58 + 'px';
-    };
+  // useEffect(() => {
+  //   if (!isSplineLoaded) {
+  //     return;
+  //   }
 
-    window.addEventListener('resize', resizeHandler);
-    window.addEventListener('orientationchange', resizeHandler);
+  //   setIsFirstLoad(prevIsFirstLoad => {
+  //     let groupToMove;
 
-    resizeHandler();
-    return () => {
-      window.removeEventListener('resize', resizeHandler);
-      window.removeEventListener('orientationchange', resizeHandler);
-    };
-  }, []);
+  //     if (prevIsFirstLoad && !isWide) {
+  //       return false;
+  //     }
+
+  //     if (spline && spline.current) {
+  //       groupToMove = spline.current.findObjectById(
+  //         'cc1a3bc8-a4a6-430d-91e6-9bcc7409697b'
+  //       );
+  //     }
+
+  //     if (isWide) {
+  //       setWideScreenPosition(groupToMove, pxToMove);
+  //     } else {
+  //       setDefaultPosition(groupToMove, pxToMove);
+  //     }
+
+  //     if (prevIsFirstLoad) {
+  //       return false;
+  //     }
+
+  //     return prevIsFirstLoad;
+  //   });
+  // }, [isSplineLoaded, isWide]);
+
+  // useEffect(() => {
+  //   const resizeHandler = () => {
+  //     setIsWide(screenSize === 'desktop');
+  //   };
+
+  //   window.addEventListener('resize', resizeHandler);
+  //   window.addEventListener('orientationchange', resizeHandler);
+
+  //   resizeHandler();
+  //   return () => {
+  //     window.removeEventListener('resize', resizeHandler);
+  //     window.removeEventListener('orientationchange', resizeHandler);
+  //   };
+  // }, [screenSize]);
 
   return (
-    <div
-      className={styles.root}
-      ref={rootRef}
-      style={{
-        height:
-          typeof window !== 'undefined'
-            ? window.innerHeight
-            : 'calc(100vh - 60px - 58px)',
-      }}
-    >
-      <motion.span
-          className={styles.mainLabel}
-          initial="hidden" animate="visible" variants={{
-            hidden: {
-              scale: .8,
-              opacity: 0
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: .6
-              }
-            },
-          }}>
-        We are{isMobile ? <br /> : ' '}production-focused{' '}
-        <span className='orangeText'>development</span> team
-      </motion.span>
-      <motion.span
-          className={styles.descriptionText}
-          initial="hidden" animate="visible" variants={{
-            hidden: {
-              scale: .8,
-              opacity: 0
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: .8
-              }
-            },
-          }}>
-        Team has deep industry IT expertise in the development of startups,
-        independent private projects, public business.
-      </motion.span>
-      <motion.div
-          className={styles.directionsList}
-          initial="hidden" animate="visible" variants={{
-            hidden: {
-              scale: .6,
-              opacity: 0
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 1
-              }
-            },
-          }}>
-        <div
-          className={classNames(styles.technicalConsulting, styles.gridElement)}
-        >
-          <Icon name={'technical-consulting'} className={styles.icon} />
-          Technical Consulting
+    <section className={styles.root}>
+      <div className={styles.spline} ref={splineContainer}>
+        <Spline
+          // original
+          // scene='https://prod.spline.design/oDwsBbB3TIrZJuHZ/scene.splinecode'
+          // responsive
+          scene='https://prod.spline.design/R0HokTkUY3Kgqo-E/scene.splinecode'
+          onLoad={onLoad}
+        />
+      </div>
+      <Wrapper>
+        <div className={styles.inner}>
+          <Title className={styles.title} size={TitleSizes.BIG}>
+            We are{'\n'}production-focused{'\n'}development team
+          </Title>
+          <Subtitle className={styles.subtitle}>
+            Supercharge your product with our team of experts who are passionate
+            about blockchain
+          </Subtitle>
+          <Link href={'/#contact-us'} passHref>
+            <Button className={styles.button} as={'a'} isHaveIcon={true}>
+              We&apos;re ready to jumpstart your next project
+            </Button>
+          </Link>
         </div>
-        <div className={classNames(styles.finTech, styles.gridElement)}>
-          <Icon name={'fin-tech'} className={styles.icon} />
-          FinTech
-        </div>
-        <div className={classNames(styles.blockchain, styles.gridElement)}>
-          <Icon name={'blockchain'} className={styles.icon} />
-          Blockchain and NFT
-        </div>
-        <div className={classNames(styles.startups, styles.gridElement)}>
-          <Icon name={'startups'} className={styles.icon} />
-          Startups
-        </div>
-        <div className={classNames(styles.cloud, styles.gridElement)}>
-          <Icon name={'cloud'} className={styles.icon} />
-          Cloud architecture
-        </div>
-        <div className={classNames(styles.machine, styles.gridElement)}>
-          <Icon name={'machine'} className={styles.icon} />
-          Machine Learning
-        </div>
-      </motion.div>
-      <Icon name='grid' className={styles.grid} />
-      <Icon
-        name='arrow-scroll'
-        className={styles.arrowScroll}
-        onClick={scrollToPartners}
-      />
-    </div>
+        <BackgroundCircle className={styles.backgroundCircle} />
+      </Wrapper>
+    </section>
   );
 };
 

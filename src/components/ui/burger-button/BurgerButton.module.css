@@ -1,0 +1,26 @@
+.root {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  opacity: 1;
+
+  &:active {
+    background: transparent;
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+.root svg path[fill] {
+  fill: var(--white);
+}
+
+.root svg path[stroke] {
+  stroke: var(--white);
+}

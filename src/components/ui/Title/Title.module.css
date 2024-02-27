@@ -1,0 +1,26 @@
+.title {
+  color: var(--white);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.32px;
+}
+
+.big {
+  line-height: 115%;
+  font-size: 33px;
+}
+
+.medium {
+  font-size: 24px;
+  line-height: 140%;
+}
+
+@media (--tablet-vertical) {
+  .big {
+    font-size: 60px;
+  }
+
+  .medium {
+    font-size: 40px;
+  }
+}

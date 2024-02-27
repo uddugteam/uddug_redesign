@@ -1,14 +1,25 @@
 :root {
-  --light: #F8FAFC;
-  --dark: #0F172A;
-  --vertical-linear-gradient: linear-gradient(180deg, #0F172A 0%, #464ABC 99.63%);
-  --horizontal-linear-gradient: linear-gradient(87.14deg, #0F172A 0%, #6062FF 100.16%);
-  --orange: #FF8831;
-  --orange-hover: #FF740F;
-  --purple: #6062FF;
-  --purple-hover: #4244D7;
-  --grey: #E1E7F4;
-  --grey-dark: #B3C2E5;
-  --red: #FF3333;
-  --green: #27B927;
+  --white: #fff;
+  --accent-primary: #ff721c;
+  --accent-secondary-gradient: linear-gradient(30deg, #6d60ff, #6062ff);
+  --accent-secondary-color: #6062ff;
+  --gradient-primary: linear-gradient(45deg, #ee6512, #ff721b);
+  --gradient-secondary: linear-gradient(30deg, #6d60ff, #6062ff);
+  --background: #010305;
+  --dark-blue: #0c1335;
+  --blue-grey: rgba(43, 46, 64, 0.15);
+  --light-grey: #798289;
+  --dark--grey: #101820;
+  --tranparent-grey: rgba(43, 46, 64, 0.1);
+  --indent-horziontal-mobile: 30px;
+  --indent-horizontal-tablet-s: 30px;
+  --indent-horizontal-tablet-m: 60px;
+  --indent-horizontal-desktop: 120px;
+  --card-border: #14171a;
+  --card-hover-gradient: linear-gradient(
+    20deg,
+    rgba(13, 17, 22, 1) 0%,
+    rgba(13, 17, 22, 0) 100%
+  );
+  --error: #b52729;
 }

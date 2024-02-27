@@ -1,17 +1,19 @@
 import React from 'react';
 
 import { getLayout } from 'components/layout/MainLayout';
+import Wrapper from 'components/layout/Wrapper';
+import Footer from 'components/layout/Footer';
 
 import { AppNextPage } from '../../../../global';
 import styles from './PrivacyPolicy.module.css';
 
 const PrivacyPolicy: AppNextPage = () => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.root}>
+    <main className={styles.root}>
+      <Wrapper>
         <h2>Privacy Policy</h2>
         <p>
-          At website, accessible from Uddug, one of our main priorities is the
+          At website, accessible from Uddúg, one of our main priorities is the
           privacy of our visitors. This privacy policy document contains types
           of information that is collected and recorded by website and how we
           use it. If you have additional questions or require more information
@@ -176,8 +178,9 @@ const PrivacyPolicy: AppNextPage = () => {
           encourage you to contact us immediately and we will do our best
           efforts to promptly remove such information from our records.
         </p>
-      </div>
-    </div>
+      </Wrapper>
+      {/* <Footer /> */}
+    </main>
   );
 };
 

@@ -1,0 +1,13 @@
+.BackgroundCircle {
+  position: absolute;
+  pointer-events: none;
+  left: 50%;
+  top: 50%;
+  background-color: var(--dark-blue);
+  filter: blur(86px);
+  opacity: 0.3;
+  border-radius: 50%;
+  transform: translate3d(0, 0, 0) rotate(30deg);
+  width: 509px;
+  height: 739px;
+}

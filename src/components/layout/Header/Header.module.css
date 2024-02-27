@@ -1,14 +1,18 @@
-.wrapper {
-  z-index: 1000;
+.header {
+  z-index: 2;
+  position: fixed;
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: var(--dark);
-  transition: .3s;
+  transition: 0.3s;
   color: var(--light);
-  &.light {
-    background-color: white;
-    color: var(--dark);
+  padding-top: 13px;
+  top: 0;
+
+  &.scrolled {
+    padding-top: 0;
+    backdrop-filter: blur(20px);
+    background-color: rgba(1, 3, 5, 0.3);
   }
 }
 
@@ -19,59 +23,138 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
-
-  line-height: calc(11/8);
 
   @media (--tablet-vertical) {
-    padding: 0 32px;
     height: 72px;
   }
-
-  @media (--tablet-landscape) {
-    padding: 0 60px;
-  }
-
-  @media (--desktop) {
-    padding: 0 120px;
-  }
-}
-
-.logo {
-  width: 145px;
-  height: 28px;
 }
 
 .buttonsWrapper {
   display: flex;
-  align-items: center;
-}
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
 
-.contactUs {
-  background-color: var(--purple);
-  height: 36px;
-  width: 117px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  transition: .2s;
-  color: var(--light);
-
-  &:hover {
-    background-color: var(--purple-hover);
+  @media (--desktop) {
+    flex-direction: row;
+    align-items: center;
+    gap: 48px;
   }
 }
 
 .navButton {
-  font-weight: 400;
-  margin-right: 48px;
-  cursor: pointer;
-  transition: .2s;
+  padding: 21px 30px 19px;
+  text-align: start;
+  margin: 0;
+  background-image: url('/icons/tick.svg');
+  background-repeat: no-repeat;
+  background-position: center right 30px;
+  color: rgba(255, 255, 255, 0.6);
 
-  &:hover {
-    color: var(--orange);
+  @media (--tablet-landscape) {
+    padding: 21px 60px 19px;
+    background-position: center right 60px;
+  }
+
+  @media (--desktop) {
+    padding: 0;
+    text-align: center;
+    background-image: none;
+    overflow: hidden;
+  }
+}
+
+.navButton:active {
+  color: var(--white);
+  background-color: rgba(255, 255, 255, 0.05);
+  background-image: none;
+
+  @media (--desktop) {
+    background-color: transparent;
+  }
+}
+
+.navButtonLink {
+  padding: 0;
+  background: none;
+}
+
+.contactUs {
+  margin: 0 30px;
+  padding: 12px 24px;
+
+  @media (--tablet-landscape) {
+    margin: 0 60px;
+  }
+
+  @media (--desktop) {
+    margin: 0;
+  }
+}
+
+.burgerButton {
+  z-index: 1;
+
+  @media (--desktop) {
+    display: none;
+  }
+}
+
+.menuToggler {
+  z-index: 1;
+  background: transparent;
+  border: 1px solid var(--white);
+
+  @media (--desktop) {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: -100vh;
+  left: 0;
+  right: 0;
+  padding: 150px 0 110px;
+  background-color: var(--background);
+  transition: all 0.5s;
+  height: 100vh;
+
+  @media (--desktop) {
+    display: none;
+  }
+}
+
+.opened .mobileMenu {
+  top: 0;
+}
+
+.opened .menuToggler {
+  border: none;
+  padding: 0;
+  width: 26px;
+  height: 26px;
+  background-image: url('/icons/cross.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.backgroundCircle {
+  top: 110px;
+  left: 20px;
+  transform: translate3d(0, 0, 0) rotate(-30deg);
+
+  @media (--tablet-vertical) {
+    top: 50px;
+    left: auto;
+    right: -352px;
+  }
+
+  @media (--desktop) {
+    display: none;
   }
 }
