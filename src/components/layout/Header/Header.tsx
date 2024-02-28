@@ -138,12 +138,15 @@ const Header: FC = () => {
                     </Link>
                   ))}
               </div>
-              <Link href={'/#contactUs'} passHref>
+              <Link href={'/#contact-us'} passHref>
                 <Button
                   className={styles.contactUs}
                   isAlt={true}
                   isCenteredText={true}
                   as={'a'}
+                  onClick={() => {
+                    setIsMenuOpened(false);
+                  }}
                 >
                   Contact us
                 </Button>
