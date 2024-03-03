@@ -12,15 +12,28 @@ export default function Document() {
           strategy='lazyOnload'
           src={`https://www.googletagmanager.com/gtag/js?id=XXXXXXXXXX`}
         />
-
+        <Script
+          strategy='lazyOnload'
+          src={`https://www.googletagmanager.com/gtag/js?id=G-1LQ0CQHBYY`}
+        />
         {/* eslint-disable-next-line @next/next/inline-script-id */}
         <Script strategy='lazyOnload'>
           {`
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
-        
+                  
                   gtag('config', 'UA-177155812-1');
+                  `}
+        </Script>
+        {/* eslint-disable-next-line @next/next/inline-script-id */}
+        <Script strategy='lazyOnload'>
+          {`
+                 window.dataLayer = window.dataLayer || [];
+                 function gtag(){dataLayer.push(arguments);}
+                 gtag('js', new Date());
+               
+                 gtag('config', 'G-1LQ0CQHBYY');
                 `}
         </Script>
         {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
@@ -78,6 +91,14 @@ export default function Document() {
         rel='stylesheet'
       />
       <body>
+        <noscript>
+          <iframe
+            src='https://www.googletagmanager.com/ns.html?id=GTM-59SZ89GV'
+            height='0'
+            width='0'
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
         <Main />
         <NextScript />
       </body>
