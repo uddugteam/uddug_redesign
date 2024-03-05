@@ -119,7 +119,7 @@ const ContactForm: React.VFC<ContactFormProps> = ({
     // const botToken = process.env.NEXT_PUBLIC_TELEGRAM_API;
     // const chatID = process.env.NEXT_PUBLIC_CHAT_ID;
     const botToken = '7126517329:AAENnGqRoQ7Pi-2dRNCGorQCpfgVb7uB5_A';
-    const chatID = '-4143978810';
+    const chatID = '-1002087598083';
     // const breakTag = '%0A';
     const breakTag = '\n';
 
