@@ -1,41 +1,11 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
-// eslint-disable-next-line @next/next/no-script-in-document
-import Script from 'next/script';
 
 // noinspection JSUnusedGlobalSymbols
 export default function Document() {
   return (
     <Html lang='en'>
       <Head>
-        <Script
-          strategy='lazyOnload'
-          src={`https://www.googletagmanager.com/gtag/js?id=XXXXXXXXXX`}
-        />
-        <Script
-          strategy='lazyOnload'
-          src={`https://www.googletagmanager.com/gtag/js?id=G-1LQ0CQHBYY`}
-        />
-        {/* eslint-disable-next-line @next/next/inline-script-id */}
-        <Script strategy='lazyOnload'>
-          {`
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  
-                  gtag('config', 'UA-177155812-1');
-                  `}
-        </Script>
-        {/* eslint-disable-next-line @next/next/inline-script-id */}
-        <Script strategy='lazyOnload'>
-          {`
-                 window.dataLayer = window.dataLayer || [];
-                 function gtag(){dataLayer.push(arguments);}
-                 gtag('js', new Date());
-               
-                 gtag('config', 'G-1LQ0CQHBYY');
-                `}
-        </Script>
         {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
         <title>
           Blockchain, IT, Web3 Development Company | Blockchain Software
