@@ -8,7 +8,6 @@ import Wrapper from 'components/layout/Wrapper';
 import Logo from 'components/ui/Logo';
 import Button from 'components/ui/Button';
 import BurgerButton from 'components/ui/burger-button';
-import BackgroundCircle from 'components/ui/BackgroundCircle';
 
 import styles from './Header.module.css';
 
@@ -103,19 +102,21 @@ const Header: FC = () => {
                 </Link>
               </>
             ) : (
-              <BurgerButton
-                className={styles.burgerButton}
-                outsideDirection={isMenuOpened ? -1 : 1}
-                onClick={() => setIsMenuOpened(!isMenuOpened)}
-              />
-              // <Button
-              //   onClick={() => {
-              //     setIsMenuOpened(!isMenuOpened);
-              //   }}
-              //   className={styles.menuToggler}
-              // >
-              //   {isMenuOpened ? '' : 'Menu'}
-              // </Button>
+              <>
+                <BurgerButton
+                  className={styles.burgerButton}
+                  outsideDirection={isMenuOpened ? -1 : 1}
+                  onClick={() => setIsMenuOpened(!isMenuOpened)}
+                />
+                {/* <Button
+                  onClick={() => {
+                    setIsMenuOpened(!isMenuOpened);
+                  }}
+                  className={styles.menuToggler}
+                >
+                  {isMenuOpened ? '' : 'Menu'}
+                </Button> */}
+              </>
             )}
           </div>
           {isWide ? null : (
@@ -151,7 +152,6 @@ const Header: FC = () => {
                   Contact us
                 </Button>
               </Link>
-              {/* <BackgroundCircle className={backgroundCircleClassnames} /> */}
             </div>
           )}
         </nav>

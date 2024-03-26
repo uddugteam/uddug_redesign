@@ -39,24 +39,28 @@ const BurgerButton: React.FC<IBurgerButton> = ({
 
   const burgetButtonClassNames = classNames(className, styles.root);
 
-  return (
-    <Button
-      className={burgetButtonClassNames}
-      onClick={() => {
-        setDirection(-direction as 1 | -1);
-        playAnimation();
-        onClick();
-      }}
-    >
-      <Lottie
-        lottieRef={lottieRef}
-        animationData={BurgerData}
-        loop={false}
-        autoplay={false}
-        style={{ height: 32, width: 32 }}
-      />
-    </Button>
-  );
+  if (!document) {
+    return <></>;
+  } else {
+    return (
+      <Button
+        className={burgetButtonClassNames}
+        onClick={() => {
+          setDirection(-direction as 1 | -1);
+          playAnimation();
+          onClick();
+        }}
+      >
+        <Lottie
+          lottieRef={lottieRef}
+          animationData={BurgerData}
+          loop={false}
+          autoplay={false}
+          style={{ height: 32, width: 32 }}
+        />
+      </Button>
+    );
+  }
 };
 
 export default BurgerButton;

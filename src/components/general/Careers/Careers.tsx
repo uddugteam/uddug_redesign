@@ -21,7 +21,7 @@ interface Vacation {
 
 const vacations: Vacation[] = [
   {
-    name: 'Golang Engeneer',
+    name: 'Golang Engineer',
     sphere: 'Web3',
     position: 'Middle, Junior, Intern',
     type: 'Full Time',
