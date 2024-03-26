@@ -202,7 +202,7 @@ const Team: FC = () => {
             <span className={coloredSpanClassNames}>
               creating help humanity
             </span>{' '}
-            get to the future faster Meet
+            get to the future faster
           </Title>
           <Tabs className={styles.tabs} tabs={tabs} />
           <BackgroundCircle className={styles.backgroundCircle} />
