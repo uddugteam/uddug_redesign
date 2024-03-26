@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import Lottie, { LottieRefCurrentProps } from 'lottie-react';
+import dynamic from 'next/dynamic';
+import { LottieRefCurrentProps } from 'lottie-react';
 import classNames from 'classnames';
 
 import Button from 'components/ui/Button';
@@ -12,6 +13,8 @@ interface IBurgerButton {
   className?: string;
   outsideDirection: 1 | -1;
 }
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 const BurgerButton: React.FC<IBurgerButton> = ({
   onClick,
@@ -39,28 +42,24 @@ const BurgerButton: React.FC<IBurgerButton> = ({
 
   const burgetButtonClassNames = classNames(className, styles.root);
 
-  if (!document) {
-    return <></>;
-  } else {
-    return (
-      <Button
-        className={burgetButtonClassNames}
-        onClick={() => {
-          setDirection(-direction as 1 | -1);
-          playAnimation();
-          onClick();
-        }}
-      >
-        <Lottie
-          lottieRef={lottieRef}
-          animationData={BurgerData}
-          loop={false}
-          autoplay={false}
-          style={{ height: 32, width: 32 }}
-        />
-      </Button>
-    );
-  }
+  return (
+    <Button
+      className={burgetButtonClassNames}
+      onClick={() => {
+        setDirection(-direction as 1 | -1);
+        playAnimation();
+        onClick();
+      }}
+    >
+      <Lottie
+        lottieRef={lottieRef}
+        animationData={BurgerData}
+        loop={false}
+        autoplay={false}
+        style={{ height: 32, width: 32 }}
+      />
+    </Button>
+  );
 };
 
 export default BurgerButton;
